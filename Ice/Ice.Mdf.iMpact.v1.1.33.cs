@@ -962,14 +962,6 @@ public unsafe struct MarketStatisticsMessage {
 };
 
 /// <summary>
-///  Struct for Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct Message {
-    public fixed byte MessageHeader[0];
-};
-
-/// <summary>
 ///  Struct for Message Bundle Marker
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -1033,58 +1025,6 @@ public unsafe struct NewExpiryMessage {
 };
 
 /// <summary>
-///  Struct for New Futures Strategy Definition Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct NewFuturesStrategyDefinitionMessage {
-    public int MarketId;
-    public fixed sbyte FuturesContractSymbol[70];
-    public TradingStatus TradingStatus;
-    public fixed sbyte OrderPriceDenominator[1];
-    public int IncrementPrice;
-    public int IncrementQty;
-    public int MinQty;
-    public sbyte NumberOfLegDefinitions;
-    public SecuritySubType SecuritySubType;
-    public IsBlockOnly IsBlockOnly;
-    public fixed sbyte StrategySymbol[18];
-    public GtAllowed GtAllowed;
-    public int ReservedBytes4;
-    public MifidRegulatedMarket MifidRegulatedMarket;
-    public fixed sbyte MarketDesc[120];
-    public short MaturityYear;
-    public short MaturityMonth;
-    public short MaturityDay;
-    public fixed sbyte DealPriceDenominator[1];
-    public int UnitQuantity;
-    public fixed sbyte NumDecimalsOptionsPrice[1];
-    public AllowOptions AllowOptions;
-    public fixed sbyte ClearedAlias[15];
-    public AllowsImplied AllowsImplied;
-    public long MinPrice;
-    public long MaxPrice;
-    public fixed sbyte ProductName[62];
-    public fixed sbyte HubAlias[80];
-    public fixed sbyte StripName[39];
-    public IsTradable IsTradable;
-    public fixed sbyte SettlePriceDenominator[1];
-    public fixed sbyte MicCode[4];
-    public fixed sbyte UnitQtyDenominator[1];
-    public HedgeOnly HedgeOnly;
-    public ExchangeSilo ExchangeSilo;
-    public fixed sbyte OffExchangeIncrementQtyDenominator[1];
-    public int OffExchangeIncrementQty;
-    public int OffExchangeIncrementPrice;
-    public int OffExchangeIncrementOptionPrice;
-    public int ProductId;
-    public int HubId;
-    public int StripId;
-    public fixed sbyte UnderlyingIsin[12];
-    public TestMarketIndicator TestMarketIndicator;
-    public LegDealSuppressed LegDealSuppressed;
-};
-
-/// <summary>
 ///  Struct for New Options Market Definition Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -1123,34 +1063,6 @@ public unsafe struct NewOptionsMarketDefinitionMessage {
     public GuaranteedCrossSupported GuaranteedCrossSupported;
     public fixed sbyte UnitOfMeasure[30];
     public MifidRegulatedMarket MifidRegulatedMarket;
-};
-
-/// <summary>
-///  Struct for New Options Strategy Definition Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct NewOptionsStrategyDefinitionMessage {
-    public int MarketId;
-    public int UnderlyingMarketId;
-    public fixed sbyte ContractSymbol[35];
-    public TradingStatus TradingStatus;
-    public fixed sbyte OrderPriceDenominator[1];
-    public int IncrementPrice;
-    public int IncrementQty;
-    public int MinQty;
-    public sbyte NumberOfStrategyLegDefinitions;
-    public sbyte NumberOfHedgeDefinitions;
-    public SecuritySubType SecuritySubType;
-    public IsBlockOnly IsBlockOnly;
-    public fixed sbyte StrategySymbol[18];
-    public GtAllowed GtAllowed;
-    public MifidRegulatedMarket MifidRegulatedMarket;
-    public fixed sbyte DealPriceDenominator[1];
-    public fixed sbyte SettlePriceDenominator[1];
-    public fixed sbyte UnitQtyDenominator[1];
-    public TestMarketIndicator TestMarketIndicator;
-    public fixed sbyte ContractSymbolExtra[35];
-    public LegDealSuppressed LegDealSuppressed;
 };
 
 /// <summary>
@@ -1222,14 +1134,6 @@ public unsafe struct OptionSettlementPriceMessage {
     public long Volatility;
     public long SettlementPrice;
     public long Delta;
-};
-
-/// <summary>
-///  Struct for Packet
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct Packet {
-    public fixed byte PacketHeader[0];
 };
 
 /// <summary>

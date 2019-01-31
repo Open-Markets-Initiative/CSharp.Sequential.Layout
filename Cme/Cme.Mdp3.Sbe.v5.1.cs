@@ -524,16 +524,6 @@ public unsafe struct MdIncrementalRefreshTradeGroups {
 };
 
 /// <summary>
-///  Struct for Md Incremental Refresh Trade Summary 42
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshTradeSummary42 {
-    public ulong TransactTime;
-    public fixed byte MatchEventIndicator[0];
-    public fixed byte Padding2[2];
-};
-
-/// <summary>
 ///  Struct for MD Incremental Refresh Trade Summary Group
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -605,156 +595,6 @@ public unsafe struct MdIncrementalRefreshVolumeGroups {
 };
 
 /// <summary>
-///  Struct for Md Instrument Definition Future 27
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdInstrumentDefinitionFuture27 {
-    public fixed byte MatchEventIndicator[0];
-    public uint TotNumReports;
-    public SecurityUpdateAction SecurityUpdateAction;
-    public ulong LastUpdateTime;
-    public byte MdSecurityTradingStatus;
-    public short ApplId;
-    public byte MarketSegmentId;
-    public byte UnderlyingProduct;
-    public fixed sbyte SecurityExchange[4];
-    public fixed sbyte SecurityGroup[6];
-    public fixed sbyte Asset[6];
-    public fixed sbyte Symbol[20];
-    public int SecurityId;
-    public fixed sbyte SecurityType[6];
-    public fixed sbyte CfiCode[6];
-    public fixed byte MaturityMonthYear[0];
-    public fixed sbyte Currency[3];
-    public fixed sbyte SettlCurrency[3];
-    public fixed sbyte MatchAlgorithm[1];
-    public uint MinTradeVol;
-    public uint MaxTradeVol;
-    public long MinPriceIncrement;
-    public long DisplayFactor;
-    public byte MainFraction;
-    public byte SubFraction;
-    public byte PriceDisplayFormat;
-    public fixed sbyte UnitOfMeasure[30];
-    public long UnitOfMeasureQty;
-    public long TradingReferencePrice;
-    public fixed byte SettlPriceType[0];
-    public int OpenInterestQty;
-    public int ClearedVolume;
-    public long HighLimitPrice;
-    public long LowLimitPrice;
-    public long MaxPriceVariation;
-    public int DecayQuantity;
-    public ushort DecayStartDate;
-    public int OriginalContractSize;
-    public int ContractMultiplier;
-    public sbyte ContractMultiplierUnit;
-    public sbyte FlowScheduleType;
-    public long MinPriceIncrementAmount;
-    public fixed sbyte UserDefinedInstrument[1];
-};
-
-/// <summary>
-///  Struct for Md Instrument Definition Option 41
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdInstrumentDefinitionOption41 {
-    public fixed byte MatchEventIndicator[0];
-    public uint TotNumReports;
-    public SecurityUpdateAction SecurityUpdateAction;
-    public ulong LastUpdateTime;
-    public byte MdSecurityTradingStatus;
-    public short ApplId;
-    public byte MarketSegmentId;
-    public byte UnderlyingProduct;
-    public fixed sbyte SecurityExchange[4];
-    public fixed sbyte SecurityGroup[6];
-    public fixed sbyte Asset[6];
-    public fixed sbyte Symbol[20];
-    public int SecurityId;
-    public fixed sbyte SecurityType[6];
-    public fixed sbyte CfiCode[6];
-    public PutOrCall PutOrCall;
-    public fixed byte MaturityMonthYear[0];
-    public fixed sbyte Currency[3];
-    public long StrikePrice;
-    public fixed sbyte StrikeCurrency[3];
-    public fixed sbyte SettlCurrency[3];
-    public long MinCabPrice;
-    public fixed sbyte MatchAlgorithm[1];
-    public uint MinTradeVol;
-    public uint MaxTradeVol;
-    public long MinPriceIncrement;
-    public long MinPriceIncrementAmount;
-    public long DisplayFactor;
-    public sbyte TickRule;
-    public byte MainFraction;
-    public byte SubFraction;
-    public byte PriceDisplayFormat;
-    public fixed sbyte UnitOfMeasure[30];
-    public long UnitOfMeasureQty;
-    public long TradingReferencePrice;
-    public fixed byte SettlPriceType[0];
-    public int ClearedVolume;
-    public int OpenInterestQty;
-    public long LowLimitPrice;
-    public long HighLimitPrice;
-    public fixed sbyte UserDefinedInstrument[1];
-};
-
-/// <summary>
-///  Struct for Md Instrument Definition Spread 29
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdInstrumentDefinitionSpread29 {
-    public fixed byte MatchEventIndicator[0];
-    public uint TotNumReports;
-    public SecurityUpdateAction SecurityUpdateAction;
-    public ulong LastUpdateTime;
-    public byte MdSecurityTradingStatus;
-    public short ApplId;
-    public byte MarketSegmentId;
-    public byte UnderlyingProduct;
-    public fixed sbyte SecurityExchange[4];
-    public fixed sbyte SecurityGroup[6];
-    public fixed sbyte Asset[6];
-    public fixed sbyte Symbol[20];
-    public int SecurityId;
-    public fixed sbyte SecurityType[6];
-    public fixed sbyte CfiCode[6];
-    public fixed byte MaturityMonthYear[0];
-    public fixed sbyte Currency[3];
-    public fixed sbyte SecuritySubType[5];
-    public fixed sbyte UserDefinedInstrument[1];
-    public fixed sbyte MatchAlgorithm[1];
-    public uint MinTradeVol;
-    public uint MaxTradeVol;
-    public long MinPriceIncrement;
-    public long DisplayFactor;
-    public byte PriceDisplayFormat;
-    public long PriceRatio;
-    public sbyte TickRule;
-    public fixed sbyte UnitOfMeasure[30];
-    public long TradingReferencePrice;
-    public fixed byte SettlPriceType[0];
-    public int OpenInterestQty;
-    public int ClearedVolume;
-    public long HighLimitPrice;
-    public long LowLimitPrice;
-    public long MaxPriceVariation;
-    public byte MainFraction;
-    public byte SubFraction;
-};
-
-/// <summary>
-///  Struct for Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct Message {
-    public fixed byte MessageHeader[0];
-};
-
-/// <summary>
 ///  Struct for Message Header
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -764,14 +604,6 @@ public unsafe struct MessageHeader {
     public TemplateId TemplateId;
     public ushort SchemaId;
     public ushort Version;
-};
-
-/// <summary>
-///  Struct for Packet
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct Packet {
-    public fixed byte PacketHeader[0];
 };
 
 /// <summary>

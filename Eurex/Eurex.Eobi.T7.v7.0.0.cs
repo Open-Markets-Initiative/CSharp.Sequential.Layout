@@ -485,14 +485,6 @@ public unsafe struct MdTradeEntryGrp {
 };
 
 /// <summary>
-///  Struct for Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct Message {
-    public fixed byte MessageHeader[0];
-};
-
-/// <summary>
 ///  Struct for Message Header
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -568,14 +560,6 @@ public unsafe struct OrderModifySamePrio {
     public ulong PrevDisplayQty;
     public long SecurityId;
     public fixed byte OrderDetails[0];
-};
-
-/// <summary>
-///  Struct for Packet
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct Packet {
-    public fixed byte PacketHeader[0];
 };
 
 /// <summary>

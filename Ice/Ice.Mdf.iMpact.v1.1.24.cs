@@ -863,14 +863,6 @@ public unsafe struct MarketStatisticsMessage {
 };
 
 /// <summary>
-///  Struct for Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct Message {
-    public fixed byte MessageHeader[0];
-};
-
-/// <summary>
 ///  Struct for Message Bundle Marker
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -933,25 +925,6 @@ public unsafe struct NewExpiryMessage {
 };
 
 /// <summary>
-///  Struct for New Futures Strategy Definition Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct NewFuturesStrategyDefinitionMessage {
-    public int MarketId;
-    public fixed sbyte FuturesContractSymbol[70];
-    public TradingStatus TradingStatus;
-    public fixed sbyte OrderPriceDenominator[1];
-    public int IncrementPrice;
-    public int IncrementQty;
-    public int MinQty;
-    public sbyte NumberOfLegDefinitions;
-    public SecuritySubType SecuritySubType;
-    public IsBlockOnly IsBlockOnly;
-    public fixed sbyte StrategySymbol[18];
-    public GtAllowed GtAllowed;
-};
-
-/// <summary>
 ///  Struct for New Options Market Definition Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -989,27 +962,6 @@ public unsafe struct NewOptionsMarketDefinitionMessage {
     public CrossOrderSupported CrossOrderSupported;
     public GuaranteedCrossSupported GuaranteedCrossSupported;
     public fixed sbyte UnitOfMeasure[30];
-};
-
-/// <summary>
-///  Struct for New Options Strategy Definition Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct NewOptionsStrategyDefinitionMessage {
-    public int MarketId;
-    public int UnderlyingMarketId;
-    public fixed sbyte ContractSymbol[35];
-    public TradingStatus TradingStatus;
-    public fixed sbyte OrderPriceDenominator[1];
-    public int IncrementPrice;
-    public int IncrementQty;
-    public int MinQty;
-    public sbyte NumberOfStrategyLegDefinitions;
-    public sbyte NumberOfHedgeDefinitions;
-    public SecuritySubType SecuritySubType;
-    public IsBlockOnly IsBlockOnly;
-    public fixed sbyte StrategySymbol[18];
-    public GtAllowed GtAllowed;
 };
 
 /// <summary>
@@ -1081,14 +1033,6 @@ public unsafe struct OptionSettlementPriceMessage {
     public long Volatility;
     public long SettlementPrice;
     public long Delta;
-};
-
-/// <summary>
-///  Struct for Packet
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct Packet {
-    public fixed byte PacketHeader[0];
 };
 
 /// <summary>

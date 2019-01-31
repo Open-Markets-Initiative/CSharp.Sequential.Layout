@@ -512,58 +512,6 @@ public unsafe struct MdIncrementalRefreshTradeBlocksGroups {
 };
 
 /// <summary>
-///  Struct for Md Instrument Definition Eris 363
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdInstrumentDefinitionEris363 {
-    public fixed sbyte SecurityGroup[12];
-    public fixed sbyte Symbol[50];
-    public fixed sbyte SecurityType[4];
-    public sbyte Product;
-    public fixed sbyte SecurityExchange[4];
-    public ushort MaturityDate;
-    public fixed sbyte Currency[3];
-    public long MinPriceIncrement;
-    public SecurityUpdateAction SecurityUpdateAction;
-    public fixed sbyte RateType[2];
-    public int CouponRate;
-    public fixed sbyte UserDefinedInstrument[1];
-    public ushort ApplId;
-};
-
-/// <summary>
-///  Struct for Md Instrument Definition Indices 347
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdInstrumentDefinitionIndices347 {
-    public fixed sbyte Symbol[50];
-    public sbyte Product;
-    public fixed sbyte SecurityExchange[4];
-    public fixed sbyte Currency[3];
-    public SecurityUpdateAction SecurityUpdateAction;
-    public fixed sbyte MdFeedType[2];
-    public ushort ApplId;
-};
-
-/// <summary>
-///  Struct for Md News Indices 339
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdNewsIndices339 {
-    public fixed sbyte Headline[50];
-    public ulong OrigTime;
-    public fixed sbyte MdFeedType[2];
-};
-
-/// <summary>
-///  Struct for Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct Message {
-    public fixed byte MessageHeader[0];
-};
-
-/// <summary>
 ///  Struct for Message Header
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -573,14 +521,6 @@ public unsafe struct MessageHeader {
     public TemplateId TemplateId;
     public ushort SchemaId;
     public ushort Version;
-};
-
-/// <summary>
-///  Struct for Packet
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct Packet {
-    public fixed byte PacketHeader[0];
 };
 
 /// <summary>

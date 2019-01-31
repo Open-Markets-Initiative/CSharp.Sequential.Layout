@@ -201,14 +201,6 @@ public unsafe struct IndexValueMdEntry {
 };
 
 /// <summary>
-///  Struct for Index Value Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct IndexValueMessage {
-    public byte NoEntries;
-};
-
-/// <summary>
 ///  Struct for Market Data Control Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -261,14 +253,6 @@ public unsafe struct MdEntryPx {
 };
 
 /// <summary>
-///  Struct for Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct Message {
-    public fixed byte MessageHeader[0];
-};
-
-/// <summary>
 ///  Struct for Message Header
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -313,14 +297,6 @@ public unsafe struct MinimumStrikePriceFraction {
 public unsafe struct NetChgPrevDay {
     public sbyte NetChgPrevDayExponent;
     public int NetChgPrevDayMantissa;
-};
-
-/// <summary>
-///  Struct for Packet
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct Packet {
-    public fixed byte PacketHeader[0];
 };
 
 /// <summary>
@@ -384,28 +360,6 @@ public unsafe struct SecurityDefinitionLeg {
     public uint LegRatioQty;
     public uint LegSecurityId;
     public LegSide LegSide;
-};
-
-/// <summary>
-///  Struct for Security Definition Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct SecurityDefinitionMessage {
-    public SecurityExchange SecurityExchange;
-    public uint ClassKey;
-    public uint SecurityId;
-    public ulong MaturityDate;
-    public byte PriceType;
-    public fixed byte StrikePrice[0];
-    public PutOrCall PutOrCall;
-    public fixed byte MinimumStrikePriceFraction[0];
-    public fixed byte MaxStrikePrice[0];
-    public fixed byte PremiumBreakPoint[0];
-    public fixed byte MinimumAbovePremiumFraction[0];
-    public fixed byte MinimumBelowPremiumFraction[0];
-    public ExerciseStyle ExerciseStyle;
-    public uint ContractSize;
-    public byte NoLegs;
 };
 
 /// <summary>
