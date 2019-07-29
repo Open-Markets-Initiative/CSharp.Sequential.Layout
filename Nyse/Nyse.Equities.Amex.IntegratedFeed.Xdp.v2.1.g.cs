@@ -1,8 +1,39 @@
-// C# Structs For Nyse Equities Arca Xdp Bbo 2.4.c protocol
+// C# Structs For Nyse Equities Amex Xdp IntegratedFeed 2.1.g protocol
 
 ///////////////////////////////////////////////////////////////////////
 // Enum Values
 ///////////////////////////////////////////////////////////////////////
+
+/// <summary>
+///  Auction Status Values
+/// </summary>
+public enum AuctionStatus : byte {
+    WillRunOpenClose = 0,
+    WillRunInterest = 1,
+    WillNotRunImbalance = 2,
+    WillNotRunTransitionToClosing = 3,
+};
+
+/// <summary>
+///  Auction Type Values
+/// </summary>
+public enum AuctionType : byte {
+    EarlyOpening = (byte)'O',
+    CoreOpening = (byte)'M',
+    Reopening = (byte)'H',
+    Closing = (byte)'C',
+    RegulatoryImbalance = (byte)'R',
+};
+
+/// <summary>
+///  Cross Type Values
+/// </summary>
+public enum CrossType : byte {
+    EarlyOpening = (byte)'E',
+    Opening = (byte)'O',
+    Reopening = (byte)'5',
+    Closing = (byte)'6',
+};
 
 /// <summary>
 ///  Delivery Flag Values
@@ -38,6 +69,14 @@ public enum ExchangeCode : byte {
 };
 
 /// <summary>
+///  Freeze Status Values
+/// </summary>
+public enum FreezeStatus : byte {
+    NoImbalanceFreeze = 0,
+    ImbalanceFreeze = 1,
+};
+
+/// <summary>
 ///  Halt Condition Values
 /// </summary>
 public enum HaltCondition : byte {
@@ -56,6 +95,15 @@ public enum HaltCondition : byte {
 };
 
 /// <summary>
+///  Imbalance Side Values
+/// </summary>
+public enum ImbalanceSide : byte {
+    NoImbalance = (byte)' ',
+    BuySide = (byte)'B',
+    SellSide = (byte)'S',
+};
+
+/// <summary>
 ///  Market Id Values
 /// </summary>
 public enum MarketId : ushort {
@@ -67,6 +115,17 @@ public enum MarketId : ushort {
     NyseAmexOptions = 8,
     NyseAmericanEquities = 9,
     NyseNationalEquities = 10,
+};
+
+/// <summary>
+///  Market State Values
+/// </summary>
+public enum MarketState : byte {
+    Preopening = (byte)'P',
+    EarlySession = (byte)'E',
+    CoreSession = (byte)'O',
+    LateSession = (byte)'L',
+    Closed = (byte)'X',
 };
 
 /// <summary>
@@ -83,20 +142,46 @@ public enum MessageType : ushort {
     RefreshRequestMessage = 15,
     MessageUnavailableMessage = 31,
     SymbolClearMessage = 32,
-    TradingSessionChangeMessage = 33,
     SecurityStatusMessage = 34,
     RefreshHeaderMessage = 35,
-    QuoteMessage = 140,
+    AddOrderMessage = 100,
+    ModifyOrderMessage = 101,
+    ReplaceOrderMessage = 104,
+    DeleteOrderMessage = 102,
+    TradeCancelMessage = 112,
+    CrossTradeMessage = 111,
+    CrossCorrectionMessage = 113,
+    RetailPriceImprovementMessage = 114,
+    AddOrderRefreshMessage = 106,
+    ImbalanceMessage = 105,
+    OrderExecutionMessage = 103,
+    NonDisplayedTradeMessage = 110,
+    StockSummaryMessage = 223,
 };
 
 /// <summary>
-///  Quote Condition Values
+///  Position Change Values
 /// </summary>
-public enum QuoteCondition : byte {
-    Closing = (byte)'C',
-    OpeningQuote = (byte)'O',
-    RegularQuote = (byte)'R',
-    SlowOnTheBidAndAsk = (byte)'W',
+public enum PositionChange : byte {
+    Kept = 0,
+    Lost = 1,
+};
+
+/// <summary>
+///  Price Resolution Values
+/// </summary>
+public enum PriceResolution : byte {
+    AllPenny = 0,
+    PennyNickel = 1,
+    NickelDime = 5,
+};
+
+/// <summary>
+///  Printable Flag Values
+/// </summary>
+public enum PrintableFlag : byte {
+    NotPrinted = 0,
+    Printed = 1,
 };
 
 /// <summary>
@@ -107,13 +192,21 @@ public enum RetransmitMethod : byte {
 };
 
 /// <summary>
+///  Round Lot Values
+/// </summary>
+public enum RoundLot : byte {
+    Yes = (byte)'Y',
+    No = (byte)'N',
+};
+
+/// <summary>
 ///  Rpi Indicator Values
 /// </summary>
 public enum RpiIndicator : byte {
     NoRetailInterest = (byte)' ',
-    RetailInterestOnBidSide = (byte)'A',
-    RetailInterestOnOfferSide = (byte)'B',
-    RetailInterestOnTheBidAndOfferSide = (byte)'C',
+    InterestOnBid = (byte)'A',
+    InterestOnOffer = (byte)'B',
+    InterestOnBidAndOffer = (byte)'C',
 };
 
 /// <summary>
@@ -142,22 +235,42 @@ public enum SecurityStatus : byte {
 ///  Security Type Values
 /// </summary>
 public enum SecurityType : byte {
-    Adr = (byte)'A',
-    CommonStock = (byte)'C',
-    Debentures = (byte)'D',
-    Etf = (byte)'E',
-    Foreign = (byte)'F',
-    UsDepositaryShares = (byte)'H',
-    Units = (byte)'I',
-    IndexLinkedNotes = (byte)'L',
-    MiscliquidTrust = (byte)'M',
-    OrdinaryShares = (byte)'O',
-    PreferredStock = (byte)'P',
-    Rights = (byte)'R',
-    SharesOfBeneficiaryInterest = (byte)'S',
-    Test = (byte)'T',
-    Units = (byte)'U',
-    Warrant = (byte)'W',
+    CommonStock = (byte)'A',
+    PreferredStock = (byte)'B',
+    Warrant = (byte)'C',
+    Right = (byte)'D',
+    CorporateBond = (byte)'E',
+    TreasuryBond = (byte)'F',
+    StructuredProduct = (byte)'G',
+    AdrCommon = (byte)'H',
+    AdrPreferred = (byte)'I',
+    AdrWarrants = (byte)'J',
+    AdrRights = (byte)'K',
+    AdrCorporateBond = (byte)'L',
+    NyRegisteredShare = (byte)'M',
+    GlobalRegisteredShare = (byte)'N',
+    Index = (byte)'O',
+    Fund = (byte)'P',
+    Basket = (byte)'Q',
+    Unit = (byte)'R',
+    LiquidatingTrust = (byte)'S',
+    Unknown = (byte)'U',
+};
+
+/// <summary>
+///  Side Values
+/// </summary>
+public enum Side : byte {
+    Buy = (byte)'B',
+    Sell = (byte)'S',
+};
+
+/// <summary>
+///  Ssr State Values
+/// </summary>
+public enum SsrState : byte {
+    NoShortSaleRestrictionInEffect = (byte)'~',
+    ShortSaleRestrictionInEffect = (byte)'E',
 };
 
 /// <summary>
@@ -184,10 +297,97 @@ public enum SsrTriggeringExchangeId : byte {
     Bats = (byte)'Z',
 };
 
+/// <summary>
+///  Status Values
+/// </summary>
+public enum Status : byte {
+    MessageWasAccepted = (byte)'0',
+    RejectedDueToAnInvalidSourceId = (byte)'1',
+    InvalidSequenceRange = (byte)'2',
+    MaximumSequenceRange = (byte)'3',
+    MaximumRequestInADay = (byte)'4',
+    MaximumRefreshRequestsInADay = (byte)'5',
+    OldSeqNumTtl = (byte)'6',
+    InvalidChannelId = (byte)'7',
+    InvalidProductId = (byte)'8',
+    1InvalidMsgTypeOr2MismatchBetweenMsgTypeAndMsgSize = (byte)'9',
+};
+
 
 ///////////////////////////////////////////////////////////////////////
 // Structs
 ///////////////////////////////////////////////////////////////////////
+
+/// <summary>
+///  Struct for Add Order Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct AddOrderMessage {
+    public uint SourceTimeNs;
+    public uint SymbolIndex;
+    public uint SymbolSeqNum;
+    public ulong OrderId;
+    public uint Price;
+    public uint Volume;
+    public Side Side;
+    public fixed sbyte FirmId[5];
+    public byte NumParitySplits;
+};
+
+/// <summary>
+///  Struct for Add Order Refresh Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct AddOrderRefreshMessage {
+    public uint SourceTime;
+    public uint SourceTimeNs;
+    public uint SymbolIndex;
+    public uint SymbolSeqNum;
+    public ulong OrderId;
+    public uint Price;
+    public uint Volume;
+    public Side Side;
+    public fixed sbyte FirmId[5];
+    public byte NumParitySplits;
+};
+
+/// <summary>
+///  Struct for Cross Correction Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct CrossCorrectionMessage {
+    public uint SourceTimeNs;
+    public uint SymbolIndex;
+    public uint SymbolSeqNum;
+    public uint CrossId;
+    public uint Volume;
+};
+
+/// <summary>
+///  Struct for Cross Trade Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct CrossTradeMessage {
+    public uint SourceTimeNs;
+    public uint SymbolIndex;
+    public uint SymbolSeqNum;
+    public uint CrossId;
+    public uint Price;
+    public uint Volume;
+    public CrossType CrossType;
+};
+
+/// <summary>
+///  Struct for Delete Order Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct DeleteOrderMessage {
+    public uint SourceTimeNs;
+    public uint SymbolIndex;
+    public uint SymbolSeqNum;
+    public ulong OrderId;
+    public byte NumParitySplits;
+};
 
 /// <summary>
 ///  Struct for Heartbeat Response Message
@@ -195,6 +395,33 @@ public enum SsrTriggeringExchangeId : byte {
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct HeartbeatResponseMessage {
     public fixed sbyte SourceId[10];
+};
+
+/// <summary>
+///  Struct for Imbalance Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct ImbalanceMessage {
+    public uint SourceTime;
+    public uint SourceTimeNs;
+    public uint SymbolIndex;
+    public uint SymbolSeqNum;
+    public uint ReferencePrice;
+    public uint PairedQty;
+    public uint TotalImbalanceQty;
+    public uint MarketImbalanceQty;
+    public ushort AuctionTime;
+    public AuctionType AuctionType;
+    public ImbalanceSide ImbalanceSide;
+    public uint ContinuousBookClearingPrice;
+    public uint ClosingOnlyClearingPrice;
+    public uint SsrFilingPrice;
+    public uint IndicativeMatchPrice;
+    public uint UpperCollar;
+    public uint LowerCollar;
+    public AuctionStatus AuctionStatus;
+    public FreezeStatus FreezeStatus;
+    public byte NumExtensions;
 };
 
 /// <summary>
@@ -226,6 +453,54 @@ public unsafe struct MessageUnavailableMessage {
 };
 
 /// <summary>
+///  Struct for Modify Order Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct ModifyOrderMessage {
+    public uint SourceTimeNs;
+    public uint SymbolIndex;
+    public uint SymbolSeqNum;
+    public ulong OrderId;
+    public uint Price;
+    public uint Volume;
+    public PositionChange PositionChange;
+    public byte PrevPriceParitySplits;
+    public byte NewPriceParitySplits;
+};
+
+/// <summary>
+///  Struct for Non Displayed Trade Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct NonDisplayedTradeMessage {
+    public uint SourceTimeNs;
+    public uint SymbolIndex;
+    public uint SymbolSeqNum;
+    public uint TradeId;
+    public uint Price;
+    public uint Volume;
+    public PrintableFlag PrintableFlag;
+    public uint DbExecId;
+};
+
+/// <summary>
+///  Struct for Order Execution Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct OrderExecutionMessage {
+    public uint SourceTimeNs;
+    public uint SymbolIndex;
+    public uint SymbolSeqNum;
+    public ulong OrderId;
+    public uint TradeId;
+    public uint Price;
+    public uint Volume;
+    public PrintableFlag PrintableFlag;
+    public byte NumParitySplits;
+    public uint DbExecId;
+};
+
+/// <summary>
 ///  Struct for Packet
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -244,23 +519,6 @@ public unsafe struct PacketHeader {
     public uint SequenceNumber;
     public uint Timestamp;
     public uint Nanoseconds;
-};
-
-/// <summary>
-///  Struct for Quote Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct QuoteMessage {
-    public uint SourceTimeNs;
-    public uint SymbolIndex;
-    public uint SymbolSeqNum;
-    public uint AskPrice;
-    public uint AskVolume;
-    public uint BidPrice;
-    public uint BidVolume;
-    public QuoteCondition QuoteCondition;
-    public RpiIndicator RpiIndicator;
-    public fixed byte Reserved4[4];
 };
 
 /// <summary>
@@ -286,6 +544,22 @@ public unsafe struct RefreshRequestMessage {
 };
 
 /// <summary>
+///  Struct for Replace Order Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct ReplaceOrderMessage {
+    public uint SourceTimeNs;
+    public uint SymbolIndex;
+    public uint SymbolSeqNum;
+    public ulong OrderId;
+    public ulong NewOrderId;
+    public uint Price;
+    public uint Volume;
+    public byte PrevPriceParitySplits;
+    public byte NewPriceParitySplits;
+};
+
+/// <summary>
 ///  Struct for Request Response Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -296,7 +570,18 @@ public unsafe struct RequestResponseMessage {
     public fixed sbyte SourceId[10];
     public byte ProductId;
     public byte ChannelId;
-    public fixed sbyte Status[1];
+    public Status Status;
+};
+
+/// <summary>
+///  Struct for Retail Price Improvement Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct RetailPriceImprovementMessage {
+    public uint SourceTimeNs;
+    public uint SymbolIndex;
+    public uint SymbolSeqNum;
+    public RpiIndicator RpiIndicator;
 };
 
 /// <summary>
@@ -328,8 +613,8 @@ public unsafe struct SecurityStatusMessage {
     public SsrTriggeringExchangeId SsrTriggeringExchangeId;
     public uint SsrTriggeringVolume;
     public uint Time;
-    public fixed sbyte SsrState[1];
-    public fixed sbyte MarketState[1];
+    public SsrState SsrState;
+    public MarketState MarketState;
     public fixed sbyte SessionState[1];
 };
 
@@ -352,6 +637,21 @@ public unsafe struct SourceTimeReferenceMessage {
     public uint Id;
     public uint SymbolSeqNum;
     public uint SourceTime;
+};
+
+/// <summary>
+///  Struct for Stock Summary Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct StockSummaryMessage {
+    public uint SourceTime;
+    public uint SourceTimeNs;
+    public uint SymbolIndex;
+    public uint HighPrice;
+    public uint LowPrice;
+    public uint Open;
+    public uint Close;
+    public uint TotalVolume;
 };
 
 /// <summary>
@@ -381,8 +681,8 @@ public unsafe struct SymbolIndexMappingMessage {
     public ushort LotSize;
     public uint PrevClosePrice;
     public uint PrevCloseVolume;
-    public byte PriceResolution;
-    public fixed sbyte RoundLot[1];
+    public PriceResolution PriceResolution;
+    public RoundLot RoundLot;
     public ushort Mpv;
     public ushort UnitOfTrade;
     public fixed byte Reserved2[2];
@@ -401,14 +701,13 @@ public unsafe struct SymbolIndexMappingRequestMessage {
 };
 
 /// <summary>
-///  Struct for Trading Session Change Message
+///  Struct for Trade Cancel Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct TradingSessionChangeMessage {
-    public uint SourceTime;
+public unsafe struct TradeCancelMessage {
     public uint SourceTimeNs;
     public uint SymbolIndex;
     public uint SymbolSeqNum;
-    public byte TradingSession;
+    public uint TradeId;
 };
 

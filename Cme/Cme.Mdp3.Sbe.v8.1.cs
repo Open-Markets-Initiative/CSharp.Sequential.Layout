@@ -8,38 +8,38 @@
 ///  Aggressor Side Values
 /// </summary>
 public enum AggressorSide : byte {
-    AggressorSide = "0",
-    AggressorSide = "1",
-    AggressorSide = "2",
+    AggressorSide = 0,
+    AggressorSide = 1,
+    AggressorSide = 2,
 };
 
 /// <summary>
 ///  Event Type Values
 /// </summary>
 public enum EventType : byte {
-    EventType = "5",
-    EventType = "7",
+    EventType = 5,
+    EventType = 7,
 };
 
 /// <summary>
 ///  Halt Reason Values
 /// </summary>
 public enum HaltReason : byte {
-    HaltReason = "0",
-    HaltReason = "1",
-    HaltReason = "2",
-    HaltReason = "3",
-    HaltReason = "4",
-    HaltReason = "5",
-    HaltReason = "6",
+    HaltReason = 0,
+    HaltReason = 1,
+    HaltReason = 2,
+    HaltReason = 3,
+    HaltReason = 4,
+    HaltReason = 5,
+    HaltReason = 6,
 };
 
 /// <summary>
 ///  Leg Side Values
 /// </summary>
 public enum LegSide : byte {
-    LegSide = "1",
-    LegSide = "2",
+    LegSide = 1,
+    LegSide = 2,
 };
 
 /// <summary>
@@ -69,65 +69,65 @@ public enum MdEntryType : byte {
 ///  Md Update Action Values
 /// </summary>
 public enum MdUpdateAction : byte {
-    MdUpdateAction = "0",
-    MdUpdateAction = "1",
-    MdUpdateAction = "2",
-    MdUpdateAction = "3",
-    MdUpdateAction = "4",
-    MdUpdateAction = "5",
+    MdUpdateAction = 0,
+    MdUpdateAction = 1,
+    MdUpdateAction = 2,
+    MdUpdateAction = 3,
+    MdUpdateAction = 4,
+    MdUpdateAction = 5,
 };
 
 /// <summary>
 ///  Open Close Settl Flag Values
 /// </summary>
 public enum OpenCloseSettlFlag : byte {
-    OpenCloseSettlFlag = "0",
-    OpenCloseSettlFlag = "5",
+    OpenCloseSettlFlag = 0,
+    OpenCloseSettlFlag = 5,
 };
 
 /// <summary>
 ///  Order Update Action Values
 /// </summary>
 public enum OrderUpdateAction : byte {
-    OrderUpdateAction = "0",
-    OrderUpdateAction = "1",
-    OrderUpdateAction = "2",
+    OrderUpdateAction = 0,
+    OrderUpdateAction = 1,
+    OrderUpdateAction = 2,
 };
 
 /// <summary>
 ///  Put Or Call Values
 /// </summary>
 public enum PutOrCall : byte {
-    PutOrCall = "0",
-    PutOrCall = "1",
+    PutOrCall = 0,
+    PutOrCall = 1,
 };
 
 /// <summary>
 ///  Security Trading Event Values
 /// </summary>
 public enum SecurityTradingEvent : byte {
-    SecurityTradingEvent = "0",
-    SecurityTradingEvent = "1",
-    SecurityTradingEvent = "4",
-    SecurityTradingEvent = "5",
-    SecurityTradingEvent = "6",
+    SecurityTradingEvent = 0,
+    SecurityTradingEvent = 1,
+    SecurityTradingEvent = 4,
+    SecurityTradingEvent = 5,
+    SecurityTradingEvent = 6,
 };
 
 /// <summary>
 ///  Security Trading Status Values
 /// </summary>
 public enum SecurityTradingStatus : byte {
-    SecurityTradingStatus = "2",
-    SecurityTradingStatus = "4",
-    SecurityTradingStatus = "15",
-    SecurityTradingStatus = "17",
-    SecurityTradingStatus = "18",
-    SecurityTradingStatus = "20",
-    SecurityTradingStatus = "21",
-    SecurityTradingStatus = "24",
-    SecurityTradingStatus = "25",
-    SecurityTradingStatus = "26",
-    SecurityTradingStatus = "103",
+    SecurityTradingStatus = 2,
+    SecurityTradingStatus = 4,
+    SecurityTradingStatus = 15,
+    SecurityTradingStatus = 17,
+    SecurityTradingStatus = 18,
+    SecurityTradingStatus = 20,
+    SecurityTradingStatus = 21,
+    SecurityTradingStatus = 24,
+    SecurityTradingStatus = 25,
+    SecurityTradingStatus = 26,
+    SecurityTradingStatus = 103,
 };
 
 /// <summary>
@@ -143,25 +143,25 @@ public enum SecurityUpdateAction : byte {
 ///  Template Id Values
 /// </summary>
 public enum TemplateId : ushort {
-    ChannelReset = "4",
-    AdminHeartbeat = "12",
-    AdminLogin = "15",
-    AdminLogout = "16",
-    MdInstrumentDefinitionFuture = "27",
-    MdInstrumentDefinitionSpread = "29",
-    SecurityStatus = "30",
-    MdIncrementalRefreshBook = "32",
-    MdIncrementalRefreshDailyStatistics = "33",
-    MdIncrementalRefreshLimitsBanding = "34",
-    MdIncrementalRefreshSessionStatistics = "35",
-    MdIncrementalRefreshTrade = "36",
-    MdIncrementalRefreshVolume = "37",
-    SnapshotFullRefresh = "38",
-    QuoteRequest = "39",
-    MdInstrumentDefinitionOption = "41",
-    MdIncrementalRefreshTradeSummary = "42",
-    MdIncrementalRefreshOrderBook = "43",
-    SnapshotFullRefreshOrderBook = "44",
+    ChannelReset = 4,
+    AdminHeartbeat = 12,
+    AdminLogin = 15,
+    AdminLogout = 16,
+    MdInstrumentDefinitionFuture = 27,
+    MdInstrumentDefinitionSpread = 29,
+    SecurityStatus = 30,
+    MdIncrementalRefreshBook = 32,
+    MdIncrementalRefreshDailyStatistics = 33,
+    MdIncrementalRefreshLimitsBanding = 34,
+    MdIncrementalRefreshSessionStatistics = 35,
+    MdIncrementalRefreshTrade = 36,
+    MdIncrementalRefreshVolume = 37,
+    SnapshotFullRefresh = 38,
+    QuoteRequest = 39,
+    MdInstrumentDefinitionOption = 41,
+    MdIncrementalRefreshTradeSummary = 42,
+    MdIncrementalRefreshOrderBook = 43,
+    SnapshotFullRefreshOrderBook = 44,
 };
 
 

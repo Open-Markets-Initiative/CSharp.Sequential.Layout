@@ -1,4 +1,4 @@
-// C# Structs For Eurex T7 Eobi 3.0.71 protocol
+// C# Structs For Eurex Derivatives T7 Eobi 4.0 protocol
 
 ///////////////////////////////////////////////////////////////////////
 // Enum Values
@@ -8,202 +8,241 @@
 ///  Aggressor Side Values
 /// </summary>
 public enum AggressorSide : byte {
-    Buy = "1",
-    Sell = "2",
-    AggressorSide = "2",
-    AggressorSide = "1",
+    Buy = 1,
+    Sell = 2,
+    AggressorSide = 2,
+    AggressorSide = 1,
 };
 
 /// <summary>
 ///  Application Sequence Reset Indicator Values
 /// </summary>
 public enum ApplicationSequenceResetIndicator : byte {
-    NoReset = "0",
-    Reset = "1",
-    ApplSeqResetIndicator = "1",
-    ApplSeqResetIndicator = "0",
+    NoReset = 0,
+    Reset = 1,
+    ApplSeqResetIndicator = 1,
+    ApplSeqResetIndicator = 0,
 };
 
 /// <summary>
 ///  Completion Indicator Values
 /// </summary>
 public enum CompletionIndicator : byte {
-    Incomplete = "0",
-    Complete = "1",
-    CompletionIndicator = "1",
-    CompletionIndicator = "0",
+    Incomplete = 0,
+    Complete = 1,
+    CompletionIndicator = 1,
+    CompletionIndicator = 0,
 };
 
 /// <summary>
 ///  Fast Market Indicator Values
 /// </summary>
 public enum FastMarketIndicator : byte {
-    No = "0",
-    Yes = "1",
-    FastMarketIndicator = "1",
-    FastMarketIndicator = "0",
+    No = 0,
+    Yes = 1,
+    FastMarketIndicator = 1,
+    FastMarketIndicator = 0,
 };
 
 /// <summary>
 ///  Implied Market Indicator Values
 /// </summary>
 public enum ImpliedMarketIndicator : byte {
-    NotImplied = "0",
-    ImpliedInOut = "3",
-    ImpliedMarketIndicator = "3",
-    ImpliedMarketIndicator = "0",
+    NotImplied = 0,
+    ImpliedInOut = 3,
+    ImpliedMarketIndicator = 3,
+    ImpliedMarketIndicator = 0,
 };
 
 /// <summary>
 ///  Leg Side Values
 /// </summary>
 public enum LegSide : byte {
-    Buy = "1",
-    Sell = "2",
-    LegSide = "2",
-    LegSide = "1",
+    Buy = 1,
+    Sell = 2,
+    LegSide = 2,
+    LegSide = 1,
 };
 
 /// <summary>
 ///  Match Sub Type Values
 /// </summary>
 public enum MatchSubType : byte {
-    OpeningAuction = "1",
-    ClosingAuction = "2",
-    IntradayAuction = "3",
-    CircuitBreakerAuction = "4",
-    MatchSubType = "4",
-    MatchSubType = "1",
+    OpeningAuction = 1,
+    ClosingAuction = 2,
+    IntradayAuction = 3,
+    CircuitBreakerAuction = 4,
+    IpoAuction = 5,
+    MatchSubType = 5,
+    MatchSubType = 1,
 };
 
 /// <summary>
 ///  Match Type Values
 /// </summary>
 public enum MatchType : byte {
-    ConfirmedTradeReport = "3",
-    CrossAuction = "5",
-    CallAuction = "7",
-    MatchType = "7",
-    MatchType = "3",
+    ConfirmedTradeReport = 3,
+    CrossAuction = 5,
+    CallAuction = 7,
+    MatchType = 7,
+    MatchType = 3,
 };
 
 /// <summary>
 ///  Md Entry Type Values
 /// </summary>
 public enum MdEntryType : byte {
-    Trade = "2",
-    OpeningPrice = "4",
-    ClosingPrice = "5",
-    HighPrice = "7",
-    LowPrice = "8",
-    TradeVolume = "66",
-    PreviousClosingPrice = "101",
-    OpeningAuction = "200",
-    IntradayAuction = "201",
-    CircuitBreakerAuction = "202",
-    ClosingAuction = "203",
-    MdEntryType = "203",
-    MdEntryType = "2",
+    Trade = 2,
+    OpeningPrice = 4,
+    ClosingPrice = 5,
+    HighPrice = 7,
+    LowPrice = 8,
+    TradeVolume = 66,
+    PreviousClosingPrice = 101,
+    OpeningAuction = 200,
+    IntradayAuction = 201,
+    CircuitBreakerAuction = 202,
+    ClosingAuction = 203,
+    IpoAuction = 204,
+    MdEntryType = 204,
+    MdEntryType = 2,
+};
+
+/// <summary>
+///  Ord Type Values
+/// </summary>
+public enum OrdType : byte {
+    Market = 1,
+    OrdType = 1,
+    OrdType = 1,
+};
+
+/// <summary>
+///  Potential Security Trading Event Values
+/// </summary>
+public enum PotentialSecurityTradingEvent : byte {
+    None = 0,
+    PriceVolatilityAuctionIsExtended = 10,
+    PotentialSecurityTradingEvent = 10,
+    PotentialSecurityTradingEvent = 0,
 };
 
 /// <summary>
 ///  Product Complex Values
 /// </summary>
 public enum ProductComplex : byte {
-    FuturesSpread = "5",
-    InterProductSpread = "6",
-    StandardFuturesStrategy = "7",
-    PackAndBundle = "8",
-    Strip = "9",
-    ProductComplex = "9",
-    ProductComplex = "5",
+    StandardOptionStrategy = 2,
+    NonStandardOptionStrategy = 3,
+    VolatilityStrategy = 4,
+    FuturesSpread = 5,
+    InterProductSpread = 6,
+    StandardFuturesStrategy = 7,
+    PackAndBundle = 8,
+    Strip = 9,
+    ProductComplex = 9,
+    ProductComplex = 2,
 };
 
 /// <summary>
 ///  Security Status Values
 /// </summary>
 public enum SecurityStatus : byte {
-    Active = "1",
-    Inactive = "2",
-    Expired = "4",
-    Suspended = "9",
-    SecurityStatus = "9",
-    SecurityStatus = "1",
+    Active = 1,
+    Inactive = 2,
+    Expired = 4,
+    Suspended = 9,
+    SecurityStatus = 9,
+    SecurityStatus = 1,
+};
+
+/// <summary>
+///  Security Trading Event Values
+/// </summary>
+public enum SecurityTradingEvent : byte {
+    PriceVolatilityAuctionIsExtended = 10,
+    PriceVolatilityAuctionIsExtendedAgain = 11,
+    SecurityTradingEvent = 11,
+    SecurityTradingEvent = 0,
 };
 
 /// <summary>
 ///  Security Trading Status Values
 /// </summary>
 public enum SecurityTradingStatus : byte {
-    Closed = "200",
-    Restricted = "201",
-    Book = "202",
-    Continuous = "203",
-    OpeningAuction = "204",
-    OpeningAuctionFreeze = "205",
-    IntradayAuction = "206",
-    IntradayAuctionFreeze = "207",
-    CircuitBreakerAuction = "208",
-    CircuitBreakerAuctionFreeze = "209",
-    ClosingAuction = "210",
-    ClosingAuctionFreeze = "211",
-    SecurityTradingStatus = "211",
-    SecurityTradingStatus = "200",
+    MarketImbalanceBuy = 7,
+    MarketImbalanceSell = 8,
+    Closed = 200,
+    Restricted = 201,
+    Book = 202,
+    Continuous = 203,
+    OpeningAuction = 204,
+    OpeningAuctionFreeze = 205,
+    IntradayAuction = 206,
+    IntradayAuctionFreeze = 207,
+    CircuitBreakerAuction = 208,
+    CircuitBreakerAuctionFreeze = 209,
+    ClosingAuction = 210,
+    ClosingAuctionFreeze = 211,
+    IpoAuction = 212,
+    IpoAuctionFreeze = 213,
+    SecurityTradingStatus = 213,
+    SecurityTradingStatus = 7,
 };
 
 /// <summary>
 ///  Side Values
 /// </summary>
 public enum Side : byte {
-    Buy = "1",
-    Sell = "2",
-    Side = "2",
-    Side = "1",
+    Buy = 1,
+    Sell = 2,
+    Side = 2,
+    Side = 1,
 };
 
 /// <summary>
 ///  Trad Ses Status Values
 /// </summary>
 public enum TradSesStatus : byte {
-    Halted = "1",
-    Open = "2",
-    Closed = "3",
-    TradSesStatus = "3",
-    TradSesStatus = "1",
+    Halted = 1,
+    Open = 2,
+    Closed = 3,
+    TradSesStatus = 3,
+    TradSesStatus = 1,
 };
 
 /// <summary>
 ///  Trade Condition Values
 /// </summary>
 public enum TradeCondition : byte {
-    ImpliedTrade = "1",
-    TradeCondition = "1",
-    TradeCondition = "1",
+    ImpliedTrade = 1,
+    TradeCondition = 1,
+    TradeCondition = 1,
 };
 
 /// <summary>
 ///  Trading Session Id Values
 /// </summary>
 public enum TradingSessionId : byte {
-    Day = "1",
-    Morning = "3",
-    Evening = "5",
-    Holiday = "7",
-    TradingSessionId = "7",
-    TradingSessionId = "1",
+    Day = 1,
+    Morning = 3,
+    Evening = 5,
+    AfterHours = 6,
+    Holiday = 7,
+    TradingSessionId = 7,
+    TradingSessionId = 1,
 };
 
 /// <summary>
 ///  Trading Session Sub Id Values
 /// </summary>
 public enum TradingSessionSubId : byte {
-    PreTrading = "1",
-    Trading = "3",
-    Closing = "4",
-    PostTrading = "5",
-    Quiescent = "7",
-    TradingSessionSubId = "7",
-    TradingSessionSubId = "1",
+    PreTrading = 1,
+    Trading = 3,
+    Closing = 4,
+    PostTrading = 5,
+    Quiescent = 7,
+    TradingSessionSubId = 7,
+    TradingSessionSubId = 1,
 };
 
 
@@ -234,6 +273,10 @@ public unsafe struct AuctionBbo {
     public long SecurityId;
     public ulong BidPx;
     public ulong OfferPx;
+    public int BidSize;
+    public int OfferSize;
+    public PotentialSecurityTradingEvent PotentialSecurityTradingEvent;
+    public fixed byte Pad7[7];
 };
 
 /// <summary>
@@ -244,6 +287,11 @@ public unsafe struct AuctionClearingPrice {
     public ulong TransactTime;
     public long SecurityId;
     public ulong LastPx;
+    public int LastQty;
+    public int ImbalanceQty;
+    public SecurityTradingStatus SecurityTradingStatus;
+    public PotentialSecurityTradingEvent PotentialSecurityTradingEvent;
+    public fixed byte Pad6[6];
 };
 
 /// <summary>
@@ -263,7 +311,7 @@ public unsafe struct CrossRequest {
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct ExecutionSummary {
     public long SecurityId;
-    public ulong AggressorTimestamp;
+    public ulong AggressorTime;
     public ulong RequestTime;
     public ulong ExecId;
     public int LastQty;
@@ -281,7 +329,8 @@ public unsafe struct ExecutionSummary {
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct FullOrderExecution {
     public Side Side;
-    public fixed byte Pad7[7];
+    public OrdType OrdType;
+    public fixed byte Pad6[6];
     public ulong Price;
     public ulong TrdRegTsTimePriority;
     public long SecurityId;
@@ -321,7 +370,8 @@ public unsafe struct InstrumentStateChange {
     public SecurityStatus SecurityStatus;
     public SecurityTradingStatus SecurityTradingStatus;
     public FastMarketIndicator FastMarketIndicator;
-    public fixed byte Pad5[5];
+    public SecurityTradingEvent SecurityTradingEvent;
+    public fixed byte Pad4[4];
     public ulong TransactTime;
 };
 
@@ -337,8 +387,9 @@ public unsafe struct InstrumentSummary {
     public SecurityStatus SecurityStatus;
     public SecurityTradingStatus SecurityTradingStatus;
     public FastMarketIndicator FastMarketIndicator;
+    public SecurityTradingEvent SecurityTradingEvent;
     public byte NoMdEntries;
-    public fixed byte Pad2[2];
+    public fixed byte Pad1[1];
 };
 
 /// <summary>
@@ -402,7 +453,8 @@ public unsafe struct OrderDetails {
     public ulong TrdRegTsTimePriority;
     public int DisplayQty;
     public Side Side;
-    public fixed byte Pad3[3];
+    public OrdType OrdType;
+    public fixed byte Pad2[2];
     public ulong Price;
 };
 
@@ -473,7 +525,8 @@ public unsafe struct PacketInfo {
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct PartialOrderExecution {
     public Side Side;
-    public fixed byte Pad7[7];
+    public OrdType OrdType;
+    public fixed byte Pad6[6];
     public ulong Price;
     public ulong TrdRegTsTimePriority;
     public long SecurityId;

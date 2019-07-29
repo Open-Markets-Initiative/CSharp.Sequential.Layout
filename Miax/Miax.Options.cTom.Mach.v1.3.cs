@@ -1,4 +1,4 @@
-// C# Structs For Miax Options Mach cTom 1.1 protocol
+// C# Structs For Miax Options Mach cTom 1.3 protocol
 
 ///////////////////////////////////////////////////////////////////////
 // Enum Values
@@ -42,20 +42,12 @@ public enum EventReason : byte {
 };
 
 /// <summary>
-///  Leg Side Values
-/// </summary>
-public enum LegSide : byte {
-    Bid = B,
-    Ask = A,
-};
-
-/// <summary>
 ///  Liquidity Acceptance Increment Indicator Values
 /// </summary>
 public enum LiquidityAcceptanceIncrementIndicator : byte {
     Penny = (byte)'P',
-    Nickel = (byte)'N',
-    Dime = (byte)'D',
+    PennyOrNickel = (byte)'N',
+    NickelOrDime = (byte)'D',
 };
 
 /// <summary>
@@ -71,17 +63,17 @@ public enum LongTermOption : byte {
 /// </summary>
 public enum MessageType : byte {
     SystemTimeMessage = (byte)'1',
-    SeriesUpdate = (byte)'P',
+    SimpleSeriesUpdateMessage = (byte)'P',
     ComplexStrategyDefinitionMessage = (byte)'C',
     SystemStateMessage = (byte)'S',
     ComplexTopOfMarketBidCompactMessage = (byte)'b',
     ComplexTopOfMarketOfferCompactMessage = (byte)'o',
-    WideComplexTopOfMarketBidMessage = (byte)'e',
-    WideComplexTopOfMarketOfferMessage = (byte)'f',
+    ComplexTopOfMarketBidWideMessage = (byte)'e',
+    ComplexTopOfMarketOfferWideMessage = (byte)'f',
     ComplexDoubleSidedTopOfMarketCompactMessage = (byte)'m',
-    WideComplexDoubleSidedTopOfMarketMessage = (byte)'w',
-    StrategyTradeMessage = (byte)'t',
-    UnderlyingTradingStatusMessage = (byte)'H',
+    ComplexDoubleSidedTopOfMarketWideMessage = (byte)'w',
+    StrategyLastSaleMessage = (byte)'t',
+    UnderlyingTradingStatusNotificationMessage = (byte)'H',
 };
 
 /// <summary>
@@ -89,8 +81,8 @@ public enum MessageType : byte {
 /// </summary>
 public enum MiaxBboPostingIncrementIndicator : byte {
     Penny = (byte)'P',
-    Nickel = (byte)'N',
-    Dime = (byte)'D',
+    PennyOrNickel = (byte)'N',
+    NickelOrDime = (byte)'D',
 };
 
 /// <summary>
@@ -161,9 +153,13 @@ public enum SystemStatus : byte {
 ///  Top Of Market Quote Condition Values
 /// </summary>
 public enum TopOfMarketQuoteCondition : byte {
-    Halted = (byte)'H',
-    Resumed = (byte)'R',
-    Opened = (byte)'O',
+    Regular = (byte)'A',
+    TradingHalt = (byte)'T',
+    Wide = (byte)'W',
+    SimpleAuction = (byte)'S',
+    ComplexAuction = (byte)'C',
+    SimpleMarketProtection = (byte)'M',
+    LegMarketProtection = (byte)'L',
 };
 
 /// <summary>
@@ -211,13 +207,30 @@ public unsafe struct ApplicationMessage {
 public unsafe struct ComplexDoubleSidedTopOfMarketCompactMessage {
     public uint Timestamp;
     public uint StrategyId;
-    public short CompactBidPrice;
-    public ushort CompactBidSize;
-    public fixed byte BidReserved2[2];
+    public short BidPrice2;
+    public ushort BidSize2;
+    public ushort BidPriorityCustomerSize2;
     public BidCondition BidCondition;
-    public short CompactOfferPrice;
-    public ushort CompactOfferSize;
-    public fixed byte OfferReserved2[2];
+    public short OfferPrice2;
+    public ushort OfferSize2;
+    public ushort OfferPriorityCustomerSize2;
+    public OfferCondition OfferCondition;
+};
+
+/// <summary>
+///  Struct for Complex Double Sided Top Of Market Wide Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct ComplexDoubleSidedTopOfMarketWideMessage {
+    public uint Timestamp;
+    public uint StrategyId;
+    public long BidPrice8;
+    public uint BidSize4;
+    public uint BidPriorityCustomerSize4;
+    public BidCondition BidCondition;
+    public long OfferPrice8;
+    public uint OfferSize4;
+    public uint OfferPriorityCustomerSize4;
     public OfferCondition OfferCondition;
 };
 
@@ -244,9 +257,22 @@ public unsafe struct ComplexStrategyDefinitionMessage {
 public unsafe struct ComplexTopOfMarketBidCompactMessage {
     public uint Timestamp;
     public uint StrategyId;
-    public short CompactPrice;
-    public ushort CompactSize;
-    public fixed byte Reserved2[2];
+    public short Price2;
+    public ushort Size2;
+    public ushort PriorityCustomerSize2;
+    public TopOfMarketQuoteCondition TopOfMarketQuoteCondition;
+};
+
+/// <summary>
+///  Struct for Complex Top Of Market Bid Wide Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct ComplexTopOfMarketBidWideMessage {
+    public uint Timestamp;
+    public uint StrategyId;
+    public long Price8;
+    public uint Size4;
+    public uint PriorityCustomerSize4;
     public TopOfMarketQuoteCondition TopOfMarketQuoteCondition;
 };
 
@@ -257,9 +283,22 @@ public unsafe struct ComplexTopOfMarketBidCompactMessage {
 public unsafe struct ComplexTopOfMarketOfferCompactMessage {
     public uint Timestamp;
     public uint StrategyId;
-    public short CompactPrice;
-    public ushort CompactSize;
-    public fixed byte Reserved2[2];
+    public short Price2;
+    public ushort Size2;
+    public ushort PriorityCustomerSize2;
+    public TopOfMarketQuoteCondition TopOfMarketQuoteCondition;
+};
+
+/// <summary>
+///  Struct for Complex Top Of Market Offer Wide Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct ComplexTopOfMarketOfferWideMessage {
+    public uint Timestamp;
+    public uint StrategyId;
+    public long Price8;
+    public uint Size4;
+    public uint PriorityCustomerSize4;
     public TopOfMarketQuoteCondition TopOfMarketQuoteCondition;
 };
 
@@ -270,8 +309,8 @@ public unsafe struct ComplexTopOfMarketOfferCompactMessage {
 public unsafe struct LegDefinition {
     public uint ProductId;
     public ushort LegRatioQty;
-    public LegSide LegSide;
-    public fixed byte Reserved8[8];
+    public fixed byte LegSide[1];
+    public ulong Reserved8;
 };
 
 /// <summary>
@@ -293,10 +332,10 @@ public unsafe struct Packet {
 };
 
 /// <summary>
-///  Struct for Series Update
+///  Struct for Simple Series Update Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct SeriesUpdate {
+public unsafe struct SimpleSeriesUpdateMessage {
     public uint ProductAddUpdateTime;
     public uint ProductId;
     public fixed sbyte UnderlyingSymbol[11];
@@ -313,14 +352,14 @@ public unsafe struct SeriesUpdate {
     public LiquidityAcceptanceIncrementIndicator LiquidityAcceptanceIncrementIndicator;
     public OpeningUnderlyingMarketCode OpeningUnderlyingMarketCode;
     public uint PriorityQuoteWidth;
-    public fixed byte Reserved8[8];
+    public ulong Reserved8;
 };
 
 /// <summary>
-///  Struct for Strategy Trade Message
+///  Struct for Strategy Last Sale Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct StrategyTradeMessage {
+public unsafe struct StrategyLastSaleMessage {
     public uint Timestamp;
     public uint StrategyId;
     public uint TradeId;
@@ -350,58 +389,15 @@ public unsafe struct SystemTimeMessage {
 };
 
 /// <summary>
-///  Struct for Underlying Trading Status Message
+///  Struct for Underlying Trading Status Notification Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct UnderlyingTradingStatusMessage {
+public unsafe struct UnderlyingTradingStatusNotificationMessage {
     public uint Timestamp;
     public fixed sbyte UnderlyingSymbol[11];
     public TradingStatus TradingStatus;
     public EventReason EventReason;
-    public uint SecondsPart;
-    public uint ExpectedEventTimeNanoSecondsPart;
-};
-
-/// <summary>
-///  Struct for Wide Complex Double Sided Top Of Market Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct WideComplexDoubleSidedTopOfMarketMessage {
-    public uint Timestamp;
-    public uint StrategyId;
-    public long WideBidPrice;
-    public uint WideBidSize;
-    public fixed byte BidReserved4[4];
-    public BidCondition BidCondition;
-    public long WideOfferPrice;
-    public uint WideOfferSize;
-    public fixed byte OfferReserved4[4];
-    public OfferCondition OfferCondition;
-};
-
-/// <summary>
-///  Struct for Wide Complex Top Of Market Bid Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct WideComplexTopOfMarketBidMessage {
-    public uint Timestamp;
-    public uint StrategyId;
-    public long WidePrice;
-    public uint WideSize;
-    public fixed byte Reserved4[4];
-    public TopOfMarketQuoteCondition TopOfMarketQuoteCondition;
-};
-
-/// <summary>
-///  Struct for Wide Complex Top Of Market Offer Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct WideComplexTopOfMarketOfferMessage {
-    public uint Timestamp;
-    public uint StrategyId;
-    public long WidePrice;
-    public uint WideSize;
-    public fixed byte Reserved4[4];
-    public TopOfMarketQuoteCondition TopOfMarketQuoteCondition;
+    public uint ExpectedEventTimeSeconds;
+    public uint ExpectedEventTimeNanoSeconds;
 };
 

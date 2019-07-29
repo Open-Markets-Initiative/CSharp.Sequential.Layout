@@ -8,8 +8,8 @@
 ///  Exercise Style Values
 /// </summary>
 public enum ExerciseStyle : byte {
-    American = "0",
-    European = "1",
+    American = 0,
+    European = 1,
 };
 
 /// <summary>
@@ -32,28 +32,28 @@ public enum MdEntryType : byte {
 ///  Md Update Action Values
 /// </summary>
 public enum MdUpdateAction : byte {
-    Insert = "0",
-    Change = "1",
-    Delete = "2",
-    Overlay = "5",
+    Insert = 0,
+    Change = 1,
+    Delete = 2,
+    Overlay = 5,
 };
 
 /// <summary>
 ///  Md Volume Type Values
 /// </summary>
 public enum MdVolumeType : byte {
-    TotalLimit = "0",
-    CustomerLimit = "1",
-    TotalContingencyAllOrNone = "2",
-    CustomerContingencyAllOrNone = "3",
+    TotalLimit = 0,
+    CustomerLimit = 1,
+    TotalContingencyAllOrNone = 2,
+    CustomerContingencyAllOrNone = 3,
 };
 
 /// <summary>
 ///  Put Or Call Values
 /// </summary>
 public enum PutOrCall : byte {
-    Put = "0",
-    Call = "1",
+    Put = 0,
+    Call = 1,
 };
 
 /// <summary>
@@ -79,26 +79,26 @@ public enum SecurityExchange : byte {
 ///  Security Trading Status Values
 /// </summary>
 public enum SecurityTradingStatus : byte {
-    Halted = "2",
-    Open = "17",
-    Closed = "18",
-    PreOpen = "21",
-    OpeningRotation = "22",
-    FastMarket = "23",
-    StrategyMarketInOpeningRotation = "24",
-    StrategyMarketQuotesNonFirm = "25",
-    Suspended = "26",
+    Halted = 2,
+    Open = 17,
+    Closed = 18,
+    PreOpen = 21,
+    OpeningRotation = 22,
+    FastMarket = 23,
+    StrategyMarketInOpeningRotation = 24,
+    StrategyMarketQuotesNonFirm = 25,
+    Suspended = 26,
 };
 
 /// <summary>
 ///  Template Id Values
 /// </summary>
 public enum TemplateId : byte {
-    SecurityDefinitionMessage = "13",
-    SnapshotFullRefreshMessage = "17",
-    IncrementalRefreshMessage = "18",
-    SecurityStatusMessage = "19",
-    HeartbeatMessage = "16",
+    SecurityDefinitionMessage = 13,
+    SnapshotFullRefreshMessage = 17,
+    IncrementalRefreshMessage = 18,
+    SecurityStatusMessage = 19,
+    HeartbeatMessage = 16,
 };
 
 

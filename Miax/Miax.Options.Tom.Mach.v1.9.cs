@@ -105,10 +105,10 @@ public enum OpeningUnderlyingMarketCode : byte {
 ///  Packet Type Values
 /// </summary>
 public enum PacketType : byte {
-    Heartbeat = "0",
-    StartOfSession = "1",
-    EndOfSession = "2",
-    ApplicationMessage = "3",
+    Heartbeat = 0,
+    StartOfSession = 1,
+    EndOfSession = 2,
+    ApplicationMessage = 3,
 };
 
 /// <summary>
@@ -153,7 +153,7 @@ public unsafe struct ApplicationMessage {
 };
 
 /// <summary>
-///  Struct for Double-Sided Top of Market Compact Message
+///  Struct for Double Sided Top Of Market Compact Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct DoubleSidedTopOfMarketCompactMessage {
@@ -231,7 +231,7 @@ public unsafe struct SystemTimeMessage {
 };
 
 /// <summary>
-///  Struct for Top of Market Bid Compact Message
+///  Struct for Top Of Market Bid Compact Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct TopOfMarketBidCompactMessage {
@@ -244,7 +244,7 @@ public unsafe struct TopOfMarketBidCompactMessage {
 };
 
 /// <summary>
-///  Struct for Top of Market Offer Compact Message
+///  Struct for Top Of Market Offer Compact Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct TopOfMarketOfferCompactMessage {
@@ -300,7 +300,7 @@ public unsafe struct UnderlyingTradingStatusMessage {
 };
 
 /// <summary>
-///  Struct for Wide Double Sided Top of Market Message
+///  Struct for Wide Double Sided Top Of Market Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct WideDoubleSidedTopOfMarketMessage {
@@ -317,7 +317,7 @@ public unsafe struct WideDoubleSidedTopOfMarketMessage {
 };
 
 /// <summary>
-///  Struct for Wide Top of Market Bid Message
+///  Struct for Wide Top Of Market Bid Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct WideTopOfMarketBidMessage {
@@ -330,7 +330,7 @@ public unsafe struct WideTopOfMarketBidMessage {
 };
 
 /// <summary>
-///  Struct for Wide Top of Market Offer Message
+///  Struct for Wide Top Of Market Offer Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct WideTopOfMarketOfferMessage {

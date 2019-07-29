@@ -28,17 +28,17 @@ public enum Capacity : byte {
 ///  Delivery Flag Values
 /// </summary>
 public enum DeliveryFlag : byte {
-    Heartbeat = "1",
-    XdpFailover = "10",
-    OriginalMessage = "11",
-    SequenceNumberResetMessage = "12",
-    OneRetransmissionPacket = "13",
-    RetransmissionSequenceMessage = "15",
-    OneRefreshPacket = "17",
-    RefreshSequenceStart = "18",
-    RefreshSequenceMessage = "19",
-    RefreshSequenceEnd = "20",
-    MessageUnavailable = "21",
+    Heartbeat = 1,
+    XdpFailover = 10,
+    OriginalMessage = 11,
+    SequenceNumberResetMessage = 12,
+    OneRetransmissionPacket = 13,
+    RetransmissionSequenceMessage = 15,
+    OneRefreshPacket = 17,
+    RefreshSequenceStart = 18,
+    RefreshSequenceMessage = 19,
+    RefreshSequenceEnd = 20,
+    MessageUnavailable = 21,
 };
 
 /// <summary>
@@ -66,15 +66,15 @@ public enum ImbalanceSide : byte {
 ///  Market Id Values
 /// </summary>
 public enum MarketId : ushort {
-    NyseCash = "1",
-    EuropeCash = "2",
-    NyseArcaCash = "3",
-    NyseArcaOptions = "4",
-    NyseArcaBonds = "5",
-    ArcaEdge = "6",
-    Liffe = "7",
-    NyseAmericanOptions = "8",
-    NyseMktCash = "9",
+    NyseCash = 1,
+    EuropeCash = 2,
+    NyseArcaCash = 3,
+    NyseArcaOptions = 4,
+    NyseArcaBonds = 5,
+    ArcaEdge = 6,
+    Liffe = 7,
+    NyseAmericanOptions = 8,
+    NyseMktCash = 9,
 };
 
 /// <summary>
@@ -90,40 +90,40 @@ public enum MarketImbalanceSide : byte {
 ///  Message Type Values
 /// </summary>
 public enum MessageType : ushort {
-    OutrightQuoteMessage = "401",
-    OutrightTradeMessage = "407",
-    OutrightTradeCancelMessage = "409",
-    OutrightTradeCorrectionMessage = "411",
-    OutrightImbalanceMessage = "413",
-    OutrightCrossingRfqMessage = "415",
-    OutrightBoldRfqMessage = "471",
-    OutrightSummaryMessage = "417",
-    UnderlyingStatusMessage = "419",
-    OutrightSeriesStatusMessage = "421",
-    RefreshOutrightQuoteMessage = "501",
-    RefreshOutrightTradeMessage = "507",
-    RefreshOutrightImbalanceMessage = "509",
-    UnderlyingIndexMappingMessage = "435",
-    SeriesIndexMappingMessage = "437",
-    StreamIdMessage = "455",
-    SequenceNumberResetMessage = "1",
+    OutrightQuoteMessage = 401,
+    OutrightTradeMessage = 407,
+    OutrightTradeCancelMessage = 409,
+    OutrightTradeCorrectionMessage = 411,
+    OutrightImbalanceMessage = 413,
+    OutrightCrossingRfqMessage = 415,
+    OutrightBoldRfqMessage = 471,
+    OutrightSummaryMessage = 417,
+    UnderlyingStatusMessage = 419,
+    OutrightSeriesStatusMessage = 421,
+    RefreshOutrightQuoteMessage = 501,
+    RefreshOutrightTradeMessage = 507,
+    RefreshOutrightImbalanceMessage = 509,
+    UnderlyingIndexMappingMessage = 435,
+    SeriesIndexMappingMessage = 437,
+    StreamIdMessage = 455,
+    SequenceNumberResetMessage = 1,
 };
 
 /// <summary>
 ///  Price Resolution Values
 /// </summary>
 public enum PriceResolution : byte {
-    AllPenny = "0",
-    PennyNickel = "1",
-    NickelDime = "5",
+    AllPenny = 0,
+    PennyNickel = 1,
+    NickelDime = 5,
 };
 
 /// <summary>
 ///  Put Or Call Values
 /// </summary>
 public enum PutOrCall : byte {
-    Put = "0",
-    Call = "1",
+    Put = 0,
+    Call = 1,
 };
 
 /// <summary>

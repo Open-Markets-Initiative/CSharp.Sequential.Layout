@@ -8,10 +8,10 @@
 ///  Auction Status Values
 /// </summary>
 public enum AuctionStatus : byte {
-    WillRunOpenClose = "0",
-    WillRunInterest = "1",
-    WillNotRunImbalance = "2",
-    WillNotRunTransitionToClosing = "3",
+    WillRunOpenClose = 0,
+    WillRunInterest = 1,
+    WillNotRunImbalance = 2,
+    WillNotRunTransitionToClosing = 3,
 };
 
 /// <summary>
@@ -29,25 +29,25 @@ public enum AuctionType : byte {
 ///  Delivery Flag Values
 /// </summary>
 public enum DeliveryFlag : byte {
-    Heartbeat = "1",
-    XdpFailover = "10",
-    OriginalMessage = "11",
-    SequenceNumberResetMessage = "12",
-    OneRetransmissionPacket = "13",
-    RetransmissionSequenceMessage = "15",
-    OneRefreshPacket = "17",
-    RefreshSequenceStart = "18",
-    RefreshSequenceMessage = "19",
-    RefreshSequenceEnd = "20",
-    MessageUnavailable = "21",
+    Heartbeat = 1,
+    XdpFailover = 10,
+    OriginalMessage = 11,
+    SequenceNumberResetMessage = 12,
+    OneRetransmissionPacket = 13,
+    RetransmissionSequenceMessage = 15,
+    OneRefreshPacket = 17,
+    RefreshSequenceStart = 18,
+    RefreshSequenceMessage = 19,
+    RefreshSequenceEnd = 20,
+    MessageUnavailable = 21,
 };
 
 /// <summary>
 ///  Freeze Status Values
 /// </summary>
 public enum FreezeStatus : byte {
-    NoImbalanceFreeze = "0",
-    ImbalanceFreeze = "1",
+    NoImbalanceFreeze = 0,
+    ImbalanceFreeze = 1,
 };
 
 /// <summary>
@@ -63,18 +63,18 @@ public enum ImbalanceSide : byte {
 ///  Message Type Values
 /// </summary>
 public enum MessageType : ushort {
-    SequenceNumberResetMessage = "1",
-    SymbolIndexMappingMessage = "3",
-    RetransmissionRequestMessage = "10",
-    RequestResponseMessage = "11",
-    HeartbeatResponseMessage = "12",
-    SymbolIndexMappingRequestMessage = "13",
-    RefreshRequestMessage = "15",
-    MessageUnavailableMessage = "31",
-    SymbolClearMessage = "32",
-    SecurityStatusMessage = "34",
-    RefreshHeaderMessage = "35",
-    ImbalanceMessage = "105",
+    SequenceNumberResetMessage = 1,
+    SymbolIndexMappingMessage = 3,
+    RetransmissionRequestMessage = 10,
+    RequestResponseMessage = 11,
+    HeartbeatResponseMessage = 12,
+    SymbolIndexMappingRequestMessage = 13,
+    RefreshRequestMessage = 15,
+    MessageUnavailableMessage = 31,
+    SymbolClearMessage = 32,
+    SecurityStatusMessage = 34,
+    RefreshHeaderMessage = 35,
+    ImbalanceMessage = 105,
 };
 
 

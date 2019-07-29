@@ -1,20 +1,60 @@
-![Nyse](https://github.com/Open-Markets-Initiative/Directory/blob/master/Logos/Nyse.png)
+[![Nyse](https://github.com/Open-Markets-Initiative/Directory/blob/master/Logos/Nyse.png)](https://www.nyse.com)
 
 
 ## New York Stock Exchange
 
 |Division | Data | Protocol | Version | Date | Size | Testing | Specification|
 |--- | --- | --- | --- | --- | --- | --- | ---|
-|Equities | Bbo | Xdp | [2.4.g](https://github.com/Open-Markets-Initiative/CSharp.Packed.Structs/blob/master/Nyse/Nyse.Equities.Bbo.Xdp.v2.4.g.cs "New York Stock Exchange 2.4.g C# Structs") | 1/29/2018 | 413 | Verified | [url](https://www.nyse.com/publicdocs/nyse/data/XDP_BBO_Client_Specification_v2.4g.pdf "Protocol specification") - [pdf](https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nyse/Nyse.Equities.Bbo.Xdp.v2.4.g.pdf "Specification manual")|
-|Equities | Bqt | Xdp | [2.1.a](https://github.com/Open-Markets-Initiative/CSharp.Packed.Structs/blob/master/Nyse/Nyse.Equities.Bqt.Xdp.v2.1.a.cs "New York Stock Exchange 2.1.a C# Structs") | 4/4/2018 | 743 | Untested | [url](https://www.theice.com/publicdocs/nyse/data/NYSE_BQT_Client_Specification_v2.1a.pdf "Protocol specification") - [pdf](https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nyse/Nyse.Equities.Bqt.Xdp.v2.1.a.pdf "Specification manual")|
-|Equities | Bqt | Xdp | [1.7.a](https://github.com/Open-Markets-Initiative/CSharp.Packed.Structs/blob/master/Nyse/Nyse.Equities.Bqt.Xdp.v1.7.a.cs "New York Stock Exchange 1.7.a C# Structs") | 7/24/2017 | 741 | Verified | [url](https://www.nyse.com/publicdocs/nyse/data/NYSE_BQT_Client_Specification.pdf "Protocol specification") - [pdf](https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nyse/Nyse.Equities.Bqt.Xdp.v1.7.a.pdf "Specification manual")|
-|Equities | ImbalancesFeed | Xdp | [2.1.f](https://github.com/Open-Markets-Initiative/CSharp.Packed.Structs/blob/master/Nyse/Nyse.Equities.ImbalancesFeed.Xdp.v2.1.f.cs "New York Stock Exchange 2.1.f C# Structs") | 2/1/2018 | 295 | Verified | [url](https://www.nyse.com/publicdocs/nyse/data/XDP_Imbalances_Feed_Client_Specification_v2.1f.pdf "Protocol specification") - [pdf](https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nyse/Nyse.Equities.ImbalancesFeed.Xdp.v2.1.f.pdf "Specification manual")|
-|Equities | IntegratedFeed | Xdp | [2.1.g](https://github.com/Open-Markets-Initiative/CSharp.Packed.Structs/blob/master/Nyse/Nyse.Equities.IntegratedFeed.Xdp.v2.1.g.cs "New York Stock Exchange 2.1.g C# Structs") | 1/29/2018 | 709 | Verified | [url](https://www.nyse.com/market-data/real-time/integrated-feed "Protocol specification") - [pdf](https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nyse/Nyse.Equities.IntegratedFeed.Xdp.v2.1.g.pdf "Specification manual")|
-|Equities Arca | Bbo | Xdp | [2.4.c](https://github.com/Open-Markets-Initiative/CSharp.Packed.Structs/blob/master/Nyse/Nyse.Equities.Arca.Bbo.Xdp.v2.4.c.cs "New York Stock Exchange 2.4.c C# Structs") | 7/13/2016 | 414 | Verified | [url](https://www.nyse.com/publicdocs/nyse/data/XDP_BBO_Client_Specification_V2.4c.pdf "Protocol specification") - [pdf](https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nyse/Nyse.Equities.Arca.Bbo.Xdp.v2.4.c.pdf "Specification manual")|
-|Options | ComplexFeed | Xdp | [1.3.a](https://github.com/Open-Markets-Initiative/CSharp.Packed.Structs/blob/master/Nyse/Nyse.Options.ComplexFeed.Xdp.v1.3.a.cs "New York Stock Exchange 1.3.a C# Structs") | 2/28/2018 | 322 | Tested | [url](https://www.nyse.com/publicdocs/nyse/data/XDP_Options_Client_Specification_v1.3a.pdf "Protocol specification") - [pdf](https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nyse/Nyse.Options.ComplexFeed.Xdp.v1.3.a.pdf "Specification manual")|
-|Options | DeepFeed | Xdp | [1.3.a](https://github.com/Open-Markets-Initiative/CSharp.Packed.Structs/blob/master/Nyse/Nyse.Options.DeepFeed.Xdp.v1.3.a.cs "New York Stock Exchange 1.3.a C# Structs") | 2/28/2018 | 353 | Unverified | [url](https://www.nyse.com/publicdocs/nyse/data/XDP_Options_Client_Specification_v1.3a.pdf "Protocol specification") - [pdf](https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nyse/Nyse.Options.DeepFeed.Xdp.v1.3.a.pdf "Specification manual")|
-|Options | TopFeed | Xdp | [1.3.a](https://github.com/Open-Markets-Initiative/CSharp.Packed.Structs/blob/master/Nyse/Nyse.Options.TopFeed.Xdp.v1.3.a.cs "New York Stock Exchange 1.3.a C# Structs") | 2/28/2018 | 521 | Tested | [url](https://www.nyse.com/publicdocs/nyse/data/XDP_Options_Client_Specification_v1.3a.pdf "Protocol specification") - [pdf](https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nyse/Nyse.Options.TopFeed.Xdp.v1.3.a.pdf "Specification manual")|
+| Equities | OpenBook | Ultra | [2.1.b][Nyse.Equities.OpenBook.Ultra.v2.1.b.Structs] | 3/9/2018 | 157 | Verified | [url][Nyse.Equities.OpenBook.Ultra.v2.1.b.Url] - [pdf][Nyse.Equities.OpenBook.Ultra.v2.1.b.Pdf]|
+|Amex Equities | OpenBook | Ultra | [2.1.b][Nyse.Amex.Equities.OpenBook.Ultra.v2.1.b.Structs] | 3/9/2018 | 159 | Verified | [url][Nyse.Amex.Equities.OpenBook.Ultra.v2.1.b.Url] - [pdf][Nyse.Amex.Equities.OpenBook.Ultra.v2.1.b.Pdf]|
+|Equities | Bbo | Xdp | [2.4.g][Nyse.Equities.Bbo.Xdp.v2.4.g.Structs] | 1/29/2018 | 413 | Verified | [url][Nyse.Equities.Bbo.Xdp.v2.4.g.Url] - [pdf][Nyse.Equities.Bbo.Xdp.v2.4.g.Pdf]|
+|Equities | Bqt | Xdp | [2.1.a][Nyse.Equities.Bqt.Xdp.v2.1.a.Structs] | 4/4/2018 | 743 | Untested | [url][Nyse.Equities.Bqt.Xdp.v2.1.a.Url] - [pdf][Nyse.Equities.Bqt.Xdp.v2.1.a.Pdf]|
+|Equities | Bqt | Xdp | [1.7.a][Nyse.Equities.Bqt.Xdp.v1.7.a.Structs] | 7/24/2017 | 741 | Verified | [url][Nyse.Equities.Bqt.Xdp.v1.7.a.Url] - [pdf][Nyse.Equities.Bqt.Xdp.v1.7.a.Pdf]|
+|Equities | ImbalancesFeed | Xdp | [2.1.f][Nyse.Equities.ImbalancesFeed.Xdp.v2.1.f.Structs] | 2/1/2018 | 295 | Verified | [url][Nyse.Equities.ImbalancesFeed.Xdp.v2.1.f.Url] - [pdf][Nyse.Equities.ImbalancesFeed.Xdp.v2.1.f.Pdf]|
+|Equities | IntegratedFeed | Xdp | [2.1.g][Nyse.Equities.IntegratedFeed.Xdp.v2.1.g.Structs] | 1/29/2018 | 713 | Verified | [url][Nyse.Equities.IntegratedFeed.Xdp.v2.1.g.Url] - [pdf][Nyse.Equities.IntegratedFeed.Xdp.v2.1.g.Pdf]|
+|Equities Amex | IntegratedFeed | Xdp | [2.1.g][Nyse.Equities.Amex.IntegratedFeed.Xdp.v2.1.g.Structs] | 1/29/2018 | 713 | Verified | [url][Nyse.Equities.Amex.IntegratedFeed.Xdp.v2.1.g.Url] - [pdf][Nyse.Equities.Amex.IntegratedFeed.Xdp.v2.1.g.Pdf]|
+|Equities Arca | Bbo | Xdp | [2.4.c][Nyse.Equities.Arca.Bbo.Xdp.v2.4.c.Structs] | 7/13/2016 | 414 | Verified | [url][Nyse.Equities.Arca.Bbo.Xdp.v2.4.c.Url] - [pdf][Nyse.Equities.Arca.Bbo.Xdp.v2.4.c.Pdf]|
+|Options | ComplexFeed | Xdp | [1.3.a][Nyse.Options.ComplexFeed.Xdp.v1.3.a.Structs] | 2/28/2018 | 305 | Verified | [url][Nyse.Options.ComplexFeed.Xdp.v1.3.a.Url] - [pdf][Nyse.Options.ComplexFeed.Xdp.v1.3.a.Pdf]|
+|Options | DeepFeed | Xdp | [1.3.a][Nyse.Options.DeepFeed.Xdp.v1.3.a.Structs] | 2/28/2018 | 353 | Untested | [url][Nyse.Options.DeepFeed.Xdp.v1.3.a.Url] - [pdf][Nyse.Options.DeepFeed.Xdp.v1.3.a.Pdf]|
+|Options | TopFeed | Xdp | [1.3.a][Nyse.Options.TopFeed.Xdp.v1.3.a.Structs] | 2/28/2018 | 521 | Untested | [url][Nyse.Options.TopFeed.Xdp.v1.3.a.Url] - [pdf][Nyse.Options.TopFeed.Xdp.v1.3.a.Pdf]|
 
 
 Nyse: [website](https://www.nyse.com "Go to New York Stock Exchange")
 
+
+[Nyse.Amex.Equities.OpenBook.Ultra.v2.1.b.Structs]: https://github.com/Open-Markets-Initiative/CSharp.Hft.Structs/blob/master/Nyse/Nyse.Amex.Equities.OpenBook.Ultra.v2.1.b.cs "New York Stock Exchange 2.1.b C# Parsers Source File"
+[Nyse.Amex.Equities.OpenBook.Ultra.v2.1.b.Url]: https://www.nyse.com/market-data/real-time/openbook-ultra "Specification url"
+[Nyse.Amex.Equities.OpenBook.Ultra.v2.1.b.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nyse/Nyse.Amex.Equities.OpenBook.Ultra.v2.1.b.pdf "New York Stock Exchange 2.1.b Pdf"
+[Nyse.Equities.OpenBook.Ultra.v2.1.b.Structs]: https://github.com/Open-Markets-Initiative/CSharp.Hft.Structs/blob/master/Nyse/Nyse.Equities.OpenBook.Ultra.v2.1.b.cs "New York Stock Exchange 2.1.b C# Parsers Source File"
+[Nyse.Equities.OpenBook.Ultra.v2.1.b.Url]: https://www.nyse.com/market-data/real-time/openbook-ultra "Specification url"
+[Nyse.Equities.OpenBook.Ultra.v2.1.b.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nyse/Nyse.Amex.Equities.OpenBook.Ultra.v2.1.b.pdf "New York Stock Exchange 2.1.b Pdf"
+[Nyse.Equities.Amex.IntegratedFeed.Xdp.v2.1.g.Structs]: https://github.com/Open-Markets-Initiative/CSharp.Hft.Structs/blob/master/Nyse/Nyse.Equities.Amex.IntegratedFeed.Xdp.v2.1.g.cs "New York Stock Exchange 2.1.g C# Parsers Source File"
+[Nyse.Equities.Amex.IntegratedFeed.Xdp.v2.1.g.Url]: https://www.nyse.com/market-data/real-time/integrated-feed "Specification url"
+[Nyse.Equities.Amex.IntegratedFeed.Xdp.v2.1.g.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nyse/Nyse.Equities.ImbalancesFeed.Xdp.v2.1.f.pdf "New York Stock Exchange 2.1.g Pdf"
+[Nyse.Equities.Arca.Bbo.Xdp.v2.4.c.Structs]: https://github.com/Open-Markets-Initiative/CSharp.Hft.Structs/blob/master/Nyse/Nyse.Equities.Arca.Bbo.Xdp.v2.4.c.cs "New York Stock Exchange 2.4.c C# Parsers Source File"
+[Nyse.Equities.Arca.Bbo.Xdp.v2.4.c.Url]: https://www.nyse.com/publicdocs/nyse/data/XDP_BBO_Client_Specification_V2.4c.pdf "Specification url"
+[Nyse.Equities.Arca.Bbo.Xdp.v2.4.c.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nyse/Nyse.Client.Bbo.Xdp.v2.4.c.pdf "New York Stock Exchange 2.4.c Pdf"
+[Nyse.Equities.Bbo.Xdp.v2.4.g.Structs]: https://github.com/Open-Markets-Initiative/CSharp.Hft.Structs/blob/master/Nyse/Nyse.Equities.Bbo.Xdp.v2.4.g.cs "New York Stock Exchange 2.4.g C# Parsers Source File"
+[Nyse.Equities.Bbo.Xdp.v2.4.g.Url]: https://www.nyse.com/publicdocs/nyse/data/XDP_BBO_Client_Specification_V2.4c.pdf "Specification url"
+[Nyse.Equities.Bbo.Xdp.v2.4.g.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nyse/Nyse.Equities.Bbo.Xdp.v2.4.c.pdf "New York Stock Exchange 2.4.g Pdf"
+[Nyse.Equities.Bqt.Xdp.v1.7.a.Structs]: https://github.com/Open-Markets-Initiative/CSharp.Hft.Structs/blob/master/Nyse/Nyse.Equities.Bqt.Xdp.v1.7.a.cs "New York Stock Exchange 1.7.a C# Parsers Source File"
+[Nyse.Equities.Bqt.Xdp.v1.7.a.Url]: https://www.nyse.com/publicdocs/nyse/data/NYSE_BQT_Client_Specification.pdf "Specification url"
+[Nyse.Equities.Bqt.Xdp.v1.7.a.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nyse/Nyse.Equities.Bqt.Xdp.v1.7.a.pdf "New York Stock Exchange 1.7.a Pdf"
+[Nyse.Equities.Bqt.Xdp.v2.1.a.Structs]: https://github.com/Open-Markets-Initiative/CSharp.Hft.Structs/blob/master/Nyse/Nyse.Equities.Bqt.Xdp.v2.1.a.cs "New York Stock Exchange 2.1.a C# Parsers Source File"
+[Nyse.Equities.Bqt.Xdp.v2.1.a.Url]: https://www.nyse.com/publicdocs/nyse/data/NYSE_BQT_Client_Specification.pdf "Specification url"
+[Nyse.Equities.Bqt.Xdp.v2.1.a.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nyse/Nyse.Equities.Bqt.Xdp.v2.1.a.pdf "New York Stock Exchange 2.1.a Pdf"
+[Nyse.Equities.ImbalancesFeed.Xdp.v2.1.f.Structs]: https://github.com/Open-Markets-Initiative/CSharp.Hft.Structs/blob/master/Nyse/Nyse.Equities.ImbalancesFeed.Xdp.v2.1.f.cs "New York Stock Exchange 2.1.f C# Parsers Source File"
+[Nyse.Equities.ImbalancesFeed.Xdp.v2.1.f.Url]: https://www.nyse.com/publicdocs/nyse/data/XDP_Imbalances_Feed_Client_Specification_v2.1f.pdf "Specification url"
+[Nyse.Equities.ImbalancesFeed.Xdp.v2.1.f.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nyse/Nyse.Equities.ImbalancesFeed.Xdp.v2.1.f.pdf "New York Stock Exchange 2.1.f Pdf"
+[Nyse.Equities.IntegratedFeed.Xdp.v2.1.g.Structs]: https://github.com/Open-Markets-Initiative/CSharp.Hft.Structs/blob/master/Nyse/Nyse.Equities.IntegratedFeed.Xdp.v2.1.g.cs "New York Stock Exchange 2.1.g C# Parsers Source File"
+[Nyse.Equities.IntegratedFeed.Xdp.v2.1.g.Url]: https://www.nyse.com/market-data/real-time/integrated-feed "Specification url"
+[Nyse.Equities.IntegratedFeed.Xdp.v2.1.g.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nyse/Nyse.Equities.ImbalancesFeed.Xdp.v2.1.f.pdf "New York Stock Exchange 2.1.g Pdf"
+[Nyse.Options.ComplexFeed.Xdp.v1.3.a.Structs]: https://github.com/Open-Markets-Initiative/CSharp.Hft.Structs/blob/master/Nyse/Nyse.Options.ComplexFeed.Xdp.v1.3.a.cs "New York Stock Exchange 1.3.a C# Parsers Source File"
+[Nyse.Options.ComplexFeed.Xdp.v1.3.a.Url]: https://www.nyse.com/market-data/real-time/options-complex-feed "Specification url"
+[Nyse.Options.ComplexFeed.Xdp.v1.3.a.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nyse/Nyse.Options.Client.Xdp.v1.3.a.pdf "New York Stock Exchange 1.3.a Pdf"
+[Nyse.Options.DeepFeed.Xdp.v1.3.a.Structs]: https://github.com/Open-Markets-Initiative/CSharp.Hft.Structs/blob/master/Nyse/Nyse.Options.DeepFeed.Xdp.v1.3.a.cs "New York Stock Exchange 1.3.a C# Parsers Source File"
+[Nyse.Options.DeepFeed.Xdp.v1.3.a.Url]: https://www.nyse.com/market-data/real-time/options-deep-feed "Specification url"
+[Nyse.Options.DeepFeed.Xdp.v1.3.a.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nyse/Nyse.Options.Client.Xdp.v1.3.a.pdf "New York Stock Exchange 1.3.a Pdf"
+[Nyse.Options.TopFeed.Xdp.v1.3.a.Structs]: https://github.com/Open-Markets-Initiative/CSharp.Hft.Structs/blob/master/Nyse/Nyse.Options.TopFeed.Xdp.v1.3.a.cs "New York Stock Exchange 1.3.a C# Parsers Source File"
+[Nyse.Options.TopFeed.Xdp.v1.3.a.Url]: https://www.nyse.com/market-data/real-time/options-top-feed "Specification url"
+[Nyse.Options.TopFeed.Xdp.v1.3.a.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Nyse/Nyse.Options.Client.Xdp.v1.3.a.pdf "New York Stock Exchange 1.3.a Pdf"

@@ -8,17 +8,17 @@
 ///  Delivery Flag Values
 /// </summary>
 public enum DeliveryFlag : byte {
-    Heartbeat = "1",
-    XdpFailover = "10",
-    OriginalMessage = "11",
-    SequenceNumberResetMessage = "12",
-    OneRetransmissionPacket = "13",
-    RetransmissionSequenceMessage = "15",
-    OneRefreshPacket = "17",
-    RefreshSequenceStart = "18",
-    RefreshSequenceMessage = "19",
-    RefreshSequenceEnd = "20",
-    MessageUnavailable = "21",
+    Heartbeat = 1,
+    XdpFailover = 10,
+    OriginalMessage = 11,
+    SequenceNumberResetMessage = 12,
+    OneRetransmissionPacket = 13,
+    RetransmissionSequenceMessage = 15,
+    OneRefreshPacket = 17,
+    RefreshSequenceStart = 18,
+    RefreshSequenceMessage = 19,
+    RefreshSequenceEnd = 20,
+    MessageUnavailable = 21,
 };
 
 /// <summary>
@@ -59,34 +59,34 @@ public enum HaltCondition : byte {
 ///  Market Id Values
 /// </summary>
 public enum MarketId : ushort {
-    NyseEquities = "1",
-    NyseArcaEquities = "3",
-    NyseArcaOptions = "4",
-    NyseBonds = "5",
-    GlobalOtc = "6",
-    NyseAmexOptions = "8",
-    NyseAmericanEquities = "9",
-    NyseNationalOptions = "10",
+    NyseEquities = 1,
+    NyseArcaEquities = 3,
+    NyseArcaOptions = 4,
+    NyseBonds = 5,
+    GlobalOtc = 6,
+    NyseAmexOptions = 8,
+    NyseAmericanEquities = 9,
+    NyseNationalEquities = 10,
 };
 
 /// <summary>
 ///  Message Type Values
 /// </summary>
 public enum MessageType : ushort {
-    SequenceNumberResetMessage = "1",
-    SourceTimeReferenceMessage = "2",
-    SymbolIndexMappingMessage = "3",
-    RetransmissionRequestMessage = "10",
-    RequestResponseMessage = "11",
-    HeartbeatResponseMessage = "12",
-    SymbolIndexMappingRequestMessage = "13",
-    RefreshRequestMessage = "15",
-    MessageUnavailableMessage = "31",
-    SymbolClearMessage = "32",
-    TradingSessionChangeMessage = "33",
-    SecurityStatusMessage = "34",
-    RefreshHeaderMessage = "35",
-    QuoteMessage = "140",
+    SequenceNumberResetMessage = 1,
+    SourceTimeReferenceMessage = 2,
+    SymbolIndexMappingMessage = 3,
+    RetransmissionRequestMessage = 10,
+    RequestResponseMessage = 11,
+    HeartbeatResponseMessage = 12,
+    SymbolIndexMappingRequestMessage = 13,
+    RefreshRequestMessage = 15,
+    MessageUnavailableMessage = 31,
+    SymbolClearMessage = 32,
+    TradingSessionChangeMessage = 33,
+    SecurityStatusMessage = 34,
+    RefreshHeaderMessage = 35,
+    QuoteMessage = 140,
 };
 
 /// <summary>
@@ -103,7 +103,7 @@ public enum QuoteCondition : byte {
 ///  Retransmit Method Values
 /// </summary>
 public enum RetransmitMethod : byte {
-    Udp = "0",
+    Udp = 0,
 };
 
 /// <summary>

@@ -27,8 +27,8 @@ public enum AuctionType : byte {
 ///  Current Trading State Values
 /// </summary>
 public enum CurrentTradingState : byte {
-    HaltInEffect = "H",
-    TradingResumed = "T",
+    HaltInEffect = H,
+    TradingResumed = T,
 };
 
 /// <summary>

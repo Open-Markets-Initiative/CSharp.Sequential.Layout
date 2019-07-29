@@ -8,32 +8,32 @@
 ///  Aggressor Side Values
 /// </summary>
 public enum AggressorSide : byte {
-    AggressorSide = "0",
-    AggressorSide = "1",
-    AggressorSide = "2",
+    AggressorSide = 0,
+    AggressorSide = 1,
+    AggressorSide = 2,
 };
 
 /// <summary>
 ///  Md Entry Code Values
 /// </summary>
 public enum MdEntryCode : byte {
-    MdEntryCode = "1",
-    MdEntryCode = "2",
-    MdEntryCode = "3",
-    MdEntryCode = "4",
-    MdEntryCode = "5",
+    MdEntryCode = 1,
+    MdEntryCode = 2,
+    MdEntryCode = 3,
+    MdEntryCode = 4,
+    MdEntryCode = 5,
 };
 
 /// <summary>
 ///  Md Update Action Values
 /// </summary>
 public enum MdUpdateAction : byte {
-    MdUpdateAction = "0",
-    MdUpdateAction = "1",
-    MdUpdateAction = "2",
-    MdUpdateAction = "3",
-    MdUpdateAction = "4",
-    MdUpdateAction = "5",
+    MdUpdateAction = 0,
+    MdUpdateAction = 1,
+    MdUpdateAction = 2,
+    MdUpdateAction = 3,
+    MdUpdateAction = 4,
+    MdUpdateAction = 5,
 };
 
 /// <summary>
@@ -49,22 +49,22 @@ public enum SecurityUpdateAction : byte {
 ///  Template Id Values
 /// </summary>
 public enum TemplateId : ushort {
-    AdminHeartbeat = "312",
-    AdminLogin = "315",
-    AdminLogout = "316",
-    MdIncrementalRefreshErisReferenceDataAndDailyStatistics = "333",
-    MdNewsIndices = "339",
-    MdIncrementalRefreshTradeBlocks = "340",
-    QuoteRequest = "345",
-    MdInstrumentDefinitionIndices = "347",
-    MdIncrementalRefreshIndices = "348",
-    MdIncrementalRefreshTradeBlocks = "349",
-    MdIncrementalRefreshEris = "351",
-    MdIncrementalRefreshEris = "353",
-    MdIncrementalRefreshOtc = "356",
-    MdInstrumentDefinitionEris = "363",
-    MdIncrementalRefreshTradeBlocks = "365",
-    MdIncrementalRefreshOtc = "366",
+    AdminHeartbeat = 312,
+    AdminLogin = 315,
+    AdminLogout = 316,
+    MdIncrementalRefreshErisReferenceDataAndDailyStatistics = 333,
+    MdNewsIndices = 339,
+    MdIncrementalRefreshTradeBlocks = 340,
+    QuoteRequest = 345,
+    MdInstrumentDefinitionIndices = 347,
+    MdIncrementalRefreshIndices = 348,
+    MdIncrementalRefreshTradeBlocks = 349,
+    MdIncrementalRefreshEris = 351,
+    MdIncrementalRefreshEris = 353,
+    MdIncrementalRefreshOtc = 356,
+    MdInstrumentDefinitionEris = 363,
+    MdIncrementalRefreshTradeBlocks = 365,
+    MdIncrementalRefreshOtc = 366,
 };
 
 

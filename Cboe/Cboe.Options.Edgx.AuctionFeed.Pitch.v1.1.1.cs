@@ -24,13 +24,13 @@ public enum CustomerIndicator : byte {
 ///  Message Type Values
 /// </summary>
 public enum MessageType : byte {
-    TimeMessage = "0x20",
-    UnitClearMessage = "0x97",
-    AuctionNotificationMessage = "0xAD",
-    AuctionCancelMessage = "0xAE",
-    AuctionTradeMessage = "0xAF",
-    SymbolMappingMessage = "0x2E",
-    EndOfSessionMessage = "0x2D",
+    TimeMessage = 0x20,
+    UnitClearMessage = 0x97,
+    AuctionNotificationMessage = 0xAD,
+    AuctionCancelMessage = 0xAE,
+    AuctionTradeMessage = 0xAF,
+    SymbolMappingMessage = 0x2E,
+    EndOfSessionMessage = 0x2D,
 };
 
 /// <summary>

@@ -1,4 +1,4 @@
-// C# Structs For Opra Obdi Recipient 2.9 protocol
+// C# Structs For Opra Options Obdi Recipient 2.9 protocol
 
 ///////////////////////////////////////////////////////////////////////
 // Enum Values
@@ -107,30 +107,30 @@ public enum ParticipantId : byte {
 ///  Session Indicator Values
 /// </summary>
 public enum SessionIndicator : byte {
-    Regular = "0",
-    PreMarket = "88",
+    Regular = 0,
+    PreMarket = 88,
 };
 
 /// <summary>
 ///  Volume Values
 /// </summary>
 public enum Volume : uint {
-    NyseAmerican = "A",
-    Box = "B",
-    Cboe = "C",
-    Edgx = "E",
-    Gemini = "H",
-    Ise = "I",
-    Mercury = "J",
-    Miax = "M",
-    NyseArca = "N",
-    Opra = "O",
-    MiaxPearl = "P",
-    Nasdaq = "Q",
-    C2 = "W",
-    NasdaqBx = "T",
-    NasdaqPhlx = "X",
-    Bats = "Z",
+    NyseAmerican = A,
+    Box = B,
+    Cboe = C,
+    Edgx = E,
+    Gemini = H,
+    Ise = I,
+    Mercury = J,
+    Miax = M,
+    NyseArca = N,
+    Opra = O,
+    MiaxPearl = P,
+    Nasdaq = Q,
+    C2 = W,
+    NasdaqBx = T,
+    NasdaqPhlx = X,
+    Bats = Z,
 };
 
 

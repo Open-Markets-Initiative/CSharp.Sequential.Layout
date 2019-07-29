@@ -8,25 +8,25 @@
 ///  Eop Type Values
 /// </summary>
 public enum EopType : byte {
-    Undefined = "0",
-    OpeningPrice = "1",
-    NeedMoreSellers = "2",
-    NeedMoreBuyers = "3",
-    NoOpeningTrades = "4",
-    MultipleOpeningPrices = "5",
-    NeedQuoteToOpen = "6",
-    PriceNotInQuoteRange = "7",
-    NeedDpmQuoteToOpen = "8",
-    DpmQuoteInvalid = "9",
-    PriceNotInBotrRange = "10",
+    Undefined = 0,
+    OpeningPrice = 1,
+    NeedMoreSellers = 2,
+    NeedMoreBuyers = 3,
+    NoOpeningTrades = 4,
+    MultipleOpeningPrices = 5,
+    NeedQuoteToOpen = 6,
+    PriceNotInQuoteRange = 7,
+    NeedDpmQuoteToOpen = 8,
+    DpmQuoteInvalid = 9,
+    PriceNotInBotrRange = 10,
 };
 
 /// <summary>
 ///  Exercise Style Values
 /// </summary>
 public enum ExerciseStyle : byte {
-    American = "0",
-    European = "1",
+    American = 0,
+    European = 1,
 };
 
 /// <summary>
@@ -41,8 +41,8 @@ public enum LegSide : byte {
 ///  Legal Market Values
 /// </summary>
 public enum LegalMarket : byte {
-    NotALegalMarket = "0",
-    LegalMarket = "1",
+    NotALegalMarket = 0,
+    LegalMarket = 1,
 };
 
 /// <summary>
@@ -63,18 +63,18 @@ public enum MdEntryType : byte {
 ///  Md Volume Type Values
 /// </summary>
 public enum MdVolumeType : byte {
-    TotalLimit = "0",
-    CustomerLimit = "1",
-    TotalContingencyAllOrNone = "2",
-    CustomerContingencyAllOrNone = "3",
+    TotalLimit = 0,
+    CustomerLimit = 1,
+    TotalContingencyAllOrNone = 2,
+    CustomerContingencyAllOrNone = 3,
 };
 
 /// <summary>
 ///  Put Or Call Values
 /// </summary>
 public enum PutOrCall : byte {
-    Put = "0",
-    Call = "1",
+    Put = 0,
+    Call = 1,
 };
 
 /// <summary>
@@ -92,26 +92,26 @@ public enum SecurityExchange : byte {
 ///  Security Trading Status Values
 /// </summary>
 public enum SecurityTradingStatus : byte {
-    Halted = "2",
-    Open = "17",
-    Closed = "18",
-    PreOpen = "21",
-    OpeningRotation = "22",
-    FastMarket = "23",
-    StrategyMarketInOpeningRotation = "24",
-    StrategyMarketQuotesNonFirm = "25",
-    Suspended = "26",
+    Halted = 2,
+    Open = 17,
+    Closed = 18,
+    PreOpen = 21,
+    OpeningRotation = 22,
+    FastMarket = 23,
+    StrategyMarketInOpeningRotation = 24,
+    StrategyMarketQuotesNonFirm = 25,
+    Suspended = 26,
 };
 
 /// <summary>
 ///  Template Id Values
 /// </summary>
 public enum TemplateId : byte {
-    SecurityDefinitionMessage = "13",
-    MarketDataRefreshMessage = "20",
-    CurrentMarketUpdateMessage = "12",
-    ExpectedOpeningPriceAndSizeMessage = "15",
-    HeartbeatMessage = "16",
+    SecurityDefinitionMessage = 13,
+    MarketDataRefreshMessage = 20,
+    CurrentMarketUpdateMessage = 12,
+    ExpectedOpeningPriceAndSizeMessage = 15,
+    HeartbeatMessage = 16,
 };
 
 

@@ -1,4 +1,4 @@
-// C# Structs For Eurex T7 Eobi 4.0.225 protocol
+// C# Structs For Eurex Derivatives T7 Eobi 6.0 protocol
 
 ///////////////////////////////////////////////////////////////////////
 // Enum Values
@@ -8,241 +8,263 @@
 ///  Aggressor Side Values
 /// </summary>
 public enum AggressorSide : byte {
-    Buy = "1",
-    Sell = "2",
-    AggressorSide = "2",
-    AggressorSide = "1",
+    Buy = 1,
+    Sell = 2,
+    AggressorSide = 2,
+    AggressorSide = 1,
+};
+
+/// <summary>
+///  Algorithmic Trade Indicator Values
+/// </summary>
+public enum AlgorithmicTradeIndicator : byte {
+    AlgorithmicTrade = 1,
+    AlgorithmicTradeIndicator = 1,
+    AlgorithmicTradeIndicator = 1,
 };
 
 /// <summary>
 ///  Application Sequence Reset Indicator Values
 /// </summary>
 public enum ApplicationSequenceResetIndicator : byte {
-    NoReset = "0",
-    Reset = "1",
-    ApplSeqResetIndicator = "1",
-    ApplSeqResetIndicator = "0",
+    NoReset = 0,
+    Reset = 1,
+    ApplSeqResetIndicator = 1,
+    ApplSeqResetIndicator = 0,
 };
 
 /// <summary>
 ///  Completion Indicator Values
 /// </summary>
 public enum CompletionIndicator : byte {
-    Incomplete = "0",
-    Complete = "1",
-    CompletionIndicator = "1",
-    CompletionIndicator = "0",
+    Incomplete = 0,
+    Complete = 1,
+    CompletionIndicator = 1,
+    CompletionIndicator = 0,
 };
 
 /// <summary>
 ///  Fast Market Indicator Values
 /// </summary>
 public enum FastMarketIndicator : byte {
-    No = "0",
-    Yes = "1",
-    FastMarketIndicator = "1",
-    FastMarketIndicator = "0",
+    No = 0,
+    Yes = 1,
+    FastMarketIndicator = 1,
+    FastMarketIndicator = 0,
 };
 
 /// <summary>
 ///  Implied Market Indicator Values
 /// </summary>
 public enum ImpliedMarketIndicator : byte {
-    NotImplied = "0",
-    ImpliedInOut = "3",
-    ImpliedMarketIndicator = "3",
-    ImpliedMarketIndicator = "0",
+    NotImplied = 0,
+    ImpliedInOut = 3,
+    ImpliedMarketIndicator = 3,
+    ImpliedMarketIndicator = 0,
 };
 
 /// <summary>
 ///  Leg Side Values
 /// </summary>
 public enum LegSide : byte {
-    Buy = "1",
-    Sell = "2",
-    LegSide = "2",
-    LegSide = "1",
+    Buy = 1,
+    Sell = 2,
+    LegSide = 2,
+    LegSide = 1,
+};
+
+/// <summary>
+///  Market Condition Values
+/// </summary>
+public enum MarketCondition : byte {
+    Normal = 0,
+    Stressed = 1,
+    MarketCondition = 1,
+    MarketCondition = 0,
 };
 
 /// <summary>
 ///  Match Sub Type Values
 /// </summary>
 public enum MatchSubType : byte {
-    OpeningAuction = "1",
-    ClosingAuction = "2",
-    IntradayAuction = "3",
-    CircuitBreakerAuction = "4",
-    IpoAuction = "5",
-    MatchSubType = "5",
-    MatchSubType = "1",
+    OpeningAuction = 1,
+    ClosingAuction = 2,
+    IntradayAuction = 3,
+    CircuitBreakerAuction = 4,
+    IpoAuction = 5,
+    MatchSubType = 5,
+    MatchSubType = 1,
 };
 
 /// <summary>
 ///  Match Type Values
 /// </summary>
 public enum MatchType : byte {
-    ConfirmedTradeReport = "3",
-    CrossAuction = "5",
-    CallAuction = "7",
-    MatchType = "7",
-    MatchType = "3",
+    ConfirmedTradeReport = 3,
+    CrossAuction = 5,
+    CallAuction = 7,
+    MatchType = 7,
+    MatchType = 3,
 };
 
 /// <summary>
 ///  Md Entry Type Values
 /// </summary>
 public enum MdEntryType : byte {
-    Trade = "2",
-    OpeningPrice = "4",
-    ClosingPrice = "5",
-    HighPrice = "7",
-    LowPrice = "8",
-    TradeVolume = "66",
-    PreviousClosingPrice = "101",
-    OpeningAuction = "200",
-    IntradayAuction = "201",
-    CircuitBreakerAuction = "202",
-    ClosingAuction = "203",
-    IpoAuction = "204",
-    MdEntryType = "204",
-    MdEntryType = "2",
+    Trade = 2,
+    OpeningPrice = 4,
+    ClosingPrice = 5,
+    HighPrice = 7,
+    LowPrice = 8,
+    TradeVolume = 66,
+    PreviousClosingPrice = 101,
+    OpeningAuction = 200,
+    IntradayAuction = 201,
+    CircuitBreakerAuction = 202,
+    ClosingAuction = 203,
+    IpoAuction = 204,
+    MdEntryType = 204,
+    MdEntryType = 2,
 };
 
 /// <summary>
 ///  Ord Type Values
 /// </summary>
 public enum OrdType : byte {
-    Market = "1",
-    OrdType = "1",
-    OrdType = "1",
+    Market = 1,
+    OrdType = 1,
+    OrdType = 1,
 };
 
 /// <summary>
 ///  Potential Security Trading Event Values
 /// </summary>
 public enum PotentialSecurityTradingEvent : byte {
-    None = "0",
-    PriceVolatilityAuctionIsExtended = "10",
-    PotentialSecurityTradingEvent = "10",
-    PotentialSecurityTradingEvent = "0",
+    None = 0,
+    PriceVolatilityAuctionIsExtended = 10,
+    PotentialSecurityTradingEvent = 10,
+    PotentialSecurityTradingEvent = 0,
 };
 
 /// <summary>
 ///  Product Complex Values
 /// </summary>
 public enum ProductComplex : byte {
-    StandardOptionStrategy = "2",
-    NonStandardOptionStrategy = "3",
-    VolatilityStrategy = "4",
-    FuturesSpread = "5",
-    InterProductSpread = "6",
-    StandardFuturesStrategy = "7",
-    PackAndBundle = "8",
-    Strip = "9",
-    ProductComplex = "9",
-    ProductComplex = "2",
+    StandardOptionStrategy = 2,
+    NonStandardOptionStrategy = 3,
+    VolatilityStrategy = 4,
+    FuturesSpread = 5,
+    InterProductSpread = 6,
+    StandardFuturesStrategy = 7,
+    PackAndBundle = 8,
+    Strip = 9,
+    ProductComplex = 9,
+    ProductComplex = 2,
 };
 
 /// <summary>
 ///  Security Status Values
 /// </summary>
 public enum SecurityStatus : byte {
-    Active = "1",
-    Inactive = "2",
-    Expired = "4",
-    Suspended = "9",
-    SecurityStatus = "9",
-    SecurityStatus = "1",
+    Active = 1,
+    Inactive = 2,
+    Expired = 4,
+    Suspended = 9,
+    SecurityStatus = 9,
+    SecurityStatus = 1,
 };
 
 /// <summary>
 ///  Security Trading Event Values
 /// </summary>
 public enum SecurityTradingEvent : byte {
-    PriceVolatilityAuctionIsExtended = "10",
-    PriceVolatilityAuctionIsExtendedAgain = "11",
-    SecurityTradingEvent = "11",
-    SecurityTradingEvent = "0",
+    PriceVolatilityAuctionIsExtended = 10,
+    PriceVolatilityAuctionIsExtendedAgain = 11,
+    SecurityTradingEvent = 11,
+    SecurityTradingEvent = 0,
 };
 
 /// <summary>
 ///  Security Trading Status Values
 /// </summary>
 public enum SecurityTradingStatus : byte {
-    MarketImbalanceBuy = "7",
-    MarketImbalanceSell = "8",
-    Closed = "200",
-    Restricted = "201",
-    Book = "202",
-    Continuous = "203",
-    OpeningAuction = "204",
-    OpeningAuctionFreeze = "205",
-    IntradayAuction = "206",
-    IntradayAuctionFreeze = "207",
-    CircuitBreakerAuction = "208",
-    CircuitBreakerAuctionFreeze = "209",
-    ClosingAuction = "210",
-    ClosingAuctionFreeze = "211",
-    IpoAuction = "212",
-    IpoAuctionFreeze = "213",
-    SecurityTradingStatus = "213",
-    SecurityTradingStatus = "7",
+    TradingHalt = 2,
+    MarketImbalanceBuy = 7,
+    MarketImbalanceSell = 8,
+    Closed = 200,
+    Restricted = 201,
+    Book = 202,
+    Continuous = 203,
+    OpeningAuction = 204,
+    OpeningAuctionFreeze = 205,
+    IntradayAuction = 206,
+    IntradayAuctionFreeze = 207,
+    CircuitBreakerAuction = 208,
+    CircuitBreakerAuctionFreeze = 209,
+    ClosingAuction = 210,
+    ClosingAuctionFreeze = 211,
+    IpoAuction = 212,
+    IpoAuctionFreeze = 213,
+    SecurityTradingStatus = 213,
+    SecurityTradingStatus = 2,
 };
 
 /// <summary>
 ///  Side Values
 /// </summary>
 public enum Side : byte {
-    Buy = "1",
-    Sell = "2",
-    Side = "2",
-    Side = "1",
+    Buy = 1,
+    Sell = 2,
+    Side = 2,
+    Side = 1,
 };
 
 /// <summary>
 ///  Trad Ses Status Values
 /// </summary>
 public enum TradSesStatus : byte {
-    Halted = "1",
-    Open = "2",
-    Closed = "3",
-    TradSesStatus = "3",
-    TradSesStatus = "1",
+    Halted = 1,
+    Open = 2,
+    Closed = 3,
+    TradSesStatus = 3,
+    TradSesStatus = 1,
 };
 
 /// <summary>
 ///  Trade Condition Values
 /// </summary>
 public enum TradeCondition : byte {
-    ImpliedTrade = "1",
-    TradeCondition = "1",
-    TradeCondition = "1",
+    ImpliedTrade = 1,
+    SystematicInternalizer = 153,
+    MidpointPrice = 155,
+    TradeCondition = 155,
+    TradeCondition = 1,
 };
 
 /// <summary>
 ///  Trading Session Id Values
 /// </summary>
 public enum TradingSessionId : byte {
-    Day = "1",
-    Morning = "3",
-    Evening = "5",
-    AfterHours = "6",
-    Holiday = "7",
-    TradingSessionId = "7",
-    TradingSessionId = "1",
+    Day = 1,
+    Morning = 3,
+    Evening = 5,
+    AfterHours = 6,
+    Holiday = 7,
+    TradingSessionId = 7,
+    TradingSessionId = 1,
 };
 
 /// <summary>
 ///  Trading Session Sub Id Values
 /// </summary>
 public enum TradingSessionSubId : byte {
-    PreTrading = "1",
-    Trading = "3",
-    Closing = "4",
-    PostTrading = "5",
-    Quiescent = "7",
-    TradingSessionSubId = "7",
-    TradingSessionSubId = "1",
+    PreTrading = 1,
+    Continuous = 3,
+    Closing = 4,
+    PostTrading = 5,
+    Quiescent = 7,
+    TradingSessionSubId = 7,
+    TradingSessionSubId = 1,
 };
 
 
@@ -330,7 +352,8 @@ public unsafe struct ExecutionSummary {
 public unsafe struct FullOrderExecution {
     public Side Side;
     public OrdType OrdType;
-    public fixed byte Pad6[6];
+    public AlgorithmicTradeIndicator AlgorithmicTradeIndicator;
+    public fixed byte Pad5[5];
     public ulong Price;
     public ulong TrdRegTsTimePriority;
     public long SecurityId;
@@ -369,9 +392,10 @@ public unsafe struct InstrumentStateChange {
     public long SecurityId;
     public SecurityStatus SecurityStatus;
     public SecurityTradingStatus SecurityTradingStatus;
+    public MarketCondition MarketCondition;
     public FastMarketIndicator FastMarketIndicator;
     public SecurityTradingEvent SecurityTradingEvent;
-    public fixed byte Pad4[4];
+    public fixed byte Pad3[3];
     public ulong TransactTime;
 };
 
@@ -386,10 +410,10 @@ public unsafe struct InstrumentSummary {
     public ushort TotNoOrders;
     public SecurityStatus SecurityStatus;
     public SecurityTradingStatus SecurityTradingStatus;
+    public MarketCondition MarketCondition;
     public FastMarketIndicator FastMarketIndicator;
     public SecurityTradingEvent SecurityTradingEvent;
     public byte NoMdEntries;
-    public fixed byte Pad1[1];
 };
 
 /// <summary>
@@ -400,7 +424,8 @@ public unsafe struct MdInstrumentEntryGrp {
     public ulong MdEntryPx;
     public int MdEntrySize;
     public MdEntryType MdEntryType;
-    public fixed byte Pad3[3];
+    public TradeCondition TradeCondition;
+    public fixed byte Pad2[2];
 };
 
 /// <summary>
@@ -526,7 +551,8 @@ public unsafe struct PacketInfo {
 public unsafe struct PartialOrderExecution {
     public Side Side;
     public OrdType OrdType;
-    public fixed byte Pad6[6];
+    public AlgorithmicTradeIndicator AlgorithmicTradeIndicator;
+    public fixed byte Pad5[5];
     public ulong Price;
     public ulong TrdRegTsTimePriority;
     public long SecurityId;
@@ -543,8 +569,9 @@ public unsafe struct ProductStateChange {
     public TradingSessionId TradingSessionId;
     public TradingSessionSubId TradingSessionSubId;
     public TradSesStatus TradSesStatus;
+    public MarketCondition MarketCondition;
     public FastMarketIndicator FastMarketIndicator;
-    public fixed byte Pad4[4];
+    public fixed byte Pad3[3];
     public ulong TransactTime;
 };
 
@@ -557,7 +584,9 @@ public unsafe struct ProductSummary {
     public TradingSessionId TradingSessionId;
     public TradingSessionSubId TradingSessionSubId;
     public TradSesStatus TradSesStatus;
+    public MarketCondition MarketCondition;
     public FastMarketIndicator FastMarketIndicator;
+    public fixed byte Pad7[7];
 };
 
 /// <summary>
@@ -603,7 +632,9 @@ public unsafe struct TradeReport {
     public ulong LastPx;
     public MatchType MatchType;
     public MatchSubType MatchSubType;
-    public fixed byte Pad6[6];
+    public AlgorithmicTradeIndicator AlgorithmicTradeIndicator;
+    public TradeCondition TradeCondition;
+    public fixed byte Pad4[4];
 };
 
 /// <summary>
@@ -617,7 +648,8 @@ public unsafe struct TradeReversal {
     public int LastQty;
     public ulong LastPx;
     public ulong TrdRegTsExecutionTime;
+    public TradeCondition TradeCondition;
+    public fixed byte Pad6[6];
     public byte NoMdEntries;
-    public fixed byte Pad7[7];
 };
 

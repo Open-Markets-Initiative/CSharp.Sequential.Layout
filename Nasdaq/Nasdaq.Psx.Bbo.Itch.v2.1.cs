@@ -114,9 +114,9 @@ public enum MarketCategory : byte {
 ///  Market Code Values
 /// </summary>
 public enum MarketCode : sbyte {
-    Nasdaq = "Q",
-    Bx = "B",
-    Psx = "X",
+    Nasdaq = Q,
+    Bx = B,
+    Psx = X,
 };
 
 /// <summary>
@@ -138,8 +138,8 @@ public enum MessageType : byte {
 ///  Operational Halt Action Values
 /// </summary>
 public enum OperationalHaltAction : sbyte {
-    Halted = "H",
-    Resumed = "T",
+    Halted = H,
+    Resumed = T,
 };
 
 /// <summary>

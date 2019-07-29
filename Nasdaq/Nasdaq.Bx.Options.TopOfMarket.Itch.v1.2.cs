@@ -1,4 +1,4 @@
-// C# Structs For Nasdaq Phlx Itch Topo 3.3 protocol
+// C# Structs For Nasdaq Bx Options Itch TopOfMarket 1.2 protocol
 
 ///////////////////////////////////////////////////////////////////////
 // Enum Values
@@ -8,22 +8,20 @@
 ///  Current Trading State Values
 /// </summary>
 public enum CurrentTradingState : byte {
-    HaltInEffect = (byte)'H',
-    TradingResumed = (byte)'T',
+    Halt = (byte)'H',
+    Trading = (byte)'T',
 };
 
 /// <summary>
 ///  Event Code Values
 /// </summary>
 public enum EventCode : byte {
-    StartOfMessages = O,
-    StartOfSystemHours = S,
-    StartOfOpeningProcess = Q,
-    StartOfNormalHoursClosingProcess = N,
-    StartOfLateHoursClosingProcess = L,
-    EndOfSystemHours = E,
-    EndOfMessages = C,
-    EndOfWcoEarlyClosing = W,
+    StartOfMessages = (byte)'O',
+    StartOfSystemHours = (byte)'S',
+    StartOfMarketHours = (byte)'Q',
+    EndOfMarketHours = (byte)'M',
+    EndOfSystemHours = (byte)'E',
+    EndOfMessages = (byte)'C',
 };
 
 /// <summary>
@@ -34,21 +32,21 @@ public enum MessageType : byte {
     SystemEventMessage = (byte)'S',
     OptionsDirectoryMessage = (byte)'D',
     TradingActionMessage = (byte)'H',
-    SecurityOpenClosedMessage = (byte)'O',
-    ShortBestBidAndAskUpdateMessage = (byte)'q',
-    LongBestBidAndAskUpdateMessage = (byte)'Q',
-    ShortBestAskUpdateMessage = (byte)'a',
-    ShortBestBidUpdateMessage = (byte)'b',
-    LongBestAskUpdateMessage = (byte)'A',
-    LongBestBidUpdateMessage = (byte)'B',
+    SecurityOpenMessage = (byte)'O',
+    BestBidAndAskUpdateShortFormMessage = (byte)'q',
+    BestBidAndAskUpdateLongFormMessage = (byte)'Q',
+    BestBidUpdateShortFormMessage = (byte)'b',
+    BestAskUpdateShortFormMessage = (byte)'a',
+    BestBidUpdateLongFormMessage = (byte)'B',
+    BestAskUpdateLongFormMessage = (byte)'A',
     TradeReportMessage = (byte)'R',
     BrokenTradeReportMessage = (byte)'X',
 };
 
 /// <summary>
-///  Mpv Values
+///  Minimum Price Variation Values
 /// </summary>
-public enum Mpv : byte {
+public enum MinimumPriceVariation : byte {
     PennyEverywhere = (byte)'E',
     Scaled = (byte)'S',
     PennyPilot = (byte)'P',
@@ -58,17 +56,8 @@ public enum Mpv : byte {
 ///  Open State Values
 /// </summary>
 public enum OpenState : byte {
-    OpenForAutoExecution = (byte)'Y',
-    ClosedForAutoExecution = (byte)'N',
-};
-
-/// <summary>
-///  Option Closing Type Values
-/// </summary>
-public enum OptionClosingType : byte {
-    Normal = (byte)'N',
-    Late = (byte)'L',
-    WcoEarlyClosing = (byte)'W',
+    Open = (byte)'Y',
+    Closed = (byte)'N',
 };
 
 /// <summary>
@@ -83,25 +72,101 @@ public enum OptionType : byte {
 ///  Quote Condition Values
 /// </summary>
 public enum QuoteCondition : byte {
-    RegularQuoteautoxEligible = (byte)'',
-    NonFirmQuote = (byte)'F',
+    NonfirmQuote = (byte)'F',
     RotationalQuote = (byte)'R',
     BidSideFirm = (byte)'X',
     AskSideFirm = (byte)'Y',
+    RegularQuote = (byte)' ',
 };
 
 /// <summary>
 ///  Tradable Values
 /// </summary>
 public enum Tradable : byte {
-    Tradable = (byte)'Y',
-    NotTradable = (byte)'N',
+    Yes = (byte)'Y',
+    No = (byte)'N',
 };
 
 
 ///////////////////////////////////////////////////////////////////////
 // Structs
 ///////////////////////////////////////////////////////////////////////
+
+/// <summary>
+///  Struct for Best Ask Update Long Form Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct BestAskUpdateLongFormMessage {
+    public uint Nanoseconds;
+    public uint OptionId;
+    public QuoteCondition QuoteCondition;
+    public uint PriceLong;
+    public uint SizeLong;
+};
+
+/// <summary>
+///  Struct for Best Ask Update Short Form Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct BestAskUpdateShortFormMessage {
+    public uint Nanoseconds;
+    public uint OptionId;
+    public QuoteCondition QuoteCondition;
+    public ushort Price;
+    public ushort Size;
+};
+
+/// <summary>
+///  Struct for Best Bid And Ask Update Long Form Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct BestBidAndAskUpdateLongFormMessage {
+    public uint Nanoseconds;
+    public uint OptionId;
+    public QuoteCondition QuoteCondition;
+    public uint BidPriceLong;
+    public uint BidSizeLong;
+    public uint AskPriceLong;
+    public uint AskSizeLong;
+};
+
+/// <summary>
+///  Struct for Best Bid And Ask Update Short Form Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct BestBidAndAskUpdateShortFormMessage {
+    public uint Nanoseconds;
+    public uint OptionId;
+    public QuoteCondition QuoteCondition;
+    public ushort BidPrice;
+    public ushort BidSize;
+    public ushort AskPrice;
+    public ushort AskSize;
+};
+
+/// <summary>
+///  Struct for Best Bid Update Long Form Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct BestBidUpdateLongFormMessage {
+    public uint Nanoseconds;
+    public uint OptionId;
+    public QuoteCondition QuoteCondition;
+    public uint PriceLong;
+    public uint SizeLong;
+};
+
+/// <summary>
+///  Struct for Best Bid Update Short Form Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct BestBidUpdateShortFormMessage {
+    public uint Nanoseconds;
+    public uint OptionId;
+    public QuoteCondition QuoteCondition;
+    public ushort Price;
+    public ushort Size;
+};
 
 /// <summary>
 ///  Struct for Broken Trade Report Message
@@ -113,44 +178,6 @@ public unsafe struct BrokenTradeReportMessage {
     public uint OriginalCrossId;
     public uint OriginalPrice;
     public uint OriginalVolume;
-};
-
-/// <summary>
-///  Struct for Long Best Ask Update Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct LongBestAskUpdateMessage {
-    public uint Nanoseconds;
-    public uint OptionId;
-    public QuoteCondition QuoteCondition;
-    public uint Price4;
-    public uint Size4;
-};
-
-/// <summary>
-///  Struct for Long Best Bid And Ask Update Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct LongBestBidAndAskUpdateMessage {
-    public uint Nanoseconds;
-    public uint OptionId;
-    public QuoteCondition QuoteCondition;
-    public uint BidPrice4;
-    public uint BidSize4;
-    public uint AskPrice4;
-    public uint AskSize4;
-};
-
-/// <summary>
-///  Struct for Long Best Bid Update Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct LongBestBidUpdateMessage {
-    public uint Nanoseconds;
-    public uint OptionId;
-    public QuoteCondition QuoteCondition;
-    public uint Price4;
-    public uint Size4;
 };
 
 /// <summary>
@@ -185,9 +212,9 @@ public unsafe struct OptionsDirectoryMessage {
     public OptionType OptionType;
     public byte Source;
     public fixed sbyte UnderlyingSymbol[13];
-    public OptionClosingType OptionClosingType;
+    public fixed sbyte OptionClosingType[1];
     public Tradable Tradable;
-    public Mpv Mpv;
+    public MinimumPriceVariation MinimumPriceVariation;
 };
 
 /// <summary>
@@ -209,51 +236,13 @@ public unsafe struct PacketHeader {
 };
 
 /// <summary>
-///  Struct for Security Open Closed Message
+///  Struct for Security Open Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct SecurityOpenClosedMessage {
+public unsafe struct SecurityOpenMessage {
     public uint Nanoseconds;
     public uint OptionId;
     public OpenState OpenState;
-};
-
-/// <summary>
-///  Struct for Short Best Ask Update Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct ShortBestAskUpdateMessage {
-    public uint Nanoseconds;
-    public uint OptionId;
-    public QuoteCondition QuoteCondition;
-    public ushort Price2;
-    public ushort Size2;
-};
-
-/// <summary>
-///  Struct for Short Best Bid And Ask Update Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct ShortBestBidAndAskUpdateMessage {
-    public uint Nanoseconds;
-    public uint OptionId;
-    public QuoteCondition QuoteCondition;
-    public ushort BidPrice2;
-    public ushort BidSize2;
-    public ushort AskPrice2;
-    public ushort AskSize2;
-};
-
-/// <summary>
-///  Struct for Short Best Bid Update Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct ShortBestBidUpdateMessage {
-    public uint Nanoseconds;
-    public uint OptionId;
-    public QuoteCondition QuoteCondition;
-    public ushort Price2;
-    public ushort Size2;
 };
 
 /// <summary>
@@ -272,7 +261,7 @@ public unsafe struct SystemEventMessage {
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct TimestampMessage {
-    public uint Second;
+    public uint Seconds;
 };
 
 /// <summary>
@@ -284,7 +273,7 @@ public unsafe struct TradeReportMessage {
     public uint OptionId;
     public uint CrossId;
     public fixed sbyte TradeCondition[1];
-    public uint Price4;
+    public uint PriceLong;
     public uint Volume;
 };
 

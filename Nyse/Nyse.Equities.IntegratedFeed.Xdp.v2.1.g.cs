@@ -8,10 +8,10 @@
 ///  Auction Status Values
 /// </summary>
 public enum AuctionStatus : byte {
-    WillRunOpenClose = "0",
-    WillRunInterest = "1",
-    WillNotRunImbalance = "2",
-    WillNotRunTransitionToClosing = "3",
+    WillRunOpenClose = 0,
+    WillRunInterest = 1,
+    WillNotRunImbalance = 2,
+    WillNotRunTransitionToClosing = 3,
 };
 
 /// <summary>
@@ -39,17 +39,17 @@ public enum CrossType : byte {
 ///  Delivery Flag Values
 /// </summary>
 public enum DeliveryFlag : byte {
-    Heartbeat = "1",
-    XdpFailover = "10",
-    OriginalMessage = "11",
-    SequenceNumberResetMessage = "12",
-    OneRetransmissionPacket = "13",
-    RetransmissionSequenceMessage = "15",
-    OneRefreshPacket = "17",
-    RefreshSequenceStart = "18",
-    RefreshSequenceMessage = "19",
-    RefreshSequenceEnd = "20",
-    MessageUnavailable = "21",
+    Heartbeat = 1,
+    XdpFailover = 10,
+    OriginalMessage = 11,
+    SequenceNumberResetMessage = 12,
+    OneRetransmissionPacket = 13,
+    RetransmissionSequenceMessage = 15,
+    OneRefreshPacket = 17,
+    RefreshSequenceStart = 18,
+    RefreshSequenceMessage = 19,
+    RefreshSequenceEnd = 20,
+    MessageUnavailable = 21,
 };
 
 /// <summary>
@@ -72,8 +72,8 @@ public enum ExchangeCode : byte {
 ///  Freeze Status Values
 /// </summary>
 public enum FreezeStatus : byte {
-    NoImbalanceFreeze = "0",
-    ImbalanceFreeze = "1",
+    NoImbalanceFreeze = 0,
+    ImbalanceFreeze = 1,
 };
 
 /// <summary>
@@ -107,14 +107,14 @@ public enum ImbalanceSide : byte {
 ///  Market Id Values
 /// </summary>
 public enum MarketId : ushort {
-    NyseEquities = "1",
-    NyseArcaEquities = "3",
-    NyseArcaOptions = "4",
-    NyseBonds = "5",
-    GlobalOtc = "6",
-    NyseAmexOptions = "8",
-    NyseAmericanEquities = "9",
-    NyseNationalOptions = "10",
+    NyseEquities = 1,
+    NyseArcaEquities = 3,
+    NyseArcaOptions = 4,
+    NyseBonds = 5,
+    GlobalOtc = 6,
+    NyseAmexOptions = 8,
+    NyseAmericanEquities = 9,
+    NyseNationalEquities = 10,
 };
 
 /// <summary>
@@ -132,63 +132,63 @@ public enum MarketState : byte {
 ///  Message Type Values
 /// </summary>
 public enum MessageType : ushort {
-    SequenceNumberResetMessage = "1",
-    SourceTimeReferenceMessage = "2",
-    SymbolIndexMappingMessage = "3",
-    RetransmissionRequestMessage = "10",
-    RequestResponseMessage = "11",
-    HeartbeatResponseMessage = "12",
-    SymbolIndexMappingRequestMessage = "13",
-    RefreshRequestMessage = "15",
-    MessageUnavailableMessage = "31",
-    SymbolClearMessage = "32",
-    SecurityStatusMessage = "34",
-    RefreshHeaderMessage = "35",
-    AddOrderMessage = "100",
-    ModifyOrderMessage = "101",
-    ReplaceOrderMessage = "104",
-    DeleteOrderMessage = "102",
-    TradeCancelMessage = "112",
-    CrossTradeMessage = "111",
-    CrossCorrectionMessage = "113",
-    RetailPriceImprovementMessage = "114",
-    AddOrderRefreshMessage = "106",
-    ImbalanceMessage = "105",
-    OrderExecutionMessage = "103",
-    NonDisplayedTradeMessage = "110",
-    StockSummaryMessage = "223",
+    SequenceNumberResetMessage = 1,
+    SourceTimeReferenceMessage = 2,
+    SymbolIndexMappingMessage = 3,
+    RetransmissionRequestMessage = 10,
+    RequestResponseMessage = 11,
+    HeartbeatResponseMessage = 12,
+    SymbolIndexMappingRequestMessage = 13,
+    RefreshRequestMessage = 15,
+    MessageUnavailableMessage = 31,
+    SymbolClearMessage = 32,
+    SecurityStatusMessage = 34,
+    RefreshHeaderMessage = 35,
+    AddOrderMessage = 100,
+    ModifyOrderMessage = 101,
+    ReplaceOrderMessage = 104,
+    DeleteOrderMessage = 102,
+    TradeCancelMessage = 112,
+    CrossTradeMessage = 111,
+    CrossCorrectionMessage = 113,
+    RetailPriceImprovementMessage = 114,
+    AddOrderRefreshMessage = 106,
+    ImbalanceMessage = 105,
+    OrderExecutionMessage = 103,
+    NonDisplayedTradeMessage = 110,
+    StockSummaryMessage = 223,
 };
 
 /// <summary>
 ///  Position Change Values
 /// </summary>
 public enum PositionChange : byte {
-    Kept = "0",
-    Lost = "1",
+    Kept = 0,
+    Lost = 1,
 };
 
 /// <summary>
 ///  Price Resolution Values
 /// </summary>
 public enum PriceResolution : byte {
-    AllPenny = "0",
-    PennyNickel = "1",
-    NickelDime = "5",
+    AllPenny = 0,
+    PennyNickel = 1,
+    NickelDime = 5,
 };
 
 /// <summary>
 ///  Printable Flag Values
 /// </summary>
 public enum PrintableFlag : byte {
-    NotPrinted = "O",
-    Printed = "1",
+    NotPrinted = 0,
+    Printed = 1,
 };
 
 /// <summary>
 ///  Retransmit Method Values
 /// </summary>
 public enum RetransmitMethod : byte {
-    Udp = "0",
+    Udp = 0,
 };
 
 /// <summary>
@@ -235,22 +235,26 @@ public enum SecurityStatus : byte {
 ///  Security Type Values
 /// </summary>
 public enum SecurityType : byte {
-    Adr = (byte)'A',
-    CommonStock = (byte)'C',
-    Debentures = (byte)'D',
-    Etf = (byte)'E',
-    Foreign = (byte)'F',
-    UsDepositaryShares = (byte)'H',
-    Units = (byte)'I',
-    IndexLinkedNotes = (byte)'L',
-    MiscliquidTrust = (byte)'M',
-    OrdinaryShares = (byte)'O',
-    PreferredStock = (byte)'P',
-    Rights = (byte)'R',
-    SharesOfBeneficiaryInterest = (byte)'S',
-    Test = (byte)'T',
-    Units = (byte)'U',
-    Warrant = (byte)'W',
+    CommonStock = (byte)'A',
+    PreferredStock = (byte)'B',
+    Warrant = (byte)'C',
+    Right = (byte)'D',
+    CorporateBond = (byte)'E',
+    TreasuryBond = (byte)'F',
+    StructuredProduct = (byte)'G',
+    AdrCommon = (byte)'H',
+    AdrPreferred = (byte)'I',
+    AdrWarrants = (byte)'J',
+    AdrRights = (byte)'K',
+    AdrCorporateBond = (byte)'L',
+    NyRegisteredShare = (byte)'M',
+    GlobalRegisteredShare = (byte)'N',
+    Index = (byte)'O',
+    Fund = (byte)'P',
+    Basket = (byte)'Q',
+    Unit = (byte)'R',
+    LiquidatingTrust = (byte)'S',
+    Unknown = (byte)'U',
 };
 
 /// <summary>

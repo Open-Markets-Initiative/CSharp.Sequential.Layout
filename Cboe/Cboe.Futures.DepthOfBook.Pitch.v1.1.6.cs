@@ -1,28 +1,32 @@
-// C# Structs For Cboe Options Pitch DepthOfBook 2.39.4 protocol
+// C# Structs For Cboe Futures Pitch DepthOfBook 1.1.6 protocol
 
 ///////////////////////////////////////////////////////////////////////
 // Enum Values
 ///////////////////////////////////////////////////////////////////////
 
 /// <summary>
-///  Auction Type Values
+///  Futures Flags Values
 /// </summary>
-public enum AuctionType : byte {
-    Opening = (byte)'O',
-    Closing = (byte)'C',
-    Halt = (byte)'H',
-    Ipo = (byte)'I',
-    Close = (byte)'M',
-    Sum = (byte)'T',
-    Bam = (byte)'B',
+public enum FuturesFlags : byte {
+    Standard = 0,
+    Variance = 1,
 };
 
 /// <summary>
-///  Customer Indicator Values
+///  Issue Values
 /// </summary>
-public enum CustomerIndicator : byte {
-    NonCustomer = (byte)'N',
-    Customer = (byte)'C',
+public enum Issue : byte {
+    InitialSettlement = (byte)'S',
+    ReissuedSettlement = (byte)'R',
+};
+
+/// <summary>
+///  Listing State Values
+/// </summary>
+public enum ListingState : byte {
+    Active = (byte)'A',
+    Inactive = (byte)'I',
+    Test = (byte)'T',
 };
 
 /// <summary>
@@ -31,11 +35,11 @@ public enum CustomerIndicator : byte {
 public enum MessageType : byte {
     TimeMessage = 0x20,
     UnitClearMessage = 0x97,
+    TimeReferenceMessage = 0xB1,
+    FuturesInstrumentDefinitionMessage = 0xBB,
     AddOrderLongMessage = 0x21,
     AddOrderShortMessage = 0x22,
-    AddOrderExpandedMessage = 0x2F,
     OrderExecutedMessage = 0x23,
-    OrderExecutedAtPriceSizeMessage = 0x24,
     ReduceSizeLongMessage = 0x25,
     ReduceSizeShortMessage = 0x26,
     ModifyOrderLongMessage = 0x27,
@@ -43,35 +47,13 @@ public enum MessageType : byte {
     DeleteOrderMessage = 0x29,
     TradeLongMessage = 0x2A,
     TradeShortMessage = 0x2B,
-    TradeExpandedMessage = 0x30,
+    TransactionBegin = 0xBC,
+    TransactionEnd = 0xBD,
     TradeBreakMessage = 0x2C,
-    EndOfSessionMessage = 0x2D,
-    SymbolMappingMessage = 0x2E,
+    SettlementMessage = 0xB9,
+    EndOfDaySummaryMessage = 0xBA,
     TradingStatusMessage = 0x31,
-    AuctionUpdateMessage = 0x95,
-    AuctionSummaryMessage = 0x96,
-    AuctionNotificationMessage = 0xAD,
-    AuctionCancelMessage = 0xAE,
-    AuctionTradeMessage = 0xAF,
-    RetailPriceImprovementMessage = 0x98,
-};
-
-/// <summary>
-///  Reg Sho Action Values
-/// </summary>
-public enum RegShoAction : byte {
-    NoPriceTestInEffect = (byte)'0',
-    RegShoPriceTestRestrictionInEffect = (byte)'1',
-};
-
-/// <summary>
-///  Retail Price Improvement Values
-/// </summary>
-public enum RetailPriceImprovement : byte {
-    BuySide = (byte)'B',
-    SellSide = (byte)'S',
-    BuyAndSell = (byte)'A',
-    NoRpi = (byte)'N',
+    EndOfSessionMessage = 0x2D,
 };
 
 /// <summary>
@@ -83,26 +65,20 @@ public enum SideIndicator : byte {
 };
 
 /// <summary>
-///  Symbol Condition Values
-/// </summary>
-public enum SymbolCondition : byte {
-    Normal = (byte)'N',
-    ClosingOnly = (byte)'C',
-};
-
-/// <summary>
 ///  Trade Condition Values
 /// </summary>
 public enum TradeCondition : byte {
     NormalTrade = (byte)'',
+    OpeningTrade = (byte)'O',
     SpreadTrade = (byte)'S',
+    BlockTrade = (byte)'B',
+    EcrpTrade = (byte)'E',
 };
 
 /// <summary>
 ///  Trading Status Values
 /// </summary>
 public enum TradingStatus : byte {
-    AcceptingOrders = (byte)'A',
     Halted = (byte)'H',
     QuoteOnly = (byte)'Q',
     ExchangeSpecificSuspension = (byte)'S',
@@ -115,31 +91,6 @@ public enum TradingStatus : byte {
 ///////////////////////////////////////////////////////////////////////
 
 /// <summary>
-///  Struct for Add Flags
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct AddFlags {
-    public fixed byte Reserved7[7];
-    public fixed byte Display[1];
-};
-
-/// <summary>
-///  Struct for Add Order Expanded Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct AddOrderExpandedMessage {
-    public uint TimeOffset;
-    public ulong OrderId;
-    public SideIndicator SideIndicator;
-    public uint LongQuantity;
-    public fixed sbyte ExpandedSymbol[8];
-    public ulong LongPrice;
-    public fixed byte AddFlags[0];
-    public fixed sbyte ParticipantId[4];
-    public CustomerIndicator CustomerIndicator;
-};
-
-/// <summary>
 ///  Struct for Add Order Long Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -150,7 +101,6 @@ public unsafe struct AddOrderLongMessage {
     public uint LongQuantity;
     public fixed sbyte Symbol[6];
     public ulong LongPrice;
-    public fixed byte AddFlags[0];
 };
 
 /// <summary>
@@ -164,72 +114,6 @@ public unsafe struct AddOrderShortMessage {
     public ushort ShortQuantity;
     public fixed sbyte Symbol[6];
     public ushort ShortPrice;
-    public fixed byte AddFlags[0];
-};
-
-/// <summary>
-///  Struct for Auction Cancel Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct AuctionCancelMessage {
-    public uint TimeOffset;
-    public ulong AuctionId;
-};
-
-/// <summary>
-///  Struct for Auction Notification Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct AuctionNotificationMessage {
-    public uint TimeOffset;
-    public fixed sbyte Symbol[6];
-    public ulong AuctionId;
-    public AuctionType AuctionType;
-    public SideIndicator SideIndicator;
-    public ulong LongPrice;
-    public uint Contracts;
-    public CustomerIndicator CustomerIndicator;
-    public fixed sbyte ParticipantId[4];
-    public uint AuctionEndOffset;
-};
-
-/// <summary>
-///  Struct for Auction Summary Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct AuctionSummaryMessage {
-    public uint TimeOffset;
-    public fixed sbyte StockSymbol[8];
-    public AuctionType AuctionType;
-    public ulong LongPrice;
-    public uint Shares;
-};
-
-/// <summary>
-///  Struct for Auction Trade Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct AuctionTradeMessage {
-    public uint TimeOffset;
-    public ulong AuctionId;
-    public ulong ExecutionId;
-    public ulong LongPrice;
-    public uint Contracts;
-};
-
-/// <summary>
-///  Struct for Auction Update Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct AuctionUpdateMessage {
-    public uint TimeOffset;
-    public fixed sbyte StockSymbol[8];
-    public AuctionType AuctionType;
-    public ulong ReferencePrice;
-    public uint BuyShares;
-    public uint SellShares;
-    public ulong IndicativePrice;
-    public ulong AuctionOnlyPrice;
 };
 
 /// <summary>
@@ -242,6 +126,25 @@ public unsafe struct DeleteOrderMessage {
 };
 
 /// <summary>
+///  Struct for End Of Day Summary Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct EndOfDaySummaryMessage {
+    public uint TimeOffset;
+    public fixed sbyte Symbol[6];
+    public uint TradeDate;
+    public uint OpenInterest;
+    public ulong HighPrice;
+    public ulong LowPrice;
+    public ulong OpenPrice;
+    public ulong ClosePrice;
+    public uint TotalVolume;
+    public uint BlockVolume;
+    public uint EcrpVolume;
+    public fixed byte SummaryFlags[0];
+};
+
+/// <summary>
 ///  Struct for End Of Session Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -250,11 +153,12 @@ public unsafe struct EndOfSessionMessage {
 };
 
 /// <summary>
-///  Struct for Message
+///  Struct for Future Leg
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct Message {
-    public fixed byte MessageHeader[0];
+public unsafe struct FutureLeg {
+    public int LegRatio;
+    public fixed sbyte LegSymbol[6];
 };
 
 /// <summary>
@@ -267,16 +171,6 @@ public unsafe struct MessageHeader {
 };
 
 /// <summary>
-///  Struct for Modify Flags
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct ModifyFlags {
-    public fixed byte Reserved6[6];
-    public fixed byte MaintainPriority[1];
-    public fixed byte Display[1];
-};
-
-/// <summary>
 ///  Struct for Modify Order Long Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -285,7 +179,6 @@ public unsafe struct ModifyOrderLongMessage {
     public ulong OrderId;
     public uint LongQuantity;
     public ulong LongPrice;
-    public fixed byte ModifyFlags[0];
 };
 
 /// <summary>
@@ -297,21 +190,6 @@ public unsafe struct ModifyOrderShortMessage {
     public ulong OrderId;
     public ushort ShortQuantity;
     public ushort ShortPrice;
-    public fixed byte ModifyFlags[0];
-};
-
-/// <summary>
-///  Struct for Order Executed At Price Size Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct OrderExecutedAtPriceSizeMessage {
-    public uint TimeOffset;
-    public ulong OrderId;
-    public uint ExecutedQuantity;
-    public uint RemainingQuantity;
-    public ulong ExecutionId;
-    public ulong LongPrice;
-    public TradeCondition TradeCondition;
 };
 
 /// <summary>
@@ -324,14 +202,6 @@ public unsafe struct OrderExecutedMessage {
     public uint ExecutedQuantity;
     public ulong ExecutionId;
     public TradeCondition TradeCondition;
-};
-
-/// <summary>
-///  Struct for Packet
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct Packet {
-    public fixed byte PacketHeader[0];
 };
 
 /// <summary>
@@ -366,23 +236,35 @@ public unsafe struct ReduceSizeShortMessage {
 };
 
 /// <summary>
-///  Struct for Retail Price Improvement Message
+///  Struct for Settlement Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct RetailPriceImprovementMessage {
+public unsafe struct SettlementMessage {
     public uint TimeOffset;
-    public fixed sbyte ExpandedSymbol[8];
-    public RetailPriceImprovement RetailPriceImprovement;
+    public fixed sbyte Symbol[6];
+    public uint TradeDate;
+    public ulong SettlementPrice;
+    public Issue Issue;
 };
 
 /// <summary>
-///  Struct for Symbol Mapping Message
+///  Struct for Standard
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct SymbolMappingMessage {
-    public fixed sbyte FeedSymbol[6];
-    public fixed sbyte OsiSymbol[21];
-    public SymbolCondition SymbolCondition;
+public unsafe struct Standard {
+};
+
+/// <summary>
+///  Struct for Summary Flags
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct SummaryFlags {
+    public fixed byte ReservedFlags[7];
+    public fixed byte OfferCloseValid[1];
+    public fixed byte LowPriceIsOffer[1];
+    public fixed byte LowPriceValid[1];
+    public fixed byte HighPriceIsBid[1];
+    public fixed byte HighPriceValid[1];
 };
 
 /// <summary>
@@ -391,6 +273,18 @@ public unsafe struct SymbolMappingMessage {
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct TimeMessage {
     public uint Time;
+    public uint Epoch;
+};
+
+/// <summary>
+///  Struct for Time Reference Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct TimeReferenceMessage {
+    public uint MidnightReference;
+    public uint Time;
+    public uint TimeOffset;
+    public uint TradeDate;
 };
 
 /// <summary>
@@ -400,21 +294,6 @@ public unsafe struct TimeMessage {
 public unsafe struct TradeBreakMessage {
     public uint TimeOffset;
     public ulong ExecutionId;
-};
-
-/// <summary>
-///  Struct for Trade Expanded Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct TradeExpandedMessage {
-    public uint TimeOffset;
-    public ulong OrderId;
-    public SideIndicator SideIndicator;
-    public uint LongQuantity;
-    public fixed sbyte ExpandedSymbol[8];
-    public ulong LongPrice;
-    public ulong ExecutionId;
-    public TradeCondition TradeCondition;
 };
 
 /// <summary>
@@ -453,11 +332,26 @@ public unsafe struct TradeShortMessage {
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct TradingStatusMessage {
     public uint TimeOffset;
-    public fixed sbyte ExpandedSymbol[8];
+    public fixed sbyte Symbol[6];
+    public fixed sbyte Reserved2[2];
     public TradingStatus TradingStatus;
-    public RegShoAction RegShoAction;
-    public fixed sbyte Reserved1[1];
-    public fixed sbyte Reserved2[1];
+    public fixed sbyte Reserved3[3];
+};
+
+/// <summary>
+///  Struct for Transaction Begin
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct TransactionBegin {
+    public uint TimeOffset;
+};
+
+/// <summary>
+///  Struct for Transaction End
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct TransactionEnd {
+    public uint TimeOffset;
 };
 
 /// <summary>
@@ -466,5 +360,20 @@ public unsafe struct TradingStatusMessage {
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct UnitClearMessage {
     public uint TimeOffset;
+};
+
+/// <summary>
+///  Struct for Variance
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Variance {
+    public long RealizedVariance;
+    public ushort NumExpectedPrices;
+    public ushort NumElapsedReturns;
+    public ulong PreviousSettlement;
+    public long DiscountFactor;
+    public ulong InitialStrike;
+    public long PreviousArmvm;
+    public long FedFundsRate;
 };
 

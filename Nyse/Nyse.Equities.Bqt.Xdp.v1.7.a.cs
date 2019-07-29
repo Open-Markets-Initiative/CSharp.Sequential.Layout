@@ -28,25 +28,25 @@ public enum BidQuoteCondition : byte {
 ///  Complete Values
 /// </summary>
 public enum Complete : byte {
-    Normal = "0",
-    Abnormal = "1",
+    Normal = 0,
+    Abnormal = 1,
 };
 
 /// <summary>
 ///  Delivery Flag Values
 /// </summary>
 public enum DeliveryFlag : byte {
-    Heartbeat = "1",
-    XdpFailover = "10",
-    OriginalMessage = "11",
-    SequenceNumberResetMessage = "12",
-    OneRetransmissionPacket = "13",
-    RetransmissionSequenceMessage = "15",
-    OneRefreshPacket = "17",
-    RefreshSequenceStart = "18",
-    RefreshSequenceMessage = "19",
-    RefreshSequenceEnd = "20",
-    MessageUnavailable = "21",
+    Heartbeat = 1,
+    XdpFailover = 10,
+    OriginalMessage = 11,
+    SequenceNumberResetMessage = 12,
+    OneRetransmissionPacket = 13,
+    RetransmissionSequenceMessage = 15,
+    OneRefreshPacket = 17,
+    RefreshSequenceStart = 18,
+    RefreshSequenceMessage = 19,
+    RefreshSequenceEnd = 20,
+    MessageUnavailable = 21,
 };
 
 /// <summary>
@@ -84,75 +84,75 @@ public enum HaltCondition : byte {
 ///  Market Id Values
 /// </summary>
 public enum MarketId : ushort {
-    NyseGroupBqt = "0",
-    NyseCash = "1",
-    NyseArcaCash = "3",
-    NyseArcaOptions = "4",
-    NyseBonds = "5",
-    GlobalOtc = "6",
-    NyseAmexOptions = "8",
-    NyseAmericanCash = "9",
-    NyseNationalOptions = "10",
+    NyseGroupBqt = 0,
+    NyseCash = 1,
+    NyseArcaCash = 3,
+    NyseArcaOptions = 4,
+    NyseBonds = 5,
+    GlobalOtc = 6,
+    NyseAmexOptions = 8,
+    NyseAmericanEquities = 9,
+    NyseNationalEquities = 10,
 };
 
 /// <summary>
 ///  Market Id Of Best Ask Values
 /// </summary>
 public enum MarketIdOfBestAsk : ushort {
-    NyseGroupBqt = "0",
-    Nyse = "1",
-    NyseArca = "3",
-    NyseAmerican = "9",
+    NyseGroupBqt = 0,
+    Nyse = 1,
+    NyseArca = 3,
+    NyseAmerican = 9,
 };
 
 /// <summary>
 ///  Market Id Of Best Bid Values
 /// </summary>
 public enum MarketIdOfBestBid : ushort {
-    NyseGroupBqt = "0",
-    Nyse = "1",
-    NyseArca = "3",
-    NyseAmerican = "9",
+    NyseGroupBqt = 0,
+    Nyse = 1,
+    NyseArca = 3,
+    NyseAmerican = 9,
 };
 
 /// <summary>
 ///  Market Id Of High Price Values
 /// </summary>
 public enum MarketIdOfHighPrice : ushort {
-    NyseGroupBqt = "0",
-    Nyse = "1",
-    NyseArca = "3",
-    NyseAmerican = "9",
+    NyseGroupBqt = 0,
+    Nyse = 1,
+    NyseArca = 3,
+    NyseAmerican = 9,
 };
 
 /// <summary>
 ///  Market Id Of Low Price Values
 /// </summary>
 public enum MarketIdOfLowPrice : ushort {
-    NyseGroupBqt = "0",
-    Nyse = "1",
-    NyseArca = "3",
-    NyseAmerican = "9",
+    NyseGroupBqt = 0,
+    Nyse = 1,
+    NyseArca = 3,
+    NyseAmerican = 9,
 };
 
 /// <summary>
 ///  Market Id Of Open Price Values
 /// </summary>
 public enum MarketIdOfOpenPrice : ushort {
-    NyseGroupBqt = "0",
-    Nyse = "1",
-    NyseArca = "3",
-    NyseAmerican = "9",
+    NyseGroupBqt = 0,
+    Nyse = 1,
+    NyseArca = 3,
+    NyseAmerican = 9,
 };
 
 /// <summary>
 ///  Market Id Of The Close Values
 /// </summary>
 public enum MarketIdOfTheClose : ushort {
-    NyseGroupBqt = "0",
-    Nyse = "1",
-    NyseArca = "3",
-    NyseAmerican = "9",
+    NyseGroupBqt = 0,
+    Nyse = 1,
+    NyseArca = 3,
+    NyseAmerican = 9,
 };
 
 /// <summary>
@@ -170,34 +170,34 @@ public enum MarketState : byte {
 ///  Message Type Values
 /// </summary>
 public enum MessageType : ushort {
-    SequenceNumberResetMessage = "1",
-    SymbolIndexMappingMessage = "3",
-    RetransmissionRequestMessage = "10",
-    RequestResponseMessage = "11",
-    HeartbeatResponseMessage = "12",
-    SymbolIndexMappingRequestMessage = "13",
-    RefreshRequestMessage = "15",
-    MessageUnavailableMessage = "31",
-    ConsolidatedSymbolClearMessage = "32",
-    ConsolidatedTradingSessionChangeMessage = "33",
-    ConsolidatedSecurityStatusMessage = "34",
-    RefreshHeaderMessage = "35",
-    BqtMessage = "142",
-    ConsolidatedSingleSidedQuoteMessage = "143",
-    ConsolidatedTradeMessage = "220",
-    ConsolidatedTradeCancelMessage = "221",
-    ConsolidatedTradeCorrectionMessage = "222",
-    ConsolidatedStockSummaryMessage = "229",
-    ConsolidatedVolumeMessage = "240",
+    SequenceNumberResetMessage = 1,
+    SymbolIndexMappingMessage = 3,
+    RetransmissionRequestMessage = 10,
+    RequestResponseMessage = 11,
+    HeartbeatResponseMessage = 12,
+    SymbolIndexMappingRequestMessage = 13,
+    RefreshRequestMessage = 15,
+    MessageUnavailableMessage = 31,
+    ConsolidatedSymbolClearMessage = 32,
+    ConsolidatedTradingSessionChangeMessage = 33,
+    ConsolidatedSecurityStatusMessage = 34,
+    RefreshHeaderMessage = 35,
+    BqtMessage = 142,
+    ConsolidatedSingleSidedQuoteMessage = 143,
+    ConsolidatedTradeMessage = 220,
+    ConsolidatedTradeCancelMessage = 221,
+    ConsolidatedTradeCorrectionMessage = 222,
+    ConsolidatedStockSummaryMessage = 229,
+    ConsolidatedVolumeMessage = 240,
 };
 
 /// <summary>
 ///  Price Resolution Values
 /// </summary>
 public enum PriceResolution : byte {
-    AllPenny = "0",
-    PennyNickel = "1",
-    NickelDime = "5",
+    AllPenny = 0,
+    PennyNickel = 1,
+    NickelDime = 5,
 };
 
 /// <summary>
@@ -215,28 +215,28 @@ public enum QuoteCondition : byte {
 ///  Reason Values
 /// </summary>
 public enum Reason : byte {
-    NewTrade = "0",
-    TradeCancellation = "1",
-    TradeError = "2",
-    TradeCorrection = "3",
-    ClosingEndTradeSummary = "4",
+    NewTrade = 0,
+    TradeCancellation = 1,
+    TradeError = 2,
+    TradeCorrection = 3,
+    ClosingEndTradeSummary = 4,
 };
 
 /// <summary>
 ///  Retail Pricing Indicator Values
 /// </summary>
 public enum RetailPricingIndicator : byte {
-    NoRetailInterest = "0x00",
-    RetailInterestOnTheBidSide = "0x01",
-    RetailInterestOnTheAskSide = "0x02",
-    CombinationOfRetailInterestOnBidAndAskSide = "0x04",
+    NoRetailInterest = 0x00,
+    RetailInterestOnTheBidSide = 0x01,
+    RetailInterestOnTheAskSide = 0x02,
+    CombinationOfRetailInterestOnBidAndAskSide = 0x04,
 };
 
 /// <summary>
 ///  Retransmit Method Values
 /// </summary>
 public enum RetransmitMethod : byte {
-    Udp = "0",
+    Udp = 0,
 };
 
 /// <summary>

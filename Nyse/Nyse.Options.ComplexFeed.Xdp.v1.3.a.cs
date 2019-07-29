@@ -8,17 +8,17 @@
 ///  Delivery Flag Values
 /// </summary>
 public enum DeliveryFlag : byte {
-    Heartbeat = "1",
-    XdpFailover = "10",
-    OriginalMessage = "11",
-    SequenceNumberResetMessage = "12",
-    OneRetransmissionPacket = "13",
-    RetransmissionSequenceMessage = "15",
-    OneRefreshPacket = "17",
-    RefreshSequenceStart = "18",
-    RefreshSequenceMessage = "19",
-    RefreshSequenceEnd = "20",
-    MessageUnavailable = "21",
+    Heartbeat = 1,
+    XdpFailover = 10,
+    OriginalMessage = 11,
+    SequenceNumberResetMessage = 12,
+    OneRetransmissionPacket = 13,
+    RetransmissionSequenceMessage = 15,
+    OneRefreshPacket = 17,
+    RefreshSequenceStart = 18,
+    RefreshSequenceMessage = 19,
+    RefreshSequenceEnd = 20,
+    MessageUnavailable = 21,
 };
 
 /// <summary>
@@ -33,31 +33,31 @@ public enum LegSecurityType : byte {
 ///  Market Id Values
 /// </summary>
 public enum MarketId : ushort {
-    NyseCash = "1",
-    EuropeCash = "2",
-    NyseArcaCash = "3",
-    NyseArcaOptions = "4",
-    NyseArcaBonds = "5",
-    ArcaEdge = "6",
-    Liffe = "7",
-    NyseAmericanOptions = "8",
-    NyseMktCash = "9",
+    NyseCash = 1,
+    EuropeCash = 2,
+    NyseArcaCash = 3,
+    NyseArcaOptions = 4,
+    NyseArcaBonds = 5,
+    ArcaEdge = 6,
+    Liffe = 7,
+    NyseAmericanOptions = 8,
+    NyseMktCash = 9,
 };
 
 /// <summary>
 ///  Message Type Values
 /// </summary>
 public enum MessageType : ushort {
-    ComplexQuoteMessage = "423",
-    ComplexTradeMessage = "425",
-    ComplexCrossingRfqMessage = "429",
-    ComplexCubeRfqMessage = "472",
-    ComplexStatusMessage = "433",
-    RefreshComplexQuoteMessage = "511",
-    RefreshComplexTradeMessage = "513",
-    ComplexSymbolDefinitionMessage = "439",
-    StreamIdMessage = "455",
-    SequenceNumberResetMessage = "1",
+    ComplexQuoteMessage = 423,
+    ComplexTradeMessage = 425,
+    ComplexCrossingRfqMessage = 429,
+    ComplexCubeRfqMessage = 472,
+    ComplexStatusMessage = 433,
+    RefreshComplexQuoteMessage = 511,
+    RefreshComplexTradeMessage = 513,
+    ComplexSymbolDefinitionMessage = 439,
+    StreamIdMessage = 455,
+    SequenceNumberResetMessage = 1,
 };
 
 /// <summary>
@@ -194,7 +194,6 @@ public unsafe struct ComplexSymbolDefinitionMessage {
     public ushort StreamId;
     public ushort NoOfLegs;
     public fixed byte Reserved2[2];
-    public fixed byte LegDefinition[0];
 };
 
 /// <summary>
@@ -226,28 +225,12 @@ public unsafe struct LegDefinition {
 };
 
 /// <summary>
-///  Struct for Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct Message {
-    public fixed byte MessageHeader[0];
-};
-
-/// <summary>
 ///  Struct for Message Header
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct MessageHeader {
     public ushort MessageSize;
     public MessageType MessageType;
-};
-
-/// <summary>
-///  Struct for Packet
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct Packet {
-    public fixed byte PacketHeader[0];
 };
 
 /// <summary>

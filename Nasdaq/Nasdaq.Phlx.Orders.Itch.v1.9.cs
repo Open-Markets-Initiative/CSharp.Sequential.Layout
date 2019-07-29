@@ -45,8 +45,8 @@ public enum AuctionType : byte {
 ///  Current Trading State Values
 /// </summary>
 public enum CurrentTradingState : byte {
-    HaltInEffect = "H",
-    PhlxTradingResumed = "T",
+    HaltInEffect = H,
+    PhlxTradingResumed = T,
 };
 
 /// <summary>
@@ -133,17 +133,17 @@ public enum OpenCloseIndicator : byte {
 ///  Open State Values
 /// </summary>
 public enum OpenState : byte {
-    OpenForAutoExecution = "Y",
-    ClosedForAutoExecution = "N",
+    OpenForAutoExecution = Y,
+    ClosedForAutoExecution = N,
 };
 
 /// <summary>
 ///  Option Closing Type Values
 /// </summary>
 public enum OptionClosingType : byte {
-    Normal = "N",
-    Late = "L",
-    WcoEarlyClosing = "W",
+    Normal = N,
+    Late = L,
+    WcoEarlyClosing = W,
 };
 
 /// <summary>
@@ -178,8 +178,8 @@ public enum OrderType : byte {
 ///  Phlx Tradable Values
 /// </summary>
 public enum PhlxTradable : byte {
-    Tradable = "Y",
-    NotTradable = "N",
+    Tradable = Y,
+    NotTradable = N,
 };
 
 /// <summary>
