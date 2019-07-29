@@ -11,6 +11,6 @@
 Opra: [website](https://www.opraplan.com "Go to Options Price Reporting Authority")
 
 
-[Opra.Options.Recipient.Obdi.v2.9.Structs]: https://github.com/Open-Markets-Initiative/CSharp.Hft.Structs/blob/master/Opra/Opra.Options.Recipient.Obdi.v2.9.cs "Options Price Reporting Authority 2.9 C# Parsers Source File"
+[Opra.Options.Recipient.Obdi.v2.9.Structs]: https://github.com/Open-Markets-Initiative/CSharp.Packed.Structs/blob/master/Opra/Opra.Options.Recipient.Obdi.v2.9.cs "Options Price Reporting Authority 2.9 C# Parsers Source File"
 [Opra.Options.Recipient.Obdi.v2.9.Url]: https://www.opradata.com/specs/opra_output_binary_dr_spec.pdf "Specification url"
 [Opra.Options.Recipient.Obdi.v2.9.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Opra/Opra.Options.Recipient.Bdi.v2.7.pdf "Options Price Reporting Authority 2.9 Pdf"
