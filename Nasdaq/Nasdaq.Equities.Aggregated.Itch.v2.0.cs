@@ -1,4 +1,4 @@
-// C# Structs For Nasdaq Psx Itch TotalView 5.0 protocol
+// C# Structs For Nasdaq Equities Itch Aggregated 2.0 protocol
 
 ///////////////////////////////////////////////////////////////////////
 // Enum Values
@@ -22,14 +22,6 @@ public enum BreachedLevel : byte {
 };
 
 /// <summary>
-///  Buy Sell Indicator Values
-/// </summary>
-public enum BuySellIndicator : byte {
-    Buy = (byte)'B',
-    Sell = (byte)'S',
-};
-
-/// <summary>
 ///  Cross Type Values
 /// </summary>
 public enum CrossType : byte {
@@ -45,7 +37,7 @@ public enum CrossType : byte {
 public enum EtpFlag : byte {
     Etp = (byte)'Y',
     NotEtp = (byte)'N',
-    Na = (byte)' ',
+    NotAvailable = (byte)' ',
 };
 
 /// <summary>
@@ -55,6 +47,7 @@ public enum EventCode : byte {
     StartOfMessages = (byte)'O',
     StartOfSystemHours = (byte)'S',
     StartOfMarketHours = (byte)'Q',
+    ClearNoii = (byte)'X',
     EndOfMarketHours = (byte)'M',
     EndOfSystemHours = (byte)'E',
     EndOfMessages = (byte)'C',
@@ -88,6 +81,16 @@ public enum ImbalanceDirection : byte {
 };
 
 /// <summary>
+///  Interest Flag Values
+/// </summary>
+public enum InterestFlag : byte {
+    BuySideRpiOrdersAvailable = (byte)'B',
+    SellSideRpiOrdersAvailable = (byte)'S',
+    BothSidesRpiOrdersAvailable = (byte)'A',
+    NoRpiOrdersAvailable = (byte)'N',
+};
+
+/// <summary>
 ///  Inverse Indicator Values
 /// </summary>
 public enum InverseIndicator : byte {
@@ -99,9 +102,39 @@ public enum InverseIndicator : byte {
 ///  Ipo Flag Values
 /// </summary>
 public enum IpoFlag : byte {
-    NasdaqListedInstrument = (byte)'Y',
-    NasdaqListedInstrument = (byte)'N',
-    Na = (byte)' ',
+    SetUpForIpoRelease = (byte)'Y',
+    NotSetUpForIpoRelease = (byte)'N',
+    NotAvailable = (byte)' ',
+};
+
+/// <summary>
+///  Ipo Quotation Release Qualifier Values
+/// </summary>
+public enum IpoQuotationReleaseQualifier : byte {
+    AnticipatedQuotationReleaseTime = (byte)'A',
+    IpoReleaseCanceledOrPostponed = (byte)'C',
+};
+
+/// <summary>
+///  Issue Classification Values
+/// </summary>
+public enum IssueClassification : byte {
+    AmericanDepositaryShare = (byte)'A',
+    Bond = (byte)'B',
+    Common = (byte)'C',
+    Depository = (byte)'F',
+    144A = (byte)'I',
+    Limited = (byte)'L',
+    Notes = (byte)'N',
+    OrdinaryShare = (byte)'O',
+    Preferred = (byte)'P',
+    Other = (byte)'Q',
+    Right = (byte)'R',
+    Shares = (byte)'S',
+    Convertible = (byte)'T',
+    Unit = (byte)'U',
+    UnitsBenifInt = (byte)'V',
+    Warrant = (byte)'W',
 };
 
 /// <summary>
@@ -110,7 +143,7 @@ public enum IpoFlag : byte {
 public enum LuldReferencePriceTier : byte {
     Tier1 = (byte)'1',
     Tier2 = (byte)'2',
-    Na = (byte)' ',
+    NotAvailable = (byte)' ',
 };
 
 /// <summary>
@@ -129,15 +162,6 @@ public enum MarketCategory : byte {
 };
 
 /// <summary>
-///  Market Code Values
-/// </summary>
-public enum MarketCode : byte {
-    Nasdaq = (byte)'Q',
-    Bx = (byte)'B',
-    Psx = (byte)'X',
-};
-
-/// <summary>
 ///  Market Maker Mode Values
 /// </summary>
 public enum MarketMakerMode : byte {
@@ -153,10 +177,18 @@ public enum MarketMakerMode : byte {
 /// </summary>
 public enum MarketParticipantState : byte {
     Active = (byte)'A',
-    ExcusedWithdrawn = (byte)'E',
+    Excused = (byte)'E',
     Withdrawn = (byte)'W',
     Suspended = (byte)'S',
     Deleted = (byte)'D',
+};
+
+/// <summary>
+///  Market Side Values
+/// </summary>
+public enum MarketSide : byte {
+    Buy = (byte)'B',
+    Sell = (byte)'S',
 };
 
 /// <summary>
@@ -166,38 +198,22 @@ public enum MessageType : byte {
     SystemEventMessage = (byte)'S',
     StockDirectoryMessage = (byte)'R',
     StockTradingActionMessage = (byte)'H',
-    RegShoShortSalePriceTestRestrictedIndicatorMessage = (byte)'Y',
-    MarketParticipantPositionMessage = (byte)'L',
+    RegShoRestrictionMessage = (byte)'Y',
+    MarketParticipantPositionMessage = (byte)'P',
     MwcbDeclineLevelMessage = (byte)'V',
-    MwcbStatusLevelMessage = (byte)'W',
+    MwcbStatusMessage = (byte)'W',
+    IpoQuotingPeriodUpdateMessage = (byte)'K',
     LuldAuctionCollarMessage = (byte)'J',
-    OperationalHaltMessage = (byte)'h',
-    AddOrderNoMpidAttributionMessage = (byte)'A',
-    AddOrderWithMpidAttributionMessage = (byte)'F',
-    OrderExecutedMessage = (byte)'E',
-    OrderExecutedWithPriceMessage = (byte)'C',
-    OrderCancelMessage = (byte)'X',
-    OrderDeleteMessage = (byte)'D',
-    OrderReplaceMessage = (byte)'U',
-    TradeMessageNonCross = (byte)'P',
-    CrossTradeMessage = (byte)'Q',
-    BrokenTradeMessage = (byte)'B',
-    NetOrderImbalanceIndicatorMessage = (byte)'I',
-};
-
-/// <summary>
-///  Operational Halt Action Values
-/// </summary>
-public enum OperationalHaltAction : byte {
-    Halted = (byte)'H',
-    Resumed = (byte)'T',
+    PriceLevelUpdateMessage = (byte)'U',
+    NoiiMessage = (byte)'I',
+    RpiiMessage = (byte)'N',
 };
 
 /// <summary>
 ///  Price Variation Indicator Values
 /// </summary>
 public enum PriceVariationIndicator : byte {
-    LessThan1 = (byte)'L',
+    Less = (byte)'L',
     1To199 = (byte)'1',
     2To299 = (byte)'2',
     3To399 = (byte)'3',
@@ -222,14 +238,6 @@ public enum PrimaryMarketMaker : byte {
 };
 
 /// <summary>
-///  Printable Values
-/// </summary>
-public enum Printable : byte {
-    NonPrintable = (byte)'N',
-    Printable = (byte)'Y',
-};
-
-/// <summary>
 ///  Reg Sho Action Values
 /// </summary>
 public enum RegShoAction : byte {
@@ -242,8 +250,8 @@ public enum RegShoAction : byte {
 ///  Round Lots Only Values
 /// </summary>
 public enum RoundLotsOnly : byte {
-    NasdaqPsx = (byte)'Y',
-    NasdaqPsx = (byte)'N',
+    RoundLotsOnly = (byte)'Y',
+    NoRestrictions = (byte)'N',
 };
 
 /// <summary>
@@ -271,60 +279,16 @@ public enum TradingState : byte {
 ///////////////////////////////////////////////////////////////////////
 
 /// <summary>
-///  Struct for Add Order No Mpid Attribution Message
+///  Struct for Ipo Quoting Period Update Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct AddOrderNoMpidAttributionMessage {
-    public ushort StockLocate;
+public unsafe struct IpoQuotingPeriodUpdateMessage {
     public ushort TrackingNumber;
     public fixed byte Timestamp;
-    public ulong OrderReferenceNumber;
-    public BuySellIndicator BuySellIndicator;
-    public uint Shares;
     public fixed sbyte Stock[8];
-    public int Price;
-};
-
-/// <summary>
-///  Struct for Add Order With Mpid Attribution Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct AddOrderWithMpidAttributionMessage {
-    public ushort StockLocate;
-    public ushort TrackingNumber;
-    public fixed byte Timestamp;
-    public ulong OrderReferenceNumber;
-    public BuySellIndicator BuySellIndicator;
-    public uint Shares;
-    public fixed sbyte Stock[8];
-    public int Price;
-    public fixed sbyte Attribution[4];
-};
-
-/// <summary>
-///  Struct for Broken Trade Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct BrokenTradeMessage {
-    public ushort StockLocate;
-    public ushort TrackingNumber;
-    public fixed byte Timestamp;
-    public ulong MatchNumber;
-};
-
-/// <summary>
-///  Struct for Cross Trade Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct CrossTradeMessage {
-    public ushort StockLocate;
-    public ushort TrackingNumber;
-    public fixed byte Timestamp;
-    public ulong CrossShares;
-    public fixed sbyte Stock[8];
-    public int CrossPrice;
-    public ulong MatchNumber;
-    public CrossType CrossType;
+    public uint IpoQuotationReleaseTime;
+    public IpoQuotationReleaseQualifier IpoQuotationReleaseQualifier;
+    public int IpoPrice;
 };
 
 /// <summary>
@@ -332,7 +296,6 @@ public unsafe struct CrossTradeMessage {
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct LuldAuctionCollarMessage {
-    public ushort StockLocate;
     public ushort TrackingNumber;
     public fixed byte Timestamp;
     public fixed sbyte Stock[8];
@@ -347,7 +310,6 @@ public unsafe struct LuldAuctionCollarMessage {
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct MarketParticipantPositionMessage {
-    public ushort StockLocate;
     public ushort TrackingNumber;
     public fixed byte Timestamp;
     public fixed sbyte Mpid[4];
@@ -379,7 +341,6 @@ public unsafe struct MessageHeader {
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct MwcbDeclineLevelMessage {
-    public ushort StockLocate;
     public ushort TrackingNumber;
     public fixed byte Timestamp;
     public long Level1;
@@ -388,111 +349,31 @@ public unsafe struct MwcbDeclineLevelMessage {
 };
 
 /// <summary>
-///  Struct for Mwcb Status Level Message
+///  Struct for Mwcb Status Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MwcbStatusLevelMessage {
-    public ushort StockLocate;
+public unsafe struct MwcbStatusMessage {
     public ushort TrackingNumber;
     public fixed byte Timestamp;
     public BreachedLevel BreachedLevel;
 };
 
 /// <summary>
-///  Struct for Net Order Imbalance Indicator Message
+///  Struct for Noii Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct NetOrderImbalanceIndicatorMessage {
-    public ushort StockLocate;
+public unsafe struct NoiiMessage {
     public ushort TrackingNumber;
     public fixed byte Timestamp;
     public ulong PairedShares;
     public ulong ImbalanceShares;
     public ImbalanceDirection ImbalanceDirection;
     public fixed sbyte Stock[8];
-    public int FarPrice;
-    public int NearPrice;
-    public int CurrentReferencePrice;
+    public uint FarPrice;
+    public uint NearPrice;
+    public uint CurrentReferencePrice;
     public CrossType CrossType;
     public PriceVariationIndicator PriceVariationIndicator;
-};
-
-/// <summary>
-///  Struct for Operational Halt Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct OperationalHaltMessage {
-    public ushort StockLocate;
-    public ushort TrackingNumber;
-    public fixed byte Timestamp;
-    public fixed sbyte Stock[8];
-    public MarketCode MarketCode;
-    public OperationalHaltAction OperationalHaltAction;
-};
-
-/// <summary>
-///  Struct for Order Cancel Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct OrderCancelMessage {
-    public ushort StockLocate;
-    public ushort TrackingNumber;
-    public fixed byte Timestamp;
-    public ulong OrderReferenceNumber;
-    public uint CanceledShares;
-};
-
-/// <summary>
-///  Struct for Order Delete Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct OrderDeleteMessage {
-    public ushort StockLocate;
-    public ushort TrackingNumber;
-    public fixed byte Timestamp;
-    public ulong OrderReferenceNumber;
-};
-
-/// <summary>
-///  Struct for Order Executed Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct OrderExecutedMessage {
-    public ushort StockLocate;
-    public ushort TrackingNumber;
-    public fixed byte Timestamp;
-    public ulong OrderReferenceNumber;
-    public uint ExecutedShares;
-    public ulong MatchNumber;
-};
-
-/// <summary>
-///  Struct for Order Executed With Price Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct OrderExecutedWithPriceMessage {
-    public ushort StockLocate;
-    public ushort TrackingNumber;
-    public fixed byte Timestamp;
-    public ulong OrderReferenceNumber;
-    public uint ExecutedShares;
-    public ulong MatchNumber;
-    public Printable Printable;
-    public int ExecutionPrice;
-};
-
-/// <summary>
-///  Struct for Order Replace Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct OrderReplaceMessage {
-    public ushort StockLocate;
-    public ushort TrackingNumber;
-    public fixed byte Timestamp;
-    public ulong OriginalOrderReferenceNumber;
-    public ulong NewOrderReferenceNumber;
-    public uint Shares;
-    public int Price;
 };
 
 /// <summary>
@@ -514,11 +395,25 @@ public unsafe struct PacketHeader {
 };
 
 /// <summary>
-///  Struct for Reg Sho Short Sale Price Test Restricted Indicator Message
+///  Struct for Price Level Update Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct RegShoShortSalePriceTestRestrictedIndicatorMessage {
-    public ushort LocateCode;
+public unsafe struct PriceLevelUpdateMessage {
+    public ushort TrackingNumber;
+    public fixed byte Timestamp;
+    public MarketSide MarketSide;
+    public uint ParticipantShares;
+    public uint AggregateShares;
+    public fixed sbyte Stock[8];
+    public uint Price;
+    public fixed sbyte Mpid[4];
+};
+
+/// <summary>
+///  Struct for Reg Sho Restriction Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct RegShoRestrictionMessage {
     public ushort TrackingNumber;
     public fixed byte Timestamp;
     public fixed sbyte Stock[8];
@@ -526,11 +421,21 @@ public unsafe struct RegShoShortSalePriceTestRestrictedIndicatorMessage {
 };
 
 /// <summary>
+///  Struct for Rpii Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct RpiiMessage {
+    public ushort TrackingNumber;
+    public fixed byte Timestamp;
+    public fixed sbyte Stock[8];
+    public InterestFlag InterestFlag;
+};
+
+/// <summary>
 ///  Struct for Stock Directory Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct StockDirectoryMessage {
-    public ushort StockLocate;
     public ushort TrackingNumber;
     public fixed byte Timestamp;
     public fixed sbyte Stock[8];
@@ -538,7 +443,7 @@ public unsafe struct StockDirectoryMessage {
     public FinancialStatusIndicator FinancialStatusIndicator;
     public uint RoundLotSize;
     public RoundLotsOnly RoundLotsOnly;
-    public fixed sbyte IssueClassification[1];
+    public IssueClassification IssueClassification;
     public fixed sbyte IssueSubType[2];
     public Authenticity Authenticity;
     public ShortSaleThresholdIndicator ShortSaleThresholdIndicator;
@@ -554,13 +459,11 @@ public unsafe struct StockDirectoryMessage {
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct StockTradingActionMessage {
-    public ushort StockLocate;
     public ushort TrackingNumber;
     public fixed byte Timestamp;
     public fixed sbyte Stock[8];
     public TradingState TradingState;
-    public fixed sbyte Reserved[1];
-    public fixed sbyte Reason[4];
+    public fixed sbyte TradingActionReason[4];
 };
 
 /// <summary>
@@ -568,25 +471,8 @@ public unsafe struct StockTradingActionMessage {
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct SystemEventMessage {
-    public ushort StockLocate;
     public ushort TrackingNumber;
     public fixed byte Timestamp;
     public EventCode EventCode;
-};
-
-/// <summary>
-///  Struct for Trade Message Non Cross
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct TradeMessageNonCross {
-    public ushort StockLocate;
-    public ushort TrackingNumber;
-    public fixed byte Timestamp;
-    public ulong OrderReferenceNumber;
-    public BuySellIndicator BuySellIndicator;
-    public uint Shares;
-    public fixed sbyte Stock[8];
-    public int Price;
-    public ulong MatchNumber;
 };
 

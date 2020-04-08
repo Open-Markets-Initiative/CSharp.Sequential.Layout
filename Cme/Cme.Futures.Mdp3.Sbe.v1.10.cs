@@ -1,4 +1,4 @@
-// C# Structs For Cme Sbe Mdp3 8.1 protocol
+// C# Structs For Cme Futures Sbe Mdp3 1.10 protocol
 
 ///////////////////////////////////////////////////////////////////////
 // Enum Values
@@ -8,135 +8,171 @@
 ///  Aggressor Side Values
 /// </summary>
 public enum AggressorSide : byte {
-    AggressorSide = 0,
-    AggressorSide = 1,
-    AggressorSide = 2,
+    NoValue = 255,
+    NoAggressor = 0,
+    Buy = 1,
+    Sell = 2,
 };
 
 /// <summary>
 ///  Event Type Values
 /// </summary>
 public enum EventType : byte {
-    EventType = 5,
-    EventType = 7,
+    Activation = 5,
+    LastEligibleTradeDate = 7,
 };
 
 /// <summary>
 ///  Halt Reason Values
 /// </summary>
 public enum HaltReason : byte {
-    HaltReason = 0,
-    HaltReason = 1,
-    HaltReason = 2,
-    HaltReason = 3,
-    HaltReason = 4,
-    HaltReason = 5,
-    HaltReason = 6,
+    GroupSchedule = 0,
+    SurveillanceIntervention = 1,
+    MarketEvent = 2,
+    InstrumentActivation = 3,
+    InstrumentExpiration = 4,
+    Unknown = 5,
+    RecoveryInProcess = 6,
 };
 
 /// <summary>
 ///  Leg Side Values
 /// </summary>
 public enum LegSide : byte {
-    LegSide = 1,
-    LegSide = 2,
+    BuySide = 1,
+    SellSide = 2,
 };
 
 /// <summary>
 ///  Md Entry Type Values
 /// </summary>
 public enum MdEntryType : byte {
-    MdEntryType = (byte)'0',
-    MdEntryType = (byte)'1',
-    MdEntryType = (byte)'2',
-    MdEntryType = (byte)'4',
-    MdEntryType = (byte)'6',
-    MdEntryType = (byte)'7',
-    MdEntryType = (byte)'8',
-    MdEntryType = (byte)'B',
-    MdEntryType = (byte)'C',
-    MdEntryType = (byte)'E',
-    MdEntryType = (byte)'F',
-    MdEntryType = (byte)'J',
-    MdEntryType = (byte)'N',
-    MdEntryType = (byte)'O',
-    MdEntryType = (byte)'W',
-    MdEntryType = (byte)'e',
-    MdEntryType = (byte)'g',
+    Bid = (byte)'0',
+    Offer = (byte)'1',
+    Trade = (byte)'2',
+    OpenPrice = (byte)'4',
+    SettlementPrice = (byte)'6',
+    TradingSessionHighPrice = (byte)'7',
+    TradingSessionLowPrice = (byte)'8',
+    Vwap = (byte)'9',
+    ClearedVolume = (byte)'B',
+    OpenInterest = (byte)'C',
+    ImpliedBid = (byte)'E',
+    ImpliedOffer = (byte)'F',
+    BookReset = (byte)'J',
+    SessionHighBid = (byte)'N',
+    SessionLowOffer = (byte)'O',
+    FixingPrice = (byte)'W',
+    ElectronicVolume = (byte)'e',
+    ThresholdLimitsandPriceBandVariation = (byte)'g',
 };
 
 /// <summary>
 ///  Md Update Action Values
 /// </summary>
 public enum MdUpdateAction : byte {
-    MdUpdateAction = 0,
-    MdUpdateAction = 1,
-    MdUpdateAction = 2,
-    MdUpdateAction = 3,
-    MdUpdateAction = 4,
-    MdUpdateAction = 5,
+    New = 0,
+    Change = 1,
+    Delete = 2,
+    DeleteThru = 3,
+    DeleteFrom = 4,
+    Overlay = 5,
+};
+
+/// <summary>
+///  Money Or Par Values
+/// </summary>
+public enum MoneyOrPar : byte {
+    NoValue = 255,
+    Money = 1,
+    Par = 2,
 };
 
 /// <summary>
 ///  Open Close Settl Flag Values
 /// </summary>
 public enum OpenCloseSettlFlag : byte {
-    OpenCloseSettlFlag = 0,
-    OpenCloseSettlFlag = 5,
+    NoValue = 255,
+    DailyOpenPrice = 0,
+    IndicativeOpeningPrice = 5,
+    IntradayVwap = 100,
+    RepoAverage830Am = 101,
+    RepoAverage10Am = 102,
+    PrevSessionRepoAverage10Am = 103,
 };
 
 /// <summary>
 ///  Order Update Action Values
 /// </summary>
 public enum OrderUpdateAction : byte {
-    OrderUpdateAction = 0,
-    OrderUpdateAction = 1,
-    OrderUpdateAction = 2,
+    New = 0,
+    Update = 1,
+    Delete = 2,
 };
 
 /// <summary>
 ///  Put Or Call Values
 /// </summary>
 public enum PutOrCall : byte {
-    PutOrCall = 0,
-    PutOrCall = 1,
+    Put = 0,
+    Call = 1,
+};
+
+/// <summary>
+///  Security Alt Id Source Values
+/// </summary>
+public enum SecurityAltIdSource : byte {
+    NoValue = 255,
+    Cusip = 1,
+    Isin = 4,
 };
 
 /// <summary>
 ///  Security Trading Event Values
 /// </summary>
 public enum SecurityTradingEvent : byte {
-    SecurityTradingEvent = 0,
-    SecurityTradingEvent = 1,
-    SecurityTradingEvent = 4,
-    SecurityTradingEvent = 5,
-    SecurityTradingEvent = 6,
+    NoEvent = 0,
+    NoCancel = 1,
+    ResetStatistics = 4,
+    ImpliedMatchingOn = 5,
+    ImpliedMatchingOff = 6,
+    EndOfWorkup = 7,
 };
 
 /// <summary>
 ///  Security Trading Status Values
 /// </summary>
 public enum SecurityTradingStatus : byte {
-    SecurityTradingStatus = 2,
-    SecurityTradingStatus = 4,
-    SecurityTradingStatus = 15,
-    SecurityTradingStatus = 17,
-    SecurityTradingStatus = 18,
-    SecurityTradingStatus = 20,
-    SecurityTradingStatus = 21,
-    SecurityTradingStatus = 24,
-    SecurityTradingStatus = 25,
-    SecurityTradingStatus = 26,
-    SecurityTradingStatus = 103,
+    NoValue = 255,
+    TradingHalt = 2,
+    Close = 4,
+    NewPriceIndication = 15,
+    ReadyToTrade = 17,
+    NotAvailableForTrading = 18,
+    UnknownorInvalid = 20,
+    PreOpen = 21,
+    PreCross = 24,
+    Cross = 25,
+    PostClose = 26,
+    NoChange = 103,
 };
 
 /// <summary>
 ///  Security Update Action Values
 /// </summary>
 public enum SecurityUpdateAction : byte {
-    SecurityUpdateAction = (byte)'A',
-    SecurityUpdateAction = (byte)'D',
-    SecurityUpdateAction = (byte)'M',
+    Add = (byte)'A',
+    Delete = (byte)'D',
+    Modify = (byte)'M',
+};
+
+/// <summary>
+///  Side Values
+/// </summary>
+public enum Side : byte {
+    Side = 127,
+    Buy = 1,
+    Sell = 2,
 };
 
 /// <summary>
@@ -147,21 +183,25 @@ public enum TemplateId : ushort {
     AdminHeartbeat = 12,
     AdminLogin = 15,
     AdminLogout = 16,
-    MdInstrumentDefinitionFuture = 27,
-    MdInstrumentDefinitionSpread = 29,
     SecurityStatus = 30,
-    MdIncrementalRefreshBook = 32,
-    MdIncrementalRefreshDailyStatistics = 33,
-    MdIncrementalRefreshLimitsBanding = 34,
-    MdIncrementalRefreshSessionStatistics = 35,
-    MdIncrementalRefreshTrade = 36,
     MdIncrementalRefreshVolume = 37,
-    SnapshotFullRefresh = 38,
     QuoteRequest = 39,
-    MdInstrumentDefinitionOption = 41,
-    MdIncrementalRefreshTradeSummary = 42,
-    MdIncrementalRefreshOrderBook = 43,
-    SnapshotFullRefreshOrderBook = 44,
+    MdIncrementalRefreshBook = 46,
+    MdIncrementalRefreshOrderBook = 47,
+    MdIncrementalRefreshTradeSummary = 48,
+    MdIncrementalRefreshDailyStatistics = 49,
+    MdIncrementalRefreshLimitsBanding = 50,
+    MdIncrementalRefreshSessionStatistics = 51,
+    SnapshotFullRefresh = 52,
+    SnapshotFullRefreshOrderBook = 53,
+    MdInstrumentDefinitionFuture = 54,
+    MdInstrumentDefinitionOption = 55,
+    MdInstrumentDefinitionSpread = 56,
+    MdInstrumentDefinitionFixedIncome = 57,
+    MdInstrumentDefinitionRepo = 58,
+    SnapshotRefreshTopOrders = 59,
+    SecurityStatusWorkup = 60,
+    SnapshotFullRefreshTcp = 61,
 };
 
 
@@ -183,6 +223,15 @@ public unsafe struct AdminLogin15 {
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct AdminLogout16 {
     public fixed sbyte Text[180];
+};
+
+/// <summary>
+///  Struct for Binary Packet Header
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct BinaryPacketHeader {
+    public uint MessageSequenceNumber;
+    public ulong SendingTime;
 };
 
 /// <summary>
@@ -237,7 +286,7 @@ public unsafe struct GroupSize {
 };
 
 /// <summary>
-///  Struct for Group Size8 Byte
+///  Struct for Group Size 8 Byte
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct GroupSize8Byte {
@@ -267,7 +316,11 @@ public unsafe struct InstAttribGroups {
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct InstAttribValue {
-    public fixed byte Reserved12[12];
+    public fixed byte Reserved8[8];
+    public fixed byte IsAoNInstrument[1];
+    public fixed byte InvertedBook[1];
+    public fixed byte VariableCabEligible[1];
+    public fixed byte TriangulationEligible[1];
     public fixed byte ImpliedMatchingEligibility[1];
     public fixed byte GtOrdersEligibility[1];
     public fixed byte DailyProductEligibility[1];
@@ -291,26 +344,6 @@ public unsafe struct InstAttribValue {
 };
 
 /// <summary>
-///  Struct for Legs Group
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct LegsGroup {
-    public int LegSecurityId;
-    public LegSide LegSide;
-    public sbyte LegRatioQty;
-    public long LegPrice;
-    public int LegOptionDelta;
-};
-
-/// <summary>
-///  Struct for Legs Groups
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct LegsGroups {
-    public fixed byte GroupSize[0];
-};
-
-/// <summary>
 ///  Struct for Lot Type Rules Group
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -324,6 +357,241 @@ public unsafe struct LotTypeRulesGroup {
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct LotTypeRulesGroups {
+    public fixed byte GroupSize[0];
+};
+
+/// <summary>
+///  Struct for M D Feed Types Group
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct MDFeedTypesGroup {
+    public fixed sbyte MdFeedType[3];
+    public sbyte MarketDepth;
+};
+
+/// <summary>
+///  Struct for M D Feed Types Groups
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct MDFeedTypesGroups {
+    public fixed byte GroupSize[0];
+};
+
+/// <summary>
+///  Struct for M D Incremental Refresh Book Group
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct MDIncrementalRefreshBookGroup {
+    public long MdEntryPx;
+    public int MdEntrySize;
+    public int SecurityId;
+    public uint RptSeq;
+    public int NumberOfOrders;
+    public byte MdPriceLevel;
+    public MdUpdateAction MdUpdateAction;
+    public MdEntryType MdEntryType;
+    public int TradeableSize;
+    public fixed byte Padding1[1];
+};
+
+/// <summary>
+///  Struct for M D Incremental Refresh Book Groups
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct MDIncrementalRefreshBookGroups {
+    public fixed byte GroupSize[0];
+};
+
+/// <summary>
+///  Struct for M D Incremental Refresh Book Order Group
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct MDIncrementalRefreshBookOrderGroup {
+    public ulong OrderId;
+    public ulong MdOrderPriority;
+    public int MdDisplayQty;
+    public byte ReferenceId;
+    public OrderUpdateAction OrderUpdateAction;
+    public fixed byte Padding2[2];
+};
+
+/// <summary>
+///  Struct for M D Incremental Refresh Book Order Groups
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct MDIncrementalRefreshBookOrderGroups {
+    public fixed byte GroupSize8Byte[0];
+};
+
+/// <summary>
+///  Struct for M D Incremental Refresh Daily Statistics Group
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct MDIncrementalRefreshDailyStatisticsGroup {
+    public long MdEntryPx;
+    public int MdEntrySize;
+    public int SecurityId;
+    public uint RptSeq;
+    public ushort TradingReferenceDate;
+    public fixed byte SettlPriceType[0];
+    public MdUpdateAction MdUpdateAction;
+    public MdEntryType MdEntryType;
+    public fixed byte Padding7[7];
+};
+
+/// <summary>
+///  Struct for M D Incremental Refresh Daily Statistics Groups
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct MDIncrementalRefreshDailyStatisticsGroups {
+    public fixed byte GroupSize[0];
+};
+
+/// <summary>
+///  Struct for M D Incremental Refresh Limits Banding Group
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct MDIncrementalRefreshLimitsBandingGroup {
+    public long HighLimitPrice;
+    public long LowLimitPrice;
+    public long MaxPriceVariation;
+    public int SecurityId;
+    public uint RptSeq;
+};
+
+/// <summary>
+///  Struct for M D Incremental Refresh Limits Banding Groups
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct MDIncrementalRefreshLimitsBandingGroups {
+    public fixed byte GroupSize[0];
+};
+
+/// <summary>
+///  Struct for M D Incremental Refresh Order Book Group
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct MDIncrementalRefreshOrderBookGroup {
+    public ulong OrderId;
+    public ulong MdOrderPriority;
+    public long MdEntryPx;
+    public int MdDisplayQty;
+    public int SecurityId;
+    public MdUpdateAction MdUpdateAction;
+    public MdEntryType MdEntryType;
+    public fixed byte Padding6[6];
+};
+
+/// <summary>
+///  Struct for M D Incremental Refresh Order Book Groups
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct MDIncrementalRefreshOrderBookGroups {
+    public fixed byte GroupSize[0];
+};
+
+/// <summary>
+///  Struct for M D Incremental Refresh Session Statistics Group
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct MDIncrementalRefreshSessionStatisticsGroup {
+    public long MdEntryPx;
+    public int SecurityId;
+    public uint RptSeq;
+    public OpenCloseSettlFlag OpenCloseSettlFlag;
+    public MdUpdateAction MdUpdateAction;
+    public MdEntryType MdEntryType;
+    public int MdEntrySize;
+    public fixed byte Padding1[1];
+};
+
+/// <summary>
+///  Struct for M D Incremental Refresh Session Statistics Groups
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct MDIncrementalRefreshSessionStatisticsGroups {
+    public fixed byte GroupSize[0];
+};
+
+/// <summary>
+///  Struct for M D Incremental Refresh Trade Summary Group
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct MDIncrementalRefreshTradeSummaryGroup {
+    public long MdEntryPx;
+    public int MdEntrySize;
+    public int SecurityId;
+    public uint RptSeq;
+    public int NumberOfOrders;
+    public AggressorSide AggressorSide;
+    public MdUpdateAction MdUpdateAction;
+    public uint MdTradeEntryId;
+    public fixed byte Padding2[2];
+};
+
+/// <summary>
+///  Struct for M D Incremental Refresh Trade Summary Groups
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct MDIncrementalRefreshTradeSummaryGroups {
+    public fixed byte GroupSize[0];
+};
+
+/// <summary>
+///  Struct for M D Incremental Refresh Trade Summary Order Group
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct MDIncrementalRefreshTradeSummaryOrderGroup {
+    public ulong OrderId;
+    public int LastQty;
+    public fixed byte Padding4[4];
+};
+
+/// <summary>
+///  Struct for M D Incremental Refresh Trade Summary Order Groups
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct MDIncrementalRefreshTradeSummaryOrderGroups {
+    public fixed byte GroupSize8Byte[0];
+};
+
+/// <summary>
+///  Struct for M D Incremental Refresh Volume Group
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct MDIncrementalRefreshVolumeGroup {
+    public int MdEntrySize;
+    public int SecurityId;
+    public uint RptSeq;
+    public MdUpdateAction MdUpdateAction;
+    public fixed byte Padding3[3];
+};
+
+/// <summary>
+///  Struct for M D Incremental Refresh Volume Groups
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct MDIncrementalRefreshVolumeGroups {
+    public fixed byte GroupSize[0];
+};
+
+/// <summary>
+///  Struct for M D Instrument Definition Spread Leg Group
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct MDInstrumentDefinitionSpreadLegGroup {
+    public int LegSecurityId;
+    public LegSide LegSide;
+    public sbyte LegRatioQty;
+    public long LegPrice;
+    public int LegOptionDelta;
+};
+
+/// <summary>
+///  Struct for M D Instrument Definition Spread Leg Groups
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct MDInstrumentDefinitionSpreadLegGroups {
     public fixed byte GroupSize[0];
 };
 
@@ -354,271 +622,43 @@ public unsafe struct MaturityMonthYear {
 };
 
 /// <summary>
-///  Struct for MD Feed Types Group
+///  Struct for Md Incremental Refresh Daily Statistics 49
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdFeedTypesGroup {
-    public fixed sbyte MdFeedType[3];
-    public sbyte MarketDepth;
-};
-
-/// <summary>
-///  Struct for MD Feed Types Groups
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdFeedTypesGroups {
-    public fixed byte GroupSize[0];
-};
-
-/// <summary>
-///  Struct for MD Incremental Refresh Book Group
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshBookGroup {
-    public long MdEntryPx;
-    public int MdEntrySize;
-    public int SecurityId;
-    public uint RptSeq;
-    public int NumberOfOrders;
-    public byte MdPriceLevel;
-    public MdUpdateAction MdUpdateAction;
-    public MdEntryType MdEntryType;
-    public fixed byte Padding5[5];
-};
-
-/// <summary>
-///  Struct for MD Incremental Refresh Book Groups
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshBookGroups {
-    public fixed byte GroupSize[0];
-};
-
-/// <summary>
-///  Struct for MD Incremental Refresh Book Order Group
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshBookOrderGroup {
-    public ulong OrderId;
-    public ulong MdOrderPriority;
-    public int MdDisplayQty;
-    public byte ReferenceId;
-    public OrderUpdateAction OrderUpdateAction;
-    public fixed byte Padding2[2];
-};
-
-/// <summary>
-///  Struct for MD Incremental Refresh Book Order Groups
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshBookOrderGroups {
-    public fixed byte GroupSize8Byte[0];
-};
-
-/// <summary>
-///  Struct for Md Incremental Refresh Daily Statistics 33
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshDailyStatistics33 {
+public unsafe struct MdIncrementalRefreshDailyStatistics49 {
     public ulong TransactTime;
     public fixed byte MatchEventIndicator[0];
     public fixed byte Padding2[2];
 };
 
 /// <summary>
-///  Struct for MD Incremental Refresh Daily Statistics Group
+///  Struct for Md Incremental Refresh Limits Banding 50
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshDailyStatisticsGroup {
-    public long MdEntryPx;
-    public int MdEntrySize;
-    public int SecurityId;
-    public uint RptSeq;
-    public ushort TradingReferenceDate;
-    public fixed byte SettlPriceType[0];
-    public MdUpdateAction MdUpdateAction;
-    public MdEntryType MdEntryType;
-    public fixed byte Padding7[7];
-};
-
-/// <summary>
-///  Struct for MD Incremental Refresh Daily Statistics Groups
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshDailyStatisticsGroups {
-    public fixed byte GroupSize[0];
-};
-
-/// <summary>
-///  Struct for Md Incremental Refresh Limits Banding 34
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshLimitsBanding34 {
+public unsafe struct MdIncrementalRefreshLimitsBanding50 {
     public ulong TransactTime;
     public fixed byte MatchEventIndicator[0];
     public fixed byte Padding2[2];
 };
 
 /// <summary>
-///  Struct for MD Incremental Refresh Limits Banding Group
+///  Struct for Md Incremental Refresh Order Book 47
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshLimitsBandingGroup {
-    public long HighLimitPrice;
-    public long LowLimitPrice;
-    public long MaxPriceVariation;
-    public int SecurityId;
-    public uint RptSeq;
-};
-
-/// <summary>
-///  Struct for MD Incremental Refresh Limits Banding Groups
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshLimitsBandingGroups {
-    public fixed byte GroupSize[0];
-};
-
-/// <summary>
-///  Struct for Md Incremental Refresh Order Book 43
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshOrderBook43 {
+public unsafe struct MdIncrementalRefreshOrderBook47 {
     public ulong TransactTime;
     public fixed byte MatchEventIndicator[0];
     public fixed byte Padding2[2];
 };
 
 /// <summary>
-///  Struct for MD Incremental Refresh Order Book Group
+///  Struct for Md Incremental Refresh Session Statistics 51
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshOrderBookGroup {
-    public ulong OrderId;
-    public ulong MdOrderPriority;
-    public long MdEntryPx;
-    public int MdDisplayQty;
-    public int SecurityId;
-    public MdUpdateAction MdUpdateAction;
-    public MdEntryType MdEntryType;
-    public fixed byte Padding6[6];
-};
-
-/// <summary>
-///  Struct for MD Incremental Refresh Order Book Groups
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshOrderBookGroups {
-    public fixed byte GroupSize[0];
-};
-
-/// <summary>
-///  Struct for Md Incremental Refresh Session Statistics 35
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshSessionStatistics35 {
+public unsafe struct MdIncrementalRefreshSessionStatistics51 {
     public ulong TransactTime;
     public fixed byte MatchEventIndicator[0];
     public fixed byte Padding2[2];
-};
-
-/// <summary>
-///  Struct for MD Incremental Refresh Session Statistics Group
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshSessionStatisticsGroup {
-    public long MdEntryPx;
-    public int SecurityId;
-    public uint RptSeq;
-    public OpenCloseSettlFlag OpenCloseSettlFlag;
-    public MdUpdateAction MdUpdateAction;
-    public MdEntryType MdEntryType;
-    public int MdEntrySize;
-    public fixed byte Padding1[1];
-};
-
-/// <summary>
-///  Struct for MD Incremental Refresh Session Statistics Groups
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshSessionStatisticsGroups {
-    public fixed byte GroupSize[0];
-};
-
-/// <summary>
-///  Struct for Md Incremental Refresh Trade 36
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshTrade36 {
-    public ulong TransactTime;
-    public fixed byte MatchEventIndicator[0];
-    public fixed byte Padding2[2];
-};
-
-/// <summary>
-///  Struct for MD Incremental Refresh Trade Group
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshTradeGroup {
-    public long MdEntryPx;
-    public int MdEntrySize;
-    public int SecurityId;
-    public uint RptSeq;
-    public int NumberOfOrders;
-    public int TradeId;
-    public AggressorSide AggressorSide;
-    public MdUpdateAction MdUpdateAction;
-    public fixed byte Padding2[2];
-};
-
-/// <summary>
-///  Struct for MD Incremental Refresh Trade Groups
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshTradeGroups {
-    public fixed byte GroupSize[0];
-};
-
-/// <summary>
-///  Struct for MD Incremental Refresh Trade Summary Group
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshTradeSummaryGroup {
-    public long MdEntryPx;
-    public int MdEntrySize;
-    public int SecurityId;
-    public uint RptSeq;
-    public int NumberOfOrders;
-    public AggressorSide AggressorSide;
-    public MdUpdateAction MdUpdateAction;
-    public uint MdTradeEntryId;
-    public fixed byte Padding2[2];
-};
-
-/// <summary>
-///  Struct for MD Incremental Refresh Trade Summary Groups
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshTradeSummaryGroups {
-    public fixed byte GroupSize[0];
-};
-
-/// <summary>
-///  Struct for MD Incremental Refresh Trade Summary Order Group
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshTradeSummaryOrderGroup {
-    public ulong OrderId;
-    public int LastQty;
-    public fixed byte Padding4[4];
-};
-
-/// <summary>
-///  Struct for MD Incremental Refresh Trade Summary Order Groups
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshTradeSummaryOrderGroups {
-    public fixed byte GroupSize8Byte[0];
 };
 
 /// <summary>
@@ -632,44 +672,14 @@ public unsafe struct MdIncrementalRefreshVolume37 {
 };
 
 /// <summary>
-///  Struct for MD Incremental Refresh Volume Group
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshVolumeGroup {
-    public int MdEntrySize;
-    public int SecurityId;
-    public uint RptSeq;
-    public MdUpdateAction MdUpdateAction;
-    public fixed byte Padding3[3];
-};
-
-/// <summary>
-///  Struct for MD Incremental Refresh Volume Groups
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshVolumeGroups {
-    public fixed byte GroupSize[0];
-};
-
-/// <summary>
 ///  Struct for Message Header
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct MessageHeader {
-    public ushort MessageSize;
     public ushort BlockLength;
     public TemplateId TemplateId;
     public ushort SchemaId;
     public ushort Version;
-};
-
-/// <summary>
-///  Struct for Packet Header
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct PacketHeader {
-    public uint MessageSequenceNumber;
-    public ulong SendingTime;
 };
 
 /// <summary>
@@ -709,7 +719,7 @@ public unsafe struct RelatedSymGroup {
     public int SecurityId;
     public int OrderQty;
     public sbyte QuoteType;
-    public sbyte Side;
+    public Side Side;
     public fixed byte Padding2[2];
 };
 
@@ -738,6 +748,40 @@ public unsafe struct SecurityStatus30 {
 };
 
 /// <summary>
+///  Struct for Security Status Workup 60
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct SecurityStatusWorkup60 {
+    public ulong TransactTime;
+    public long MdEntryPx;
+    public int SecurityId;
+    public fixed byte MatchEventIndicator[0];
+    public ushort TradeDate;
+    public uint TradeLinkId;
+    public SecurityTradingStatus SecurityTradingStatus;
+    public HaltReason HaltReason;
+    public SecurityTradingEvent SecurityTradingEvent;
+};
+
+/// <summary>
+///  Struct for Security Status Workup Order Group
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct SecurityStatusWorkupOrderGroup {
+    public ulong OrderId;
+    public Side Side;
+    public byte AggressorIndicator;
+};
+
+/// <summary>
+///  Struct for Security Status Workup Order Groups
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct SecurityStatusWorkupOrderGroups {
+    public fixed byte GroupSize[0];
+};
+
+/// <summary>
 ///  Struct for Settl Price Type
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -747,14 +791,14 @@ public unsafe struct SettlPriceType {
     public fixed byte Intraday[1];
     public fixed byte Rounded[1];
     public fixed byte Actual[1];
-    public fixed byte Final[1];
+    public fixed byte FinalDaily[1];
 };
 
 /// <summary>
-///  Struct for Snapshot Full Refresh 38
+///  Struct for Snapshot Full Refresh 52
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct SnapshotFullRefresh38 {
+public unsafe struct SnapshotFullRefresh52 {
     public uint LastMsgSeqNumProcessed;
     public uint TotNumReports;
     public int SecurityId;
@@ -792,10 +836,10 @@ public unsafe struct SnapshotFullRefreshGroups {
 };
 
 /// <summary>
-///  Struct for Snapshot Full Refresh Order Book 44
+///  Struct for Snapshot Full Refresh Order Book 53
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct SnapshotFullRefreshOrderBook44 {
+public unsafe struct SnapshotFullRefreshOrderBook53 {
     public uint LastMsgSeqNumProcessed;
     public uint TotNumReports;
     public int SecurityId;
@@ -821,6 +865,73 @@ public unsafe struct SnapshotFullRefreshOrderBookGroup {
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct SnapshotFullRefreshOrderBookGroups {
+    public fixed byte GroupSize[0];
+};
+
+/// <summary>
+///  Struct for Snapshot Full Refresh Tc P 61
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct SnapshotFullRefreshTcP61 {
+    public ulong TransactTime;
+    public fixed byte MatchEventIndicator[0];
+    public int SecurityId;
+    public long HighLimitPrice;
+    public long LowLimitPrice;
+    public long MaxPriceVariation;
+};
+
+/// <summary>
+///  Struct for Snapshot Full Refresh Tcp Group
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct SnapshotFullRefreshTcpGroup {
+    public long MdEntryPx;
+    public int MdEntrySize;
+    public int TradeableSize;
+    public int NumberOfOrders;
+    public byte MdPriceLevel;
+    public OpenCloseSettlFlag OpenCloseSettlFlag;
+    public MdEntryType MdEntryType;
+    public ushort TradingReferenceDate;
+    public fixed byte SettlPriceType[0];
+};
+
+/// <summary>
+///  Struct for Snapshot Full Refresh Tcp Groups
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct SnapshotFullRefreshTcpGroups {
+    public fixed byte GroupSize[0];
+};
+
+/// <summary>
+///  Struct for Snapshot Refresh Top Orders 59
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct SnapshotRefreshTopOrders59 {
+    public ulong TransactTime;
+    public fixed byte MatchEventIndicator[0];
+    public int SecurityId;
+};
+
+/// <summary>
+///  Struct for Snapshot Refresh Top Orders Group
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct SnapshotRefreshTopOrdersGroup {
+    public ulong OrderId;
+    public ulong MdOrderPriority;
+    public long MdEntryPx;
+    public int MdDisplayQty;
+    public MdEntryType MdEntryType;
+};
+
+/// <summary>
+///  Struct for Snapshot Refresh Top Orders Groups
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct SnapshotRefreshTopOrdersGroups {
     public fixed byte GroupSize[0];
 };
 
