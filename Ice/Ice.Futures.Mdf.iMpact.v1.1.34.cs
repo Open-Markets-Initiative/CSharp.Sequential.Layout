@@ -668,7 +668,7 @@ public unsafe struct AddPriceLevelMessage {
     public short OrderCount;
     public int ImpliedQuantity;
     public short ImpliedOrderCount;
-    public ulong Timestamp;
+    public long Timestamp;
 };
 
 /// <summary>
@@ -698,7 +698,7 @@ public unsafe struct ChangePriceLevelMessage {
     public short OrderCount;
     public int ImpliedQuantity;
     public short ImpliedOrderCount;
-    public ulong Timestamp;
+    public long Timestamp;
 };
 
 /// <summary>
@@ -730,7 +730,7 @@ public unsafe struct DeletePriceLevelMessage {
     public int MarketId;
     public Side Side;
     public sbyte PriceLevelPosition;
-    public ulong Timestamp;
+    public long Timestamp;
 };
 
 /// <summary>
@@ -1163,7 +1163,7 @@ public unsafe struct PacketHeader {
     public ushort Session;
     public uint Sequence;
     public ushort Count;
-    public ulong Timestamp;
+    public long Timestamp;
 };
 
 /// <summary>
@@ -1203,23 +1203,6 @@ public unsafe struct SettlementPriceMessage {
     public IsOfficial IsOfficial;
     public long ValuationDateTime;
     public long SettlementPrice;
-};
-
-/// <summary>
-///  Struct for Special Field
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct SpecialField {
-    public byte SpecialFieldId;
-    public ushort SpecialFieldLength;
-};
-
-/// <summary>
-///  Struct for Special Field Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct SpecialFieldMessage {
-    public sbyte NumberOfSpecialFields;
 };
 
 /// <summary>

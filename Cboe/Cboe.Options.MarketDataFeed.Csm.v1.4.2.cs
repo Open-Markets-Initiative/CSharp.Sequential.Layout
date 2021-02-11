@@ -137,14 +137,6 @@ public enum TemplateId : byte {
 ///////////////////////////////////////////////////////////////////////
 
 /// <summary>
-///  Struct for Currency Code
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct CurrencyCode {
-    public byte CurrencyCodeLength;
-};
-
-/// <summary>
 ///  Struct for Current Market Refresh Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -260,7 +252,7 @@ public unsafe struct MessageHeader {
     public ushort MessageLength;
     public TemplateId TemplateId;
     public fixed sbyte MessageType[1];
-    public uint MessageSequenceNumber;
+    public uint MsgSeqNum;
 };
 
 /// <summary>
@@ -363,14 +355,6 @@ public unsafe struct SecurityDefinitionLeg {
 };
 
 /// <summary>
-///  Struct for Security Type
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct SecurityType {
-    public byte SecurityTypeLength;
-};
-
-/// <summary>
 ///  Struct for Settlement Value Md Entry
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -424,72 +408,11 @@ public unsafe struct SummaryMessage {
 };
 
 /// <summary>
-///  Struct for Symbol
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct Symbol {
-    public byte SymbolLength;
-};
-
-/// <summary>
-///  Struct for Target Location Id
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct TargetLocationId {
-    public byte TargetLocationIdLength;
-};
-
-/// <summary>
-///  Struct for Ticker Md Entry
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct TickerMdEntry {
-    public MdEntryType MdEntryType;
-    public fixed byte MdEntryPx[0];
-    public uint MdEntrySize;
-};
-
-/// <summary>
-///  Struct for Ticker Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct TickerMessage {
-    public uint ClassKey;
-    public uint SecurityId;
-    public byte PriceType;
-    public byte NoEntries;
-};
-
-/// <summary>
-///  Struct for Trade Condition
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct TradeCondition {
-    public byte TradeConditionLength;
-};
-
-/// <summary>
 ///  Struct for Underlying Px
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct UnderlyingPx {
     public sbyte UnderlyingPxExponent;
     public int UnderlyingPxMantissa;
-};
-
-/// <summary>
-///  Struct for Underlying Symbol
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct UnderlyingSymbol {
-    public byte UnderlyingSymbolLength;
-};
-
-/// <summary>
-///  Struct for Underlying Type
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct UnderlyingType {
-    public byte UnderlyingTypeLength;
 };
 

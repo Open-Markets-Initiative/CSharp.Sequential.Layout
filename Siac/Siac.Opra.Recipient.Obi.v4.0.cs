@@ -141,17 +141,6 @@ public enum UnderlyingValueMessageType : byte {
 ///////////////////////////////////////////////////////////////////////
 
 /// <summary>
-///  Struct for Administrative Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct AdministrativeMessage {
-    public fixed sbyte MessageType[1];
-    public fixed sbyte MessageIndicator[1];
-    public ulong TransactionId;
-    public ushort MessageDataLength;
-};
-
-/// <summary>
 ///  Struct for Best Bid Appendage
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -196,17 +185,6 @@ public unsafe struct BlockHeader {
 public unsafe struct BlockTimestamp {
     public uint Seconds;
     public uint Nanoseconds;
-};
-
-/// <summary>
-///  Struct for Control Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct ControlMessage {
-    public fixed byte ControlMessageType[0];
-    public fixed sbyte MessageIndicator[1];
-    public ulong TransactionId;
-    public ushort MessageDataLength;
 };
 
 /// <summary>

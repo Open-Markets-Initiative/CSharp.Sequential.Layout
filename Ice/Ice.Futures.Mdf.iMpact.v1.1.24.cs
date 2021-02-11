@@ -1086,23 +1086,6 @@ public unsafe struct SettlementPriceMessage {
 };
 
 /// <summary>
-///  Struct for Special Field
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct SpecialField {
-    public byte SpecialFieldId;
-    public ushort SpecialFieldLength;
-};
-
-/// <summary>
-///  Struct for Special Field Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct SpecialFieldMessage {
-    public sbyte NumberOfSpecialFields;
-};
-
-/// <summary>
 ///  Struct for Spot Market Trade Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]

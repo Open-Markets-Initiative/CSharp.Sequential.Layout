@@ -10,8 +10,8 @@
 public enum AggressorSide : byte {
     Buy = 1,
     Sell = 2,
-    AggressorSide = 2,
-    AggressorSide = 1,
+    AggressorSideMinimumValue = 2,
+    AggressorSideMinimumValue = 1,
 };
 
 /// <summary>
@@ -19,18 +19,18 @@ public enum AggressorSide : byte {
 /// </summary>
 public enum AlgorithmicTradeIndicator : byte {
     AlgorithmicTrade = 1,
-    AlgorithmicTradeIndicator = 1,
-    AlgorithmicTradeIndicator = 1,
+    AlgorithmicTradeIndicatorMinimumValue = 1,
+    AlgorithmicTradeIndicatorMinimumValue = 1,
 };
 
 /// <summary>
-///  Application Sequence Reset Indicator Values
+///  Appl Seq Reset Indicator Values
 /// </summary>
-public enum ApplicationSequenceResetIndicator : byte {
+public enum ApplSeqResetIndicator : byte {
     NoReset = 0,
     Reset = 1,
-    ApplSeqResetIndicator = 1,
-    ApplSeqResetIndicator = 0,
+    ApplSeqResetIndicatorMinimumValue = 1,
+    ApplSeqResetIndicatorMinimumValue = 0,
 };
 
 /// <summary>
@@ -39,8 +39,8 @@ public enum ApplicationSequenceResetIndicator : byte {
 public enum CompletionIndicator : byte {
     Incomplete = 0,
     Complete = 1,
-    CompletionIndicator = 1,
-    CompletionIndicator = 0,
+    CompletionIndicatorMinimumValue = 1,
+    CompletionIndicatorMinimumValue = 0,
 };
 
 /// <summary>
@@ -49,8 +49,8 @@ public enum CompletionIndicator : byte {
 public enum FastMarketIndicator : byte {
     No = 0,
     Yes = 1,
-    FastMarketIndicator = 1,
-    FastMarketIndicator = 0,
+    FastMarketIndicatorMinimumValue = 1,
+    FastMarketIndicatorMinimumValue = 0,
 };
 
 /// <summary>
@@ -59,8 +59,8 @@ public enum FastMarketIndicator : byte {
 public enum ImpliedMarketIndicator : byte {
     NotImplied = 0,
     ImpliedInOut = 3,
-    ImpliedMarketIndicator = 3,
-    ImpliedMarketIndicator = 0,
+    ImpliedMarketIndicatorMinimumValue = 3,
+    ImpliedMarketIndicatorMinimumValue = 0,
 };
 
 /// <summary>
@@ -69,8 +69,8 @@ public enum ImpliedMarketIndicator : byte {
 public enum LegSide : byte {
     Buy = 1,
     Sell = 2,
-    LegSide = 2,
-    LegSide = 1,
+    LegSideMinimumValue = 2,
+    LegSideMinimumValue = 1,
 };
 
 /// <summary>
@@ -79,8 +79,8 @@ public enum LegSide : byte {
 public enum MarketCondition : byte {
     Normal = 0,
     Stressed = 1,
-    MarketCondition = 1,
-    MarketCondition = 0,
+    MarketConditionMinimumValue = 1,
+    MarketConditionMinimumValue = 0,
 };
 
 /// <summary>
@@ -92,8 +92,8 @@ public enum MatchSubType : byte {
     IntradayAuction = 3,
     CircuitBreakerAuction = 4,
     IpoAuction = 5,
-    MatchSubType = 5,
-    MatchSubType = 1,
+    MatchSubTypeMinimumValue = 5,
+    MatchSubTypeMinimumValue = 1,
 };
 
 /// <summary>
@@ -103,8 +103,8 @@ public enum MatchType : byte {
     ConfirmedTradeReport = 3,
     CrossAuction = 5,
     CallAuction = 7,
-    MatchType = 7,
-    MatchType = 3,
+    MatchTypeMinimumValue = 7,
+    MatchTypeMinimumValue = 3,
 };
 
 /// <summary>
@@ -123,8 +123,8 @@ public enum MdEntryType : byte {
     CircuitBreakerAuction = 202,
     ClosingAuction = 203,
     IpoAuction = 204,
-    MdEntryType = 204,
-    MdEntryType = 2,
+    MdEntryTypeMinimumValue = 204,
+    MdEntryTypeMinimumValue = 2,
 };
 
 /// <summary>
@@ -132,8 +132,8 @@ public enum MdEntryType : byte {
 /// </summary>
 public enum OrdType : byte {
     Market = 1,
-    OrdType = 1,
-    OrdType = 1,
+    OrdTypeMinimumValue = 1,
+    OrdTypeMinimumValue = 1,
 };
 
 /// <summary>
@@ -142,8 +142,8 @@ public enum OrdType : byte {
 public enum PotentialSecurityTradingEvent : byte {
     None = 0,
     PriceVolatilityAuctionIsExtended = 10,
-    PotentialSecurityTradingEvent = 10,
-    PotentialSecurityTradingEvent = 0,
+    PotentialSecurityTradingEventMinimumValue = 10,
+    PotentialSecurityTradingEventMinimumValue = 0,
 };
 
 /// <summary>
@@ -158,8 +158,8 @@ public enum ProductComplex : byte {
     StandardFuturesStrategy = 7,
     PackAndBundle = 8,
     Strip = 9,
-    ProductComplex = 9,
-    ProductComplex = 2,
+    ProductComplexMinimumValue = 9,
+    ProductComplexMinimumValue = 2,
 };
 
 /// <summary>
@@ -170,8 +170,8 @@ public enum SecurityStatus : byte {
     Inactive = 2,
     Expired = 4,
     Suspended = 9,
-    SecurityStatus = 9,
-    SecurityStatus = 1,
+    SecurityStatusMinimumValue = 9,
+    SecurityStatusMinimumValue = 1,
 };
 
 /// <summary>
@@ -180,8 +180,8 @@ public enum SecurityStatus : byte {
 public enum SecurityTradingEvent : byte {
     PriceVolatilityAuctionIsExtended = 10,
     PriceVolatilityAuctionIsExtendedAgain = 11,
-    SecurityTradingEvent = 11,
-    SecurityTradingEvent = 0,
+    SecurityTradingEventMinimumValue = 11,
+    SecurityTradingEventMinimumValue = 0,
 };
 
 /// <summary>
@@ -205,8 +205,8 @@ public enum SecurityTradingStatus : byte {
     ClosingAuctionFreeze = 211,
     IpoAuction = 212,
     IpoAuctionFreeze = 213,
-    SecurityTradingStatus = 213,
-    SecurityTradingStatus = 2,
+    SecurityTradingStatusMinimumValue = 213,
+    SecurityTradingStatusMinimumValue = 2,
 };
 
 /// <summary>
@@ -215,8 +215,8 @@ public enum SecurityTradingStatus : byte {
 public enum Side : byte {
     Buy = 1,
     Sell = 2,
-    Side = 2,
-    Side = 1,
+    SideMinimumValue = 2,
+    SideMinimumValue = 1,
 };
 
 /// <summary>
@@ -226,8 +226,8 @@ public enum TradSesStatus : byte {
     Halted = 1,
     Open = 2,
     Closed = 3,
-    TradSesStatus = 3,
-    TradSesStatus = 1,
+    TradSesStatusMinimumValue = 3,
+    TradSesStatusMinimumValue = 1,
 };
 
 /// <summary>
@@ -237,8 +237,8 @@ public enum TradeCondition : byte {
     ImpliedTrade = 1,
     SystematicInternalizer = 153,
     MidpointPrice = 155,
-    TradeCondition = 155,
-    TradeCondition = 1,
+    TradeConditionMinimumValue = 155,
+    TradeConditionMinimumValue = 1,
 };
 
 /// <summary>
@@ -250,8 +250,8 @@ public enum TradingSessionId : byte {
     Evening = 5,
     AfterHours = 6,
     Holiday = 7,
-    TradingSessionId = 7,
-    TradingSessionId = 1,
+    TradingSessionIDMinimumValue = 7,
+    TradingSessionIDMinimumValue = 1,
 };
 
 /// <summary>
@@ -263,8 +263,8 @@ public enum TradingSessionSubId : byte {
     Closing = 4,
     PostTrading = 5,
     Quiescent = 7,
-    TradingSessionSubId = 7,
-    TradingSessionSubId = 1,
+    TradingSessionSubIDMinimumValue = 7,
+    TradingSessionSubIDMinimumValue = 1,
 };
 
 
@@ -372,10 +372,10 @@ public unsafe struct Heartbeat {
 };
 
 /// <summary>
-///  Struct for Instrmt Leg Grp
+///  Struct for Instrmt Leg Grp Comp
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct InstrmtLegGrp {
+public unsafe struct InstrmtLegGrpComp {
     public int LegSymbol;
     public fixed byte Pad4[4];
     public long LegSecurityId;
@@ -417,10 +417,10 @@ public unsafe struct InstrumentSummary {
 };
 
 /// <summary>
-///  Struct for Md Instrument Entry Grp
+///  Struct for Md Instrument Entry Grp Comp
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdInstrumentEntryGrp {
+public unsafe struct MdInstrumentEntryGrpComp {
     public ulong MdEntryPx;
     public int MdEntrySize;
     public MdEntryType MdEntryType;
@@ -429,10 +429,10 @@ public unsafe struct MdInstrumentEntryGrp {
 };
 
 /// <summary>
-///  Struct for Md Trade Entry Grp
+///  Struct for Md Trade Entry Grp Comp
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdTradeEntryGrp {
+public unsafe struct MdTradeEntryGrpComp {
     public ulong MdEntryPx;
     public int MdEntrySize;
     public MdEntryType MdEntryType;
@@ -440,10 +440,10 @@ public unsafe struct MdTradeEntryGrp {
 };
 
 /// <summary>
-///  Struct for Message Header
+///  Struct for Message Header Comp
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MessageHeader {
+public unsafe struct MessageHeaderComp {
     public ushort BodyLen;
     public ushort TemplateId;
     public uint MsgSeqNum;
@@ -456,7 +456,7 @@ public unsafe struct MessageHeader {
 public unsafe struct OrderAdd {
     public ulong TrdRegTsTimeIn;
     public long SecurityId;
-    public fixed byte OrderDetails[0];
+    public fixed byte OrderDetailsComp[0];
 };
 
 /// <summary>
@@ -467,14 +467,14 @@ public unsafe struct OrderDelete {
     public ulong TrdRegTsTimeIn;
     public ulong TransactTime;
     public long SecurityId;
-    public fixed byte OrderDetails[0];
+    public fixed byte OrderDetailsComp[0];
 };
 
 /// <summary>
-///  Struct for Order Details
+///  Struct for Order Details Comp
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct OrderDetails {
+public unsafe struct OrderDetailsComp {
     public ulong TrdRegTsTimePriority;
     public int DisplayQty;
     public Side Side;
@@ -503,7 +503,7 @@ public unsafe struct OrderModify {
     public int PrevDisplayQty;
     public fixed byte Pad4[4];
     public long SecurityId;
-    public fixed byte OrderDetails[0];
+    public fixed byte OrderDetailsComp[0];
 };
 
 /// <summary>
@@ -516,7 +516,7 @@ public unsafe struct OrderModifySamePrio {
     public int PrevDisplayQty;
     public fixed byte Pad4[4];
     public long SecurityId;
-    public fixed byte OrderDetails[0];
+    public fixed byte OrderDetailsComp[0];
 };
 
 /// <summary>
@@ -525,11 +525,11 @@ public unsafe struct OrderModifySamePrio {
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct PacketHeader {
     public fixed byte PacketInfo[0];
-    public uint ApplicationSequenceNumber;
+    public uint ApplSeqNum;
     public int MarketSegmentId;
     public byte PartitionId;
     public CompletionIndicator CompletionIndicator;
-    public ApplicationSequenceResetIndicator ApplicationSequenceResetIndicator;
+    public ApplSeqResetIndicator ApplSeqResetIndicator;
     public fixed byte Pad5[5];
     public ulong TransactTime;
 };
@@ -541,7 +541,7 @@ public unsafe struct PacketHeader {
 public unsafe struct PacketInfo {
     public ushort HeaderLength;
     public ushort PacketId;
-    public uint PacketSeqNum;
+    public uint PacketSequenceNumber;
 };
 
 /// <summary>
@@ -606,7 +606,7 @@ public unsafe struct QuoteRequest {
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct SnapshotOrder {
-    public fixed byte OrderDetails[0];
+    public fixed byte OrderDetailsComp[0];
 };
 
 /// <summary>

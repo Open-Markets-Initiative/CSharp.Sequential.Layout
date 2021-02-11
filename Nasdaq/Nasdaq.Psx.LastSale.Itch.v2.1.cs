@@ -127,7 +127,7 @@ public enum MarketCategory : byte {
     NyseMkt = (byte)'A',
     NyseArca = (byte)'P',
     BatsZ = (byte)'Z',
-    Investors’Exchange = (byte)'V',
+    InvestorsExchange = (byte)'V',
     NotAvailable = (byte)' ',
 };
 

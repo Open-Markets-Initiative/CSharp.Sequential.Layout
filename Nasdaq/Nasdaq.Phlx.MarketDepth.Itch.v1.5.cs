@@ -253,15 +253,6 @@ public unsafe struct BaseReferenceMessage {
 };
 
 /// <summary>
-///  Struct for Block Delete Message
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct BlockDeleteMessage {
-    public uint Timestamp;
-    public ushort NumberOfReferenceNumberDeltas;
-};
-
-/// <summary>
 ///  Struct for Broken Trade Order Execution Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]

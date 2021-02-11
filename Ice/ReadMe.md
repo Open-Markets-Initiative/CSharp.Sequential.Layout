@@ -1,21 +1,21 @@
-[![Ice](https://github.com/Open-Markets-Initiative/Directory/blob/master/Logos/Ice.png)](https://www.theice.com)
+[![Ice](https://github.com/Open-Markets-Initiative/Directory/blob/master/Images/Ice.png)](https://www.theice.com)
 
 
 ## Intercontinental Exchange
 
-|Division | Data | Protocol | Version | Date | Size | Testing | Specification|
-|--- | --- | --- | --- | --- | --- | --- | ---|
-|Futures | Mdf | iMpact | [1.1.34][Ice.Futures.Mdf.iMpact.v1.1.34.Structs] | 9/4/2018 | 1313 | Verified | [pdf][Ice.Futures.Mdf.iMpact.v1.1.34.Pdf]|
-|Futures | Mdf | iMpact | [1.1.33][Ice.Futures.Mdf.iMpact.v1.1.33.Structs] | 8/6/2018 | 1286 | Verified | [pdf][Ice.Futures.Mdf.iMpact.v1.1.33.Pdf]|
-|Futures | Mdf | iMpact | [1.1.24][Ice.Futures.Mdf.iMpact.v1.1.24.Structs] | 3/30/2016 | 1180 | Verified | [pdf][Ice.Futures.Mdf.iMpact.v1.1.24.Pdf]|
+| Division | Data | Protocol | Version | Date | Size | Testing | Specification |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Futures | Mdf | iMpact | [1.1.34][Ice.Futures.Mdf.iMpact.v1.1.34.Structs] | 9/4/2018 | 1296 | Verified | [pdf][Ice.Futures.Mdf.iMpact.v1.1.34.Pdf] |
+| Futures | Mdf | iMpact | [1.1.33][Ice.Futures.Mdf.iMpact.v1.1.33.Structs] | 8/6/2018 | 1269 | Verified | [pdf][Ice.Futures.Mdf.iMpact.v1.1.33.Pdf] |
+| Futures | Mdf | iMpact | [1.1.24][Ice.Futures.Mdf.iMpact.v1.1.24.Structs] | 3/30/2016 | 1163 | Verified | [pdf][Ice.Futures.Mdf.iMpact.v1.1.24.Pdf] |
 
 
 Ice: [website](https://www.theice.com "Go to Intercontinental Exchange")
 
 
-[Ice.Futures.Mdf.iMpact.v1.1.24.Structs]: https://github.com/Open-Markets-Initiative/CSharp.Packed.Structs/blob/master/Ice/Ice.Futures.Mdf.iMpact.v1.1.24.cs "Intercontinental Exchange 1.1.24 C# Parsers Source File"
+[Ice.Futures.Mdf.iMpact.v1.1.24.Structs]: https://github.com/Open-Markets-Initiative/CSharp.Packed.Structs/blob/master/Ice/Ice.Futures.Mdf.iMpact.v1.1.24.cs "Ice Futures Mdf iMpact v1.1.24 C# Parsers Source File"
 [Ice.Futures.Mdf.iMpact.v1.1.24.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Ice/Ice.Futures.Mdf.iMpact.v1.1.24.pdf "Intercontinental Exchange 1.1.24 Pdf"
-[Ice.Futures.Mdf.iMpact.v1.1.33.Structs]: https://github.com/Open-Markets-Initiative/CSharp.Packed.Structs/blob/master/Ice/Ice.Futures.Mdf.iMpact.v1.1.33.cs "Intercontinental Exchange 1.1.33 C# Parsers Source File"
+[Ice.Futures.Mdf.iMpact.v1.1.33.Structs]: https://github.com/Open-Markets-Initiative/CSharp.Packed.Structs/blob/master/Ice/Ice.Futures.Mdf.iMpact.v1.1.33.cs "Ice Futures Mdf iMpact v1.1.33 C# Parsers Source File"
 [Ice.Futures.Mdf.iMpact.v1.1.33.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Ice/Ice.Futures.Mdf.iMpact.v1.1.33.pdf "Intercontinental Exchange 1.1.33 Pdf"
-[Ice.Futures.Mdf.iMpact.v1.1.34.Structs]: https://github.com/Open-Markets-Initiative/CSharp.Packed.Structs/blob/master/Ice/Ice.Futures.Mdf.iMpact.v1.1.34.cs "Intercontinental Exchange 1.1.34 C# Parsers Source File"
+[Ice.Futures.Mdf.iMpact.v1.1.34.Structs]: https://github.com/Open-Markets-Initiative/CSharp.Packed.Structs/blob/master/Ice/Ice.Futures.Mdf.iMpact.v1.1.34.cs "Ice Futures Mdf iMpact v1.1.34 C# Parsers Source File"
 [Ice.Futures.Mdf.iMpact.v1.1.34.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Ice/Ice.Futures.Mdf.iMpact.v1.1.34.pdf "Intercontinental Exchange 1.1.34 Pdf"

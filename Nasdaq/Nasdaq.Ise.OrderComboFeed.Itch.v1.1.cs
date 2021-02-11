@@ -27,8 +27,8 @@ public enum AuctionType : byte {
 ///  Current Trading State Values
 /// </summary>
 public enum CurrentTradingState : byte {
-    HaltInEffect = H,
-    TradingResumed = T,
+    HaltInEffect = (byte)'H',
+    TradingResumed = (byte)'T',
 };
 
 /// <summary>
@@ -51,6 +51,14 @@ public enum EventCode : byte {
 public enum ExecFlag : byte {
     None = (byte)'N',
     Aon = (byte)'A',
+};
+
+/// <summary>
+///  Leg Side Values
+/// </summary>
+public enum LegSide : byte {
+    Buy = (byte)'B',
+    Sell = (byte)'S',
 };
 
 /// <summary>
@@ -218,7 +226,7 @@ public unsafe struct LegInformation {
     public byte ExpirationDay;
     public ulong ExplicitStrikePrice;
     public OptionType OptionType;
-    public Side Side;
+    public LegSide LegSide;
     public uint LegRatio;
 };
 

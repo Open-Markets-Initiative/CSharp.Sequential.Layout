@@ -9,9 +9,9 @@ This project contains c-style 'packed' structs in C# for packet overlay.  Any dy
 
 Updates are greatly appreciated; however, this entire repository is source generated...including the words you are reading right now. Code generation requires a different workflow.  The recommended process is to create an issue with suggested edits and explanation.  If the changes are applicable to some or all protocols, we will update the model and regenerate.
 
-|Protocol Count | Generated Lines|
-|--- | ---|
-|81 | 64,901|
+| Protocol Count | Generated Lines |
+| --- | --- |
+| 125 | 141,389 |
 
 Please report any errors as issues.  Include a small note on the protocol and version, and a minimal capture demonstrating the problem.
 

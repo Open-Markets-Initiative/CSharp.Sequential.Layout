@@ -5,9 +5,9 @@
 ///////////////////////////////////////////////////////////////////////
 
 /// <summary>
-///  Cmta Giveup Cd Values
+///  Cmta Give Up Cd Values
 /// </summary>
-public enum CmtaGiveupCd : byte {
+public enum CmtaGiveUpCd : byte {
     NoValue = (byte)'0',
     GiveUp = (byte)'G',
     SgXoffset = (byte)'S',
@@ -190,7 +190,7 @@ public enum TimeInForce : byte {
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct AffectedOrdersGroup {
-    public fixed sbyte OrigCiOrdId[20];
+    public fixed sbyte Origclordid[20];
     public ulong AffectedOrderId;
     public uint CxlQuantity;
 };
@@ -223,32 +223,6 @@ public unsafe struct BusinessReject521 {
     public byte PossRetransFlag;
     public byte ManualOrderIndicator;
     public SplitMsg SplitMsg;
-};
-
-/// <summary>
-///  Struct for Credentials
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct Credentials {
-    public ushort Length;
-};
-
-/// <summary>
-///  Struct for Establish 503
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct Establish503 {
-    public fixed sbyte HmacSignature[32];
-    public fixed sbyte AccessKeyId[20];
-    public fixed sbyte TradingSystemName[30];
-    public fixed sbyte TradingSystemVersion[10];
-    public fixed sbyte TradingSystemVendor[10];
-    public ulong Uuid;
-    public ulong RequestTimestamp;
-    public uint NextSeqNo;
-    public fixed sbyte Session[3];
-    public fixed sbyte Firm[5];
-    public ushort KeepAliveInterval;
 };
 
 /// <summary>
@@ -305,7 +279,7 @@ public unsafe struct ExecutionAck539 {
     public ulong OrderId;
     public ExecAckStatus ExecAckStatus;
     public uint SeqNum;
-    public fixed sbyte ClOrdId[20];
+    public fixed sbyte Clordid[20];
     public ulong SecExecId;
     public long LastPx;
     public int SecurityId;
@@ -327,7 +301,7 @@ public unsafe struct ExecutionReportCancel534 {
     public ulong Uuid;
     public fixed sbyte ExecId[40];
     public fixed sbyte SenderId[20];
-    public fixed sbyte ClOrdId[20];
+    public fixed sbyte Clordid[20];
     public ulong PartyDetailsListReqId;
     public ulong OrderId;
     public long Price;
@@ -370,7 +344,7 @@ public unsafe struct ExecutionReportElimination524 {
     public ulong Uuid;
     public fixed sbyte ExecId[40];
     public fixed sbyte SenderId[20];
-    public fixed sbyte ClOrdId[20];
+    public fixed sbyte Clordid[20];
     public ulong PartyDetailsListReqId;
     public ulong OrderId;
     public long Price;
@@ -409,7 +383,7 @@ public unsafe struct ExecutionReportModify531 {
     public ulong Uuid;
     public fixed sbyte ExecId[40];
     public fixed sbyte SenderId[20];
-    public fixed sbyte ClOrdId[20];
+    public fixed sbyte Clordid[20];
     public ulong PartyDetailsListReqId;
     public ulong OrderId;
     public long Price;
@@ -452,7 +426,7 @@ public unsafe struct ExecutionReportNew522 {
     public ulong Uuid;
     public fixed sbyte ExecId[40];
     public fixed sbyte SenderId[20];
-    public fixed sbyte ClOrdId[20];
+    public fixed sbyte Clordid[20];
     public ulong PartyDetailsListReqId;
     public ulong OrderId;
     public long Price;
@@ -494,7 +468,7 @@ public unsafe struct ExecutionReportReject523 {
     public fixed sbyte Text[256];
     public fixed sbyte ExecId[40];
     public fixed sbyte SenderId[20];
-    public fixed sbyte ClOrdId[20];
+    public fixed sbyte Clordid[20];
     public ulong PartyDetailsListReqId;
     public ulong OrderId;
     public long Price;
@@ -537,7 +511,7 @@ public unsafe struct ExecutionReportStatus532 {
     public fixed sbyte Text[256];
     public fixed sbyte ExecId[40];
     public fixed sbyte SenderId[20];
-    public fixed sbyte ClOrdId[20];
+    public fixed sbyte Clordid[20];
     public ulong PartyDetailsListReqId;
     public ulong OrderId;
     public long Price;
@@ -774,6 +748,15 @@ public unsafe struct GroupSize {
 };
 
 /// <summary>
+///  Struct for Leg Option Delta
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct LegOptionDelta {
+    public int Mantissa32;
+    public sbyte Exponent;
+};
+
+/// <summary>
 ///  Struct for Mass Quote 517
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -812,7 +795,7 @@ public unsafe struct MassQuoteAck545 {
     public ushort DelayDuration;
     public byte QuoteStatus;
     public byte ManualOrderIndicator;
-    public byte NoProcessedEntries;
+    public byte NoProcessedQuotes;
     public byte MmProtectionReset;
     public SplitMsg SplitMsg;
     public byte LiquidityFlag;
@@ -887,19 +870,6 @@ public unsafe struct MessageHeader {
 };
 
 /// <summary>
-///  Struct for Negotiate 500
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct Negotiate500 {
-    public fixed sbyte HmacSignature[32];
-    public fixed sbyte AccessKeyId[20];
-    public ulong Uuid;
-    public ulong RequestTimestamp;
-    public fixed sbyte Session[3];
-    public fixed sbyte Firm[5];
-};
-
-/// <summary>
 ///  Struct for Negotiation Reject 502
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -910,20 +880,6 @@ public unsafe struct NegotiationReject502 {
     public ushort ErrorCodes;
     public byte FaultToleranceIndicator;
     public SplitMsg SplitMsg;
-};
-
-/// <summary>
-///  Struct for Negotiation Response 501
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct NegotiationResponse501 {
-    public ulong Uuid;
-    public ulong RequestTimestamp;
-    public ushort SecretKeySecureIdExpiration;
-    public byte FaultToleranceIndicator;
-    public SplitMsg SplitMsg;
-    public uint PreviousSeqNo;
-    public ulong PreviousUuid;
 };
 
 /// <summary>
@@ -954,7 +910,7 @@ public unsafe struct NewOrderSingle514 {
     public byte Side;
     public uint SeqNum;
     public fixed sbyte SenderId[20];
-    public fixed sbyte ClOrdId[20];
+    public fixed sbyte Clordid[20];
     public ulong PartyDetailsListReqId;
     public ulong OrderRequestId;
     public ulong SendingTimeEpoch;
@@ -985,6 +941,15 @@ public unsafe struct NotApplied513 {
 };
 
 /// <summary>
+///  Struct for Option Delta
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct OptionDelta {
+    public int Mantissa32;
+    public sbyte Exponent;
+};
+
+/// <summary>
 ///  Struct for Order Cancel Reject 535
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -994,7 +959,7 @@ public unsafe struct OrderCancelReject535 {
     public fixed sbyte Text[256];
     public fixed sbyte ExecId[40];
     public fixed sbyte SenderId[20];
-    public fixed sbyte ClOrdId[20];
+    public fixed sbyte Clordid[20];
     public ulong PartyDetailsListReqId;
     public ulong OrderId;
     public ulong TransactTime;
@@ -1020,7 +985,7 @@ public unsafe struct OrderCancelReplaceReject536 {
     public fixed sbyte Text[256];
     public fixed sbyte ExecId[40];
     public fixed sbyte SenderId[20];
-    public fixed sbyte ClOrdId[20];
+    public fixed sbyte Clordid[20];
     public ulong PartyDetailsListReqId;
     public ulong OrderId;
     public ulong TransactTime;
@@ -1047,7 +1012,7 @@ public unsafe struct OrderCancelReplaceRequest515 {
     public byte Side;
     public uint SeqNum;
     public fixed sbyte SenderId[20];
-    public fixed sbyte ClOrdId[20];
+    public fixed sbyte Clordid[20];
     public ulong PartyDetailsListReqId;
     public ulong OrderId;
     public long StopPx;
@@ -1078,7 +1043,7 @@ public unsafe struct OrderCancelRequest516 {
     public byte ManualOrderIndicator;
     public uint SeqNum;
     public fixed sbyte SenderId[20];
-    public fixed sbyte ClOrdId[20];
+    public fixed sbyte Clordid[20];
     public ulong OrderRequestId;
     public ulong SendingTimeEpoch;
     public fixed sbyte Location[5];
@@ -1398,6 +1363,15 @@ public unsafe struct RetransmitRequest508 {
 };
 
 /// <summary>
+///  Struct for Risk Free Rate
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct RiskFreeRate {
+    public int Mantissa32;
+    public sbyte Exponent;
+};
+
+/// <summary>
 ///  Struct for Security Definition Request 560
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -1423,7 +1397,7 @@ public unsafe struct SecurityDefinitionRequest560 {
 public unsafe struct SecurityDefinitionRequestLegGroup {
     public long LegPrice;
     public int LegSecurityId;
-    public int LegOptionDelta;
+    public fixed byte LegOptionDelta[0];
     public byte LegSide;
     public byte LegRatioQty;
 };
@@ -1477,7 +1451,7 @@ public unsafe struct SecurityDefinitionResponse561 {
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct SecurityDefinitionResponseLegGroup {
     public long LegPrice;
-    public int LegOptionDelta;
+    public fixed byte LegOptionDelta[0];
     public int LegSecurityId;
     public byte LegSide;
     public byte LegRatioQty;
@@ -1507,7 +1481,7 @@ public unsafe struct Sequence506 {
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct SidesGroup {
-    public fixed sbyte ClOrdId[20];
+    public fixed sbyte Clordid[20];
     public ulong PartyDetailsListReqId;
     public uint OrderQty;
     public byte Side;
@@ -1544,6 +1518,15 @@ public unsafe struct Terminate507 {
 };
 
 /// <summary>
+///  Struct for Time To Expiration
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct TimeToExpiration {
+    public int Mantissa32;
+    public sbyte Exponent;
+};
+
+/// <summary>
 ///  Struct for Trd Reg Publications Group
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -1558,5 +1541,14 @@ public unsafe struct TrdRegPublicationsGroup {
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct TrdRegPublicationsGroups {
     public fixed byte GroupSize[0];
+};
+
+/// <summary>
+///  Struct for Volatility
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Volatility {
+    public long Mantissa64;
+    public sbyte Exponent;
 };
 
