@@ -501,6 +501,14 @@ public unsafe struct OrderCancelRequestMessage {
 };
 
 /// <summary>
+///  Struct for Packet
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Packet {
+    public fixed byte CommonHeader[0];
+};
+
+/// <summary>
 ///  Struct for Pending Mass Cancel Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]

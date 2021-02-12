@@ -197,6 +197,14 @@ public enum UpdateReason : byte {
 ///////////////////////////////////////////////////////////////////////
 
 /// <summary>
+///  Struct for Application Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct ApplicationMessage {
+    public MessageType MessageType;
+};
+
+/// <summary>
 ///  Struct for Complex Double Sided Top Of Market Compact Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -263,6 +271,24 @@ public unsafe struct LegDefinition {
     public ushort LegRatioQty;
     public LegSide LegSide;
     public fixed byte Reserved8[8];
+};
+
+/// <summary>
+///  Struct for Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Message {
+    public ulong SequenceNumber;
+    public ushort PacketLength;
+    public PacketType PacketType;
+    public byte SessionNumber;
+};
+
+/// <summary>
+///  Struct for Packet
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Packet {
 };
 
 /// <summary>

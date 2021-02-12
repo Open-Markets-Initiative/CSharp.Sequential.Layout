@@ -5,8 +5,8 @@
 
 | Division | Data | Protocol | Version | Date | Size | Testing | Specification |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Equities | Memo | Sbe | [1.2][Memx.Equities.Memo.Sbe.v1.2.Structs] | 9/23/2020 | 635 | Beta | [url][Memx.Equities.Memo.Sbe.v1.2.Url] - [pdf][Memx.Equities.Memo.Sbe.v1.2.Pdf] - [xml][Memx.Equities.Memo.Sbe.v1.2.Xml] |
-| Equities | Memo | Sbe | [1.1][Memx.Equities.Memo.Sbe.v1.1.Structs] | 7/27/2020 | 627 | Beta | [url][Memx.Equities.Memo.Sbe.v1.1.Url] - [pdf][Memx.Equities.Memo.Sbe.v1.1.Pdf] - [xml][Memx.Equities.Memo.Sbe.v1.1.Xml] |
+| Equities | Memo | Sbe | [1.2][Memx.Equities.Memo.Sbe.v1.2.Structs] | 9/23/2020 | 643 | Beta | [url][Memx.Equities.Memo.Sbe.v1.2.Url] - [pdf][Memx.Equities.Memo.Sbe.v1.2.Pdf] - [xml][Memx.Equities.Memo.Sbe.v1.2.Xml] |
+| Equities | Memo | Sbe | [1.1][Memx.Equities.Memo.Sbe.v1.1.Structs] | 7/27/2020 | 635 | Beta | [url][Memx.Equities.Memo.Sbe.v1.1.Url] - [pdf][Memx.Equities.Memo.Sbe.v1.1.Pdf] - [xml][Memx.Equities.Memo.Sbe.v1.1.Xml] |
 | Equities | MemoirDepthFeed | Sbe | [1.1][Memx.Equities.MemoirDepthFeed.Sbe.v1.1.Structs] | 7/27/2020 | 241 | Beta | [url][Memx.Equities.MemoirDepthFeed.Sbe.v1.1.Url] - [pdf][Memx.Equities.MemoirDepthFeed.Sbe.v1.1.Pdf] - [xml][Memx.Equities.MemoirDepthFeed.Sbe.v1.1.Xml] |
 | Equities | MemoirLastSale | Sbe | [1.1][Memx.Equities.MemoirLastSale.Sbe.v1.1.Structs] | 7/27/2020 | 185 | Beta | [url][Memx.Equities.MemoirLastSale.Sbe.v1.1.Url] - [pdf][Memx.Equities.MemoirLastSale.Sbe.v1.1.Pdf] - [xml][Memx.Equities.MemoirLastSale.Sbe.v1.1.Xml] |
 | Equities | MemoirTopOfBook | Sbe | [1.1][Memx.Equities.MemoirTopOfBook.Sbe.v1.1.Structs] | 7/27/2020 | 210 | Beta | [url][Memx.Equities.MemoirTopOfBook.Sbe.v1.1.Url] - [pdf][Memx.Equities.MemoirTopOfBook.Sbe.v1.1.Pdf] - [xml][Memx.Equities.MemoirTopOfBook.Sbe.v1.1.Xml] |

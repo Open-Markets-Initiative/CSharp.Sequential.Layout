@@ -162,6 +162,33 @@ public unsafe struct FutureLeg {
 };
 
 /// <summary>
+///  Struct for Futures Instrument Definition Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct FuturesInstrumentDefinitionMessage {
+    public uint TimeOffset;
+    public fixed sbyte Symbol[6];
+    public uint UnitTimestamp;
+    public fixed sbyte ReportSymbol[6];
+    public FuturesFlags FuturesFlags;
+    public uint ExpirationDate;
+    public ushort ContractSize;
+    public ListingState ListingState;
+    public ulong PriceIncrement;
+    public byte LegCount;
+    public byte LegOffset;
+    public byte VarianceBlockOffset;
+};
+
+/// <summary>
+///  Struct for Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Message {
+    public fixed byte MessageHeader[0];
+};
+
+/// <summary>
 ///  Struct for Message Header
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -202,6 +229,14 @@ public unsafe struct OrderExecutedMessage {
     public uint ExecutedQuantity;
     public ulong ExecutionId;
     public TradeCondition TradeCondition;
+};
+
+/// <summary>
+///  Struct for Packet
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Packet {
+    public fixed byte PacketHeader[0];
 };
 
 /// <summary>

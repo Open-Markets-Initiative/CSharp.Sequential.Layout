@@ -577,6 +577,14 @@ public unsafe struct CancelOrderByte2 {
 };
 
 /// <summary>
+///  Struct for Cancel Order Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct CancelOrderMessage {
+    public fixed sbyte OrigClOrdId[20];
+};
+
+/// <summary>
 ///  Struct for Cancel Rejected Byte 1
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -832,6 +840,41 @@ public unsafe struct CancelRejectedByte9 {
 };
 
 /// <summary>
+///  Struct for Cancel Rejected Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct CancelRejectedMessage {
+    public ulong TransactionTime;
+    public fixed sbyte ClOrdId[20];
+    public CancelRejectReason CancelRejectReason;
+    public fixed sbyte Text[60];
+    public fixed sbyte ReservedInternal[1];
+};
+
+/// <summary>
+///  Struct for Cross Order Rejected Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct CrossOrderRejectedMessage {
+    public ulong TransactionTime;
+    public fixed sbyte CrossId[20];
+    public OrderRejectReason OrderRejectReason;
+    public fixed sbyte Text[60];
+    public fixed sbyte ReservedInternal[1];
+};
+
+/// <summary>
+///  Struct for Login Request Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct LoginRequestMessage {
+    public fixed sbyte SessionSubId[4];
+    public fixed sbyte Username[4];
+    public fixed sbyte Password[10];
+    public byte NumberOfParamGroups;
+};
+
+/// <summary>
 ///  Struct for Logout Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -893,6 +936,15 @@ public unsafe struct ModifyOrderByte2 {
     public fixed byte ModifyOrderReservedBit3Exists[1];
     public fixed byte ModifyOrderStopPxExists[1];
     public fixed byte ModifyOrderMaxFloorExists[1];
+};
+
+/// <summary>
+///  Struct for Modify Order Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct ModifyOrderMessage {
+    public fixed sbyte ClOrdId[20];
+    public fixed sbyte OrigClOrdId[20];
 };
 
 /// <summary>
@@ -1028,6 +1080,16 @@ public unsafe struct NewOrderByte9 {
     public fixed byte NewOrderReservedBit3Exists[1];
     public fixed byte NewOrderReservedBit2Exists[1];
     public fixed byte NewOrderReservedBit1Exists[1];
+};
+
+/// <summary>
+///  Struct for New Order Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct NewOrderMessage {
+    public fixed sbyte ClOrdId[20];
+    public Side Side;
+    public uint OrderQty;
 };
 
 /// <summary>
@@ -1286,6 +1348,17 @@ public unsafe struct OrderAcknowledgmentByte9 {
 };
 
 /// <summary>
+///  Struct for Order Acknowledgment Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct OrderAcknowledgmentMessage {
+    public ulong TransactTime;
+    public fixed sbyte ClOrdId[20];
+    public ulong OrderId;
+    public fixed sbyte ReservedInternal[1];
+};
+
+/// <summary>
 ///  Struct for Order Cancelled Byte 1
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -1538,6 +1611,17 @@ public unsafe struct OrderCancelledByte9 {
     public fixed byte OrderCancelledReservedBit3Exists[1];
     public fixed byte OrderCancelledReservedBit2Exists[1];
     public fixed byte OrderCancelledMarketFeeCodeExists[1];
+};
+
+/// <summary>
+///  Struct for Order Cancelled Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct OrderCancelledMessage {
+    public ulong TransactTime;
+    public fixed sbyte ClOrdId[20];
+    public CancelReason CancelReason;
+    public fixed sbyte ReservedInternal[1];
 };
 
 /// <summary>
@@ -2051,6 +2135,17 @@ public unsafe struct OrderModifiedByte9 {
 };
 
 /// <summary>
+///  Struct for Order Modified Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct OrderModifiedMessage {
+    public ulong TransactionTime;
+    public fixed sbyte ClOrdId[20];
+    public ulong OrderId;
+    public fixed sbyte ReservedInternal[1];
+};
+
+/// <summary>
 ///  Struct for Order Rejected Byte 1
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -2303,6 +2398,18 @@ public unsafe struct OrderRejectedByte9 {
     public fixed byte OrderRejectedReservedBit3Exists[1];
     public fixed byte OrderRejectedReservedBit2Exists[1];
     public fixed byte OrderRejectedMarketFeeCodeExists[1];
+};
+
+/// <summary>
+///  Struct for Order Rejected Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct OrderRejectedMessage {
+    public ulong TransactionTime;
+    public fixed sbyte ClOrdId[20];
+    public OrderRejectReason OrderRejectReason;
+    public fixed sbyte Text[60];
+    public fixed sbyte ReservedInternal[1];
 };
 
 /// <summary>
@@ -2561,12 +2668,48 @@ public unsafe struct OrderRestatedByte9 {
 };
 
 /// <summary>
+///  Struct for Order Restated Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct OrderRestatedMessage {
+    public ulong TransactionTime;
+    public fixed sbyte ClOrdId[20];
+    public ulong OrderId;
+    public RestatementReason RestatementReason;
+    public fixed sbyte ReservedInternal[1];
+};
+
+/// <summary>
+///  Struct for Packet
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Packet {
+    public fixed byte MessageHeader[0];
+};
+
+/// <summary>
+///  Struct for Param Group
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct ParamGroup {
+    public fixed byte ParamHeader[0];
+};
+
+/// <summary>
 ///  Struct for Param Header
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct ParamHeader {
     public ushort ParamGroupLength;
     public ParamGroupType ParamGroupType;
+};
+
+/// <summary>
+///  Struct for Purge Order Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct PurgeOrderMessage {
+    public fixed sbyte MassCancel[1];
 };
 
 /// <summary>
@@ -2825,6 +2968,17 @@ public unsafe struct PurgeRejectedByte9 {
 };
 
 /// <summary>
+///  Struct for Purge Rejected Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct PurgeRejectedMessage {
+    public ulong TransactionTime;
+    public PurgeRejectReason PurgeRejectReason;
+    public fixed sbyte Text[60];
+    public fixed sbyte ReservedInternal[1];
+};
+
+/// <summary>
 ///  Struct for Quote Cancelled Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -2948,6 +3102,14 @@ public unsafe struct QuoteUpdateRejectedMessage {
 public unsafe struct ResetRiskAcknowledgmentMessage {
     public fixed sbyte RiskStatusId[16];
     public RiskResetResult RiskResetResult;
+};
+
+/// <summary>
+///  Struct for Return Bitfields
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct ReturnBitfields {
+    public ApplicationMessageType ApplicationMessageType;
 };
 
 /// <summary>
@@ -3249,6 +3411,26 @@ public unsafe struct TradeCancelOrCorrectByte9 {
 };
 
 /// <summary>
+///  Struct for Trade Cancel Or Correct Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct TradeCancelOrCorrectMessage {
+    public ulong TransactionTime;
+    public fixed sbyte ClOrdId[20];
+    public ulong OrderId;
+    public ulong ExecRefId;
+    public Side Side;
+    public BaseLiquidityIndicator BaseLiquidityIndicator;
+    public fixed sbyte ClearingFirm[4];
+    public fixed sbyte ClearingAccount[4];
+    public uint LastShares;
+    public long LastPx;
+    public long CorrectedPrice;
+    public ulong OrigTime;
+    public fixed sbyte ReservedInternal[1];
+};
+
+/// <summary>
 ///  Struct for Unit Sequence
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -3519,5 +3701,17 @@ public unsafe struct UserModifyRejectedByte9 {
     public fixed byte UserModifyRejectedReservedBit3Exists[1];
     public fixed byte UserModifyRejectedReservedBit2Exists[1];
     public fixed byte UserModifyRejectedReservedBit1Exists[1];
+};
+
+/// <summary>
+///  Struct for User Modify Rejected Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct UserModifyRejectedMessage {
+    public ulong TransactionTime;
+    public fixed sbyte ClOrdId[20];
+    public ModifyRejectReason ModifyRejectReason;
+    public fixed sbyte Text[60];
+    public fixed sbyte ReservedInternal[1];
 };
 

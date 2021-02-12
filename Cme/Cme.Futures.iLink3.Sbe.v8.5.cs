@@ -226,6 +226,32 @@ public unsafe struct BusinessReject521 {
 };
 
 /// <summary>
+///  Struct for Credentials
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Credentials {
+    public ushort Length;
+};
+
+/// <summary>
+///  Struct for Establish 503
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Establish503 {
+    public fixed sbyte HmacSignature[32];
+    public fixed sbyte AccessKeyId[20];
+    public fixed sbyte TradingSystemName[30];
+    public fixed sbyte TradingSystemVersion[10];
+    public fixed sbyte TradingSystemVendor[10];
+    public ulong Uuid;
+    public ulong RequestTimestamp;
+    public uint NextSeqNo;
+    public fixed sbyte Session[3];
+    public fixed sbyte Firm[5];
+    public ushort KeepAliveInterval;
+};
+
+/// <summary>
 ///  Struct for Establishment Ack 504
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -870,6 +896,19 @@ public unsafe struct MessageHeader {
 };
 
 /// <summary>
+///  Struct for Negotiate 500
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Negotiate500 {
+    public fixed sbyte HmacSignature[32];
+    public fixed sbyte AccessKeyId[20];
+    public ulong Uuid;
+    public ulong RequestTimestamp;
+    public fixed sbyte Session[3];
+    public fixed sbyte Firm[5];
+};
+
+/// <summary>
 ///  Struct for Negotiation Reject 502
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -880,6 +919,20 @@ public unsafe struct NegotiationReject502 {
     public ushort ErrorCodes;
     public byte FaultToleranceIndicator;
     public SplitMsg SplitMsg;
+};
+
+/// <summary>
+///  Struct for Negotiation Response 501
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct NegotiationResponse501 {
+    public ulong Uuid;
+    public ulong RequestTimestamp;
+    public ushort SecretKeySecureIdExpiration;
+    public byte FaultToleranceIndicator;
+    public SplitMsg SplitMsg;
+    public uint PreviousSeqNo;
+    public ulong PreviousUuid;
 };
 
 /// <summary>
@@ -1142,6 +1195,13 @@ public unsafe struct OrderStatusRequest533 {
     public ulong OrderId;
     public ulong SendingTimeEpoch;
     public fixed sbyte Location[5];
+};
+
+/// <summary>
+///  Struct for Packet
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Packet {
 };
 
 /// <summary>
@@ -1494,6 +1554,15 @@ public unsafe struct SidesGroup {
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct SidesGroups {
     public fixed byte GroupSize[0];
+};
+
+/// <summary>
+///  Struct for Simple Open Frame
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct SimpleOpenFrame {
+    public fixed byte SimpleOpenFramingHeader[0];
+    public fixed byte MessageHeader[0];
 };
 
 /// <summary>

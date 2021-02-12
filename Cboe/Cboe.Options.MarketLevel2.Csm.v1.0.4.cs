@@ -107,6 +107,14 @@ public enum TemplateId : byte {
 ///////////////////////////////////////////////////////////////////////
 
 /// <summary>
+///  Struct for Currency Code
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct CurrencyCode {
+    public byte CurrencyCodeLength;
+};
+
+/// <summary>
 ///  Struct for Incremental Refresh Md Entry
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -159,6 +167,14 @@ public unsafe struct MdVolumeEntry {
 };
 
 /// <summary>
+///  Struct for Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Message {
+    public fixed byte MessageHeader[0];
+};
+
+/// <summary>
 ///  Struct for Message Header
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -194,6 +210,14 @@ public unsafe struct MinimumBelowPremiumFraction {
 public unsafe struct MinimumStrikePriceFraction {
     public sbyte MinimumStrikePriceFractionExponent;
     public int MinimumStrikePriceFractionMantissa;
+};
+
+/// <summary>
+///  Struct for Packet
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Packet {
+    public fixed byte PacketHeader[0];
 };
 
 /// <summary>
@@ -239,6 +263,14 @@ public unsafe struct SecurityStatusMessage {
 };
 
 /// <summary>
+///  Struct for Security Type
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct SecurityType {
+    public byte SecurityTypeLength;
+};
+
+/// <summary>
 ///  Struct for Snapshot Full Refresh Md Entry
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -270,5 +302,37 @@ public unsafe struct SnapshotFullRefreshMessage {
 public unsafe struct StrikePrice {
     public sbyte StrikePriceExponent;
     public int StrikePriceMantissa;
+};
+
+/// <summary>
+///  Struct for Symbol
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Symbol {
+    public byte SymbolLength;
+};
+
+/// <summary>
+///  Struct for Target Location Id
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct TargetLocationId {
+    public byte TargetLocationIdLength;
+};
+
+/// <summary>
+///  Struct for Underlying Symbol
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct UnderlyingSymbol {
+    public byte UnderlyingSymbolLength;
+};
+
+/// <summary>
+///  Struct for Underlying Type
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct UnderlyingType {
+    public byte UnderlyingTypeLength;
 };
 

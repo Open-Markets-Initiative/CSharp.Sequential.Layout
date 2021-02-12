@@ -604,6 +604,14 @@ public unsafe struct HeartbeatResponseMessage {
 };
 
 /// <summary>
+///  Struct for Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Message {
+    public fixed byte MessageHeader[0];
+};
+
+/// <summary>
 ///  Struct for Message Header
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -621,6 +629,14 @@ public unsafe struct MessageUnavailableMessage {
     public uint EndSeqNum;
     public byte ProductId;
     public byte ChannelId;
+};
+
+/// <summary>
+///  Struct for Packet
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Packet {
+    public fixed byte PacketHeader[0];
 };
 
 /// <summary>

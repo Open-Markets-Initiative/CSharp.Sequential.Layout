@@ -411,6 +411,14 @@ public unsafe struct BlockHeader {
 };
 
 /// <summary>
+///  Struct for Control
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Control {
+    public ControlMessageType ControlMessageType;
+};
+
+/// <summary>
 ///  Struct for Disaster Recovery Data Center Activation Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -483,6 +491,14 @@ public unsafe struct LineIntegrityMessage {
 };
 
 /// <summary>
+///  Struct for Market Status
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct MarketStatus {
+    public MarketStatusMessageType MarketStatusMessageType;
+};
+
+/// <summary>
 ///  Struct for Market Wide Circuit Breaker Decline Level Status Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -510,6 +526,14 @@ public unsafe struct MarketWideCircuitBreakerStatusMessage {
     public long ParticipantReferenceNumber;
     public fixed byte MarketWideCircuitBreakerLevelIndicator[0];
     public byte Reserved;
+};
+
+/// <summary>
+///  Struct for Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Message {
+    public fixed byte MessageHeader[0];
 };
 
 /// <summary>
@@ -572,6 +596,14 @@ public unsafe struct NationalBestOfferShortAppendage {
 public unsafe struct ParticipantTimestamp {
     public uint Seconds;
     public uint Nanoseconds;
+};
+
+/// <summary>
+///  Struct for Quote
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Quote {
+    public QuoteMessageType QuoteMessageType;
 };
 
 /// <summary>

@@ -459,6 +459,14 @@ public enum TradeThroughExemptIndicator : byte {
 ///////////////////////////////////////////////////////////////////////
 
 /// <summary>
+///  Struct for Administrative
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Administrative {
+    public AdministrativeMessageType AdministrativeMessageType;
+};
+
+/// <summary>
 ///  Struct for Administrative Unformatted Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -610,6 +618,14 @@ public unsafe struct ConsolidatedStartOfDaySummaryMessage {
 };
 
 /// <summary>
+///  Struct for Control
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Control {
+    public ControlMessageType ControlMessageType;
+};
+
+/// <summary>
 ///  Struct for Corrected Trade
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -700,6 +716,14 @@ public unsafe struct EndOfTestCycleMessage {
 };
 
 /// <summary>
+///  Struct for Index
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Index {
+    public IndexMessageType IndexMessageType;
+};
+
+/// <summary>
 ///  Struct for Index Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -754,6 +778,14 @@ public unsafe struct LongTradeMessage {
 };
 
 /// <summary>
+///  Struct for Market Status
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct MarketStatus {
+    public MarketStatusMessageType MarketStatusMessageType;
+};
+
+/// <summary>
 ///  Struct for Market Wide Circuit Breaker Decline Level Status Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -781,6 +813,14 @@ public unsafe struct MarketWideCircuitBreakerStatusMessage {
     public long ParticipantReferenceNumber;
     public fixed byte MarketWideCircuitBreakerLevelIndicator[0];
     public byte Reserved;
+};
+
+/// <summary>
+///  Struct for Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Message {
+    public fixed byte MessageHeader[0];
 };
 
 /// <summary>
@@ -867,6 +907,14 @@ public unsafe struct ParticipantStartOfDaySummaryMessage {
 public unsafe struct Participants {
     public ParticipantId ParticipantId;
     public ulong TradeTotalVolume;
+};
+
+/// <summary>
+///  Struct for Prior Day
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct PriorDay {
+    public PriorDayMessageType PriorDayMessageType;
 };
 
 /// <summary>
@@ -1019,6 +1067,14 @@ public unsafe struct StartOfTestCycleMessage {
 };
 
 /// <summary>
+///  Struct for Summary
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Summary {
+    public SummaryMessageType SummaryMessageType;
+};
+
+/// <summary>
 ///  Struct for Timestamp 1
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -1034,6 +1090,14 @@ public unsafe struct Timestamp1 {
 public unsafe struct Timestamp2 {
     public uint Seconds;
     public uint Nanoseconds;
+};
+
+/// <summary>
+///  Struct for Trade
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Trade {
+    public TradeMessageType TradeMessageType;
 };
 
 /// <summary>

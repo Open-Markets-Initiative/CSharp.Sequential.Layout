@@ -295,6 +295,14 @@ public enum TradingActionCode : byte {
 ///////////////////////////////////////////////////////////////////////
 
 /// <summary>
+///  Struct for Administrative
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Administrative {
+    public AdministrativeMessageType AdministrativeMessageType;
+};
+
+/// <summary>
 ///  Struct for Auction Collar Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -306,6 +314,14 @@ public unsafe struct AuctionCollarMessage {
     public ulong CollarUpPrice;
     public ulong CollarDownPrice;
     public fixed sbyte CollarExtensionIndicator[1];
+};
+
+/// <summary>
+///  Struct for Control
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Control {
+    public ControlMessageType ControlMessageType;
 };
 
 /// <summary>
@@ -360,6 +376,15 @@ public unsafe struct FinraAdfMarketParticipantQuotationMessage {
 public unsafe struct FinraAdfMpidAppendage {
     public fixed sbyte BidAdfMpid[4];
     public fixed sbyte AskAdfMpid[4];
+};
+
+/// <summary>
+///  Struct for General Administrative Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct GeneralAdministrativeMessage {
+    public fixed byte MessageInfo[0];
+    public ushort TextLength;
 };
 
 /// <summary>
@@ -459,6 +484,14 @@ public unsafe struct MarketWideCircuitBreakerDeclineLevelMessage {
 };
 
 /// <summary>
+///  Struct for Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Message {
+    public fixed byte MessageHeader[0];
+};
+
+/// <summary>
 ///  Struct for Message Header
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -481,6 +514,14 @@ public unsafe struct MessageInfo {
 };
 
 /// <summary>
+///  Struct for Packet
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Packet {
+    public fixed byte PacketHeader[0];
+};
+
+/// <summary>
 ///  Struct for Packet Header
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -488,6 +529,14 @@ public unsafe struct PacketHeader {
     public fixed sbyte Session[10];
     public ulong Sequence;
     public ushort Count;
+};
+
+/// <summary>
+///  Struct for Quote
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Quote {
+    public QuoteMessageType QuoteMessageType;
 };
 
 /// <summary>

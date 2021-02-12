@@ -375,6 +375,14 @@ public unsafe struct OriginalTradeInformation {
 };
 
 /// <summary>
+///  Struct for Packet
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Packet {
+    public byte BlockSoh;
+};
+
+/// <summary>
 ///  Struct for Sequence Number Reset Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]

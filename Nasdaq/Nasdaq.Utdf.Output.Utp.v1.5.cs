@@ -296,6 +296,14 @@ public enum VolumeMessageType : byte {
 ///////////////////////////////////////////////////////////////////////
 
 /// <summary>
+///  Struct for Administrative
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Administrative {
+    public AdministrativeMessageType AdministrativeMessageType;
+};
+
+/// <summary>
 ///  Struct for Auction Collar Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -323,6 +331,14 @@ public unsafe struct ClosingTradeSummaryReportMessage {
     public ulong ConsolidatedVolume;
     public TradingActionIndicator TradingActionIndicator;
     public ushort NumberOfMarketCenterSummaries;
+};
+
+/// <summary>
+///  Struct for Control
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Control {
+    public ControlMessageType ControlMessageType;
 };
 
 /// <summary>
@@ -368,6 +384,15 @@ public unsafe struct EndOfTradeReportingMessage {
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct EndOfTransmissionsMessage {
     public fixed byte MessageInfo[0];
+};
+
+/// <summary>
+///  Struct for General Administrative Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct GeneralAdministrativeMessage {
+    public fixed byte MessageInfo[0];
+    public ushort TextLength;
 };
 
 /// <summary>
@@ -463,6 +488,14 @@ public unsafe struct MarketWideCircuitBreakerDeclineLevelMessage {
 };
 
 /// <summary>
+///  Struct for Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Message {
+    public fixed byte MessageHeader[0];
+};
+
+/// <summary>
 ///  Struct for Message Header
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -482,6 +515,14 @@ public unsafe struct MessageInfo {
     public ulong SipTimestamp;
     public ulong ParticipantTimestamp;
     public ulong ParticipantToken;
+};
+
+/// <summary>
+///  Struct for Packet
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Packet {
+    public fixed byte PacketHeader[0];
 };
 
 /// <summary>
@@ -549,6 +590,14 @@ public unsafe struct TotalConsolidatedAndMarketCenterVolumeMessage {
     public fixed byte MessageInfo[0];
     public ulong TotalConsolidatedVolume;
     public ushort NumberOfMarketCenterVolumes;
+};
+
+/// <summary>
+///  Struct for Trade
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Trade {
+    public TradeMessageType TradeMessageType;
 };
 
 /// <summary>

@@ -825,6 +825,21 @@ public unsafe struct AddComplexInstrumentResponse {
 };
 
 /// <summary>
+///  Struct for Broadcast Error Notification
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct BroadcastErrorNotification {
+    public fixed byte MessageHeaderOutComp[0];
+    public fixed byte NotifHeaderComp[0];
+    public ApplIdStatus ApplIdStatus;
+    public uint RefApplSubId;
+    public ushort VarTextLen;
+    public RefApplId RefApplId;
+    public SessionStatus SessionStatus;
+    public fixed byte Pad4[4];
+};
+
+/// <summary>
 ///  Struct for Cross Request
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -1097,6 +1112,17 @@ public unsafe struct FillsGrpComp {
 };
 
 /// <summary>
+///  Struct for Forced Logout Notification
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct ForcedLogoutNotification {
+    public fixed byte MessageHeaderOutComp[0];
+    public fixed byte NotifHeaderComp[0];
+    public ushort VarTextLen;
+    public fixed byte Pad6[6];
+};
+
+/// <summary>
 ///  Struct for Gateway Request
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -1265,6 +1291,19 @@ public unsafe struct InstrmtLegGrpComp {
 public unsafe struct LegOrdGrpComp {
     public fixed sbyte LegAccount[2];
     public LegPositionEffect LegPositionEffect;
+    public fixed byte Pad5[5];
+};
+
+/// <summary>
+///  Struct for Legal Notification Broadcast
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct LegalNotificationBroadcast {
+    public fixed byte MessageHeaderOutComp[0];
+    public fixed byte RbcHeaderComp[0];
+    public ulong TransactTime;
+    public ushort VarTextLen;
+    public UserStatus UserStatus;
     public fixed byte Pad5[5];
 };
 
@@ -1703,6 +1742,19 @@ public unsafe struct NewOrderSingleShortRequest {
 };
 
 /// <summary>
+///  Struct for News Broadcast
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct NewsBroadcast {
+    public fixed byte MessageHeaderOutComp[0];
+    public fixed byte RbcHeaderComp[0];
+    public ulong OrigTime;
+    public ushort VarTextLen;
+    public fixed sbyte Headline[256];
+    public fixed byte Pad6[6];
+};
+
+/// <summary>
 ///  Struct for Not Affected Orders Grp Comp
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -1936,6 +1988,19 @@ public unsafe struct RbcHeaderMeComp {
     public ApplResendFlag ApplResendFlag;
     public LastFragment LastFragment;
     public fixed byte Pad7[7];
+};
+
+/// <summary>
+///  Struct for Reject
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Reject {
+    public fixed byte MessageHeaderOutComp[0];
+    public fixed byte NrResponseHeaderMeComp[0];
+    public SessionRejectReason SessionRejectReason;
+    public ushort VarTextLen;
+    public SessionStatus SessionStatus;
+    public fixed byte Pad1[1];
 };
 
 /// <summary>

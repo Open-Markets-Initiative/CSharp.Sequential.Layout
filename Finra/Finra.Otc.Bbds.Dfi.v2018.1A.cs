@@ -277,6 +277,14 @@ public unsafe struct MessageHeader {
 };
 
 /// <summary>
+///  Struct for Packet
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Packet {
+    public byte BlockSoh;
+};
+
+/// <summary>
 ///  Struct for Quotation
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]

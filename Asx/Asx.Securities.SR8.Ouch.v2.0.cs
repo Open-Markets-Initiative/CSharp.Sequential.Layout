@@ -306,6 +306,14 @@ public unsafe struct OrderReplacedMessage {
 };
 
 /// <summary>
+///  Struct for Packet
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Packet {
+    public fixed byte PacketHeader[0];
+};
+
+/// <summary>
 ///  Struct for Packet Header
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]

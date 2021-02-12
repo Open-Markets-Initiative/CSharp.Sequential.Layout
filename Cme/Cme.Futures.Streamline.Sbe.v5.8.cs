@@ -685,6 +685,15 @@ public unsafe struct MdIncrementalRefreshTradeBlocks349 {
 };
 
 /// <summary>
+///  Struct for Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Message {
+    public ushort MessageSize;
+    public fixed byte MessageHeader[0];
+};
+
+/// <summary>
 ///  Struct for Message Header
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -756,6 +765,14 @@ public unsafe struct Npv {
 public unsafe struct PV01 {
     public long Mantissa64;
     public sbyte Exponent;
+};
+
+/// <summary>
+///  Struct for Packet
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Packet {
+    public fixed byte BinaryPacketHeader[0];
 };
 
 /// <summary>

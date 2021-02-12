@@ -962,6 +962,14 @@ public unsafe struct MarketStatisticsMessage {
 };
 
 /// <summary>
+///  Struct for Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Message {
+    public fixed byte MessageHeader[0];
+};
+
+/// <summary>
 ///  Struct for Message Bundle Marker
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -1137,6 +1145,14 @@ public unsafe struct OptionSettlementPriceMessage {
 };
 
 /// <summary>
+///  Struct for Packet
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Packet {
+    public fixed byte PacketHeader[0];
+};
+
+/// <summary>
 ///  Struct for Packet Header
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -1184,6 +1200,23 @@ public unsafe struct SettlementPriceMessage {
     public IsOfficial IsOfficial;
     public long ValuationDateTime;
     public long SettlementPrice;
+};
+
+/// <summary>
+///  Struct for Special Field
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct SpecialField {
+    public byte SpecialFieldId;
+    public ushort SpecialFieldLength;
+};
+
+/// <summary>
+///  Struct for Special Field Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct SpecialFieldMessage {
+    public sbyte NumberOfSpecialFields;
 };
 
 /// <summary>

@@ -1295,6 +1295,21 @@ public unsafe struct ApproveTesTradeRequest {
 };
 
 /// <summary>
+///  Struct for Broadcast Error Notification
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct BroadcastErrorNotification {
+    public fixed byte MessageHeaderOutComp[0];
+    public fixed byte NotifHeaderComp[0];
+    public ApplIdStatus ApplIdStatus;
+    public uint RefApplSubId;
+    public ushort VarTextLen;
+    public RefApplId RefApplId;
+    public SessionStatus SessionStatus;
+    public fixed byte Pad4[4];
+};
+
+/// <summary>
 ///  Struct for Cross Request
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -1628,6 +1643,30 @@ public unsafe struct FillsGrpComp {
 };
 
 /// <summary>
+///  Struct for Forced Logout Notification
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct ForcedLogoutNotification {
+    public fixed byte MessageHeaderOutComp[0];
+    public fixed byte NotifHeaderComp[0];
+    public ushort VarTextLen;
+    public fixed byte Pad6[6];
+};
+
+/// <summary>
+///  Struct for Forced User Logout Notification
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct ForcedUserLogoutNotification {
+    public fixed byte MessageHeaderOutComp[0];
+    public fixed byte NotifHeaderComp[0];
+    public uint Username;
+    public ushort VarTextLen;
+    public UserStatus UserStatus;
+    public fixed byte Pad1[1];
+};
+
+/// <summary>
 ///  Struct for Heartbeat
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -1751,6 +1790,19 @@ public unsafe struct IssuerSecurityStateChangeResponse {
     public fixed byte MessageHeaderOutComp[0];
     public fixed byte NrResponseHeaderMeComp[0];
     public ulong SecurityStatusReportId;
+};
+
+/// <summary>
+///  Struct for Legal Notification Broadcast
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct LegalNotificationBroadcast {
+    public fixed byte MessageHeaderOutComp[0];
+    public fixed byte RbcHeaderComp[0];
+    public ulong TransactTime;
+    public ushort VarTextLen;
+    public UserStatus UserStatus;
+    public fixed byte Pad5[5];
 };
 
 /// <summary>
@@ -2160,6 +2212,19 @@ public unsafe struct NewOrderSingleShortRequest {
 };
 
 /// <summary>
+///  Struct for News Broadcast
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct NewsBroadcast {
+    public fixed byte MessageHeaderOutComp[0];
+    public fixed byte RbcHeaderComp[0];
+    public ulong OrigTime;
+    public ushort VarTextLen;
+    public fixed sbyte Headline[256];
+    public fixed byte Pad6[6];
+};
+
+/// <summary>
 ///  Struct for Not Affected Orders Grp Comp
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -2533,6 +2598,19 @@ public unsafe struct RbcHeaderMeComp {
     public ApplResendFlag ApplResendFlag;
     public LastFragment LastFragment;
     public fixed byte Pad7[7];
+};
+
+/// <summary>
+///  Struct for Reject
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Reject {
+    public fixed byte MessageHeaderOutComp[0];
+    public fixed byte NrResponseHeaderMeComp[0];
+    public SessionRejectReason SessionRejectReason;
+    public ushort VarTextLen;
+    public SessionStatus SessionStatus;
+    public fixed byte Pad1[1];
 };
 
 /// <summary>
@@ -3012,6 +3090,47 @@ public unsafe struct SubscribeResponse {
     public fixed byte ResponseHeaderComp[0];
     public uint ApplSubId;
     public fixed byte Pad4[4];
+};
+
+/// <summary>
+///  Struct for Tes Approve Broadcast
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct TesApproveBroadcast {
+    public fixed byte MessageHeaderOutComp[0];
+    public fixed byte RbcHeaderComp[0];
+    public long SecurityId;
+    public ulong LastPx;
+    public ulong AllocQty;
+    public ulong TransactTime;
+    public ulong TransBkdTime;
+    public ulong SettlCurrFxRate;
+    public int MarketSegmentId;
+    public uint PackageId;
+    public uint TesExecId;
+    public uint AllocId;
+    public uint SettlDate;
+    public uint TesEnrichmentRuleId;
+    public uint AutoApprovalRuleId;
+    public TrdType TrdType;
+    public ushort VarTextLen;
+    public Side Side;
+    public ValueCheckTypeValue ValueCheckTypeValue;
+    public ValueCheckTypeQuantity ValueCheckTypeQuantity;
+    public TradeReportType TradeReportType;
+    public TradingCapacity TradingCapacity;
+    public TradeAllocStatus TradeAllocStatus;
+    public MessageEventSource MessageEventSource;
+    public fixed sbyte TradeReportId[20];
+    public fixed sbyte PartyExecutingFirm[5];
+    public fixed sbyte PartyExecutingTrader[6];
+    public PartyIdEnteringFirm PartyIdEnteringFirm;
+    public fixed sbyte PartyEnteringTrader[6];
+    public fixed sbyte RootPartyExecutingFirm[5];
+    public fixed sbyte RootPartyExecutingTrader[6];
+    public fixed sbyte FreeText1[12];
+    public fixed sbyte FreeText2[12];
+    public fixed sbyte FreeText4[16];
 };
 
 /// <summary>

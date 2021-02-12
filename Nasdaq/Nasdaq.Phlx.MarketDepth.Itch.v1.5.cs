@@ -253,6 +253,15 @@ public unsafe struct BaseReferenceMessage {
 };
 
 /// <summary>
+///  Struct for Block Delete Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct BlockDeleteMessage {
+    public uint Timestamp;
+    public ushort NumberOfReferenceNumberDeltas;
+};
+
+/// <summary>
 ///  Struct for Broken Trade Order Execution Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -260,6 +269,14 @@ public unsafe struct BrokenTradeOrderExecutionMessage {
     public uint Timestamp;
     public uint CrossNumber;
     public uint MatchNumber;
+};
+
+/// <summary>
+///  Struct for Message
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Message {
+    public fixed byte MessageHeader[0];
 };
 
 /// <summary>
@@ -330,6 +347,14 @@ public unsafe struct OrderReplaceMessageShortForm {
     public ushort ShortPrice;
     public ushort ShortVolume;
     public uint OrderId;
+};
+
+/// <summary>
+///  Struct for Packet
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct Packet {
+    public fixed byte PacketHeader[0];
 };
 
 /// <summary>
