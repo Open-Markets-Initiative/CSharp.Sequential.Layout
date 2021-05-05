@@ -14,6 +14,7 @@
 | Edgx Options | AuctionFeed | Pitch | [1.1.1][Cboe.Edgx.Options.AuctionFeed.Pitch.v1.1.1.Structs] | 12/6/2018 | 156 | Verified | [url][Cboe.Edgx.Options.AuctionFeed.Pitch.v1.1.1.Url] - [pdf][Cboe.Edgx.Options.AuctionFeed.Pitch.v1.1.1.Pdf] |
 | Futures | OrderEntry | Boe | [1.3][Cboe.Futures.OrderEntry.Boe.v1.3.Structs] | 4/21/2020 | 3865 | Incomplete | [url][Cboe.Futures.OrderEntry.Boe.v1.3.Url] - [pdf][Cboe.Futures.OrderEntry.Boe.v1.3.Pdf] |
 | Futures | DepthOfBook | Pitch | [1.1.6][Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Structs] | 4/8/2019 | 414 | Verified | [url][Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Url] - [pdf][Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Pdf] |
+| Futures | DepthOfBook | Pitch | [1.1.12][Cboe.Futures.DepthOfBook.Pitch.v1.1.12.Structs] | 1/12/2021 | 416 | Verified | [url][Cboe.Futures.DepthOfBook.Pitch.v1.1.12.Url] - [pdf][Cboe.Futures.DepthOfBook.Pitch.v1.1.12.Pdf] |
 | Options | MarketDataFeed | Csm | [1.4.2][Cboe.Options.MarketDataFeed.Csm.v1.4.2.Structs] | 5/8/2018 | 511 | Verified | [url][Cboe.Options.MarketDataFeed.Csm.v1.4.2.Url] - [pdf][Cboe.Options.MarketDataFeed.Csm.v1.4.2.Pdf] |
 | Options | MarketLevel2 | Csm | [1.0.4][Cboe.Options.MarketLevel2.Csm.v1.0.4.Structs] | 5/8/2018 | 338 | Verified | [url][Cboe.Options.MarketLevel2.Csm.v1.0.4.Url] - [pdf][Cboe.Options.MarketLevel2.Csm.v1.0.4.Pdf] |
 | Options | OpeningAuction | Csm | [1.0][Cboe.Options.OpeningAuction.Csm.v1.0.Structs] | 7/18/2018 | 350 | Verified | [url][Cboe.Options.OpeningAuction.Csm.v1.0.Url] - [pdf][Cboe.Options.OpeningAuction.Csm.v1.0.Pdf] |
@@ -33,6 +34,9 @@ Cboe: [website](https://www.cboe.com "Go to Chicago Board Options Exchange")
 [Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Structs]: https://github.com/Open-Markets-Initiative/CSharp.Packed.Structs/blob/master/Cboe/Cboe.Futures.DepthOfBook.Pitch.v1.1.6.cs "Cboe Futures DepthOfBook Pitch v1.1.6 C# Parsers Source File"
 [Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Url]: http://markets.cboe.com/us/futures/support/technical "Specification url"
 [Cboe.Futures.DepthOfBook.Pitch.v1.1.6.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Cboe/Cboe.Futures.DepthOfBook.Pitch.v1.1.6.pdf "Chicago Board Options Exchange 1.1.6 Pdf"
+[Cboe.Futures.DepthOfBook.Pitch.v1.1.12.Structs]: https://github.com/Open-Markets-Initiative/CSharp.Packed.Structs/blob/master/Cboe/Cboe.Futures.DepthOfBook.Pitch.v1.1.12.cs "Cboe Futures DepthOfBook Pitch v1.1.12 C# Parsers Source File"
+[Cboe.Futures.DepthOfBook.Pitch.v1.1.12.Url]: http://markets.cboe.com/us/futures/support/technical "Specification url"
+[Cboe.Futures.DepthOfBook.Pitch.v1.1.12.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Cboe/Cboe.Futures.DepthOfBook.Pitch.v1.1.12.pdf "Chicago Board Options Exchange 1.1.12 Pdf"
 [Cboe.Futures.OrderEntry.Boe.v1.3.Structs]: https://github.com/Open-Markets-Initiative/CSharp.Packed.Structs/blob/master/Cboe/Cboe.Futures.OrderEntry.Boe.v1.3.cs "Cboe Futures OrderEntry Boe v1.3 C# Parsers Source File"
 [Cboe.Futures.OrderEntry.Boe.v1.3.Url]: http://markets.cboe.com/us/futures/support/technical/ "Specification url"
 [Cboe.Futures.OrderEntry.Boe.v1.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Cboe/Cboe.Futures.OrderEntry.Boe.v1.3.pdf "Chicago Board Options Exchange 1.3 Pdf"
