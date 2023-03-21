@@ -621,10 +621,10 @@ public unsafe struct AffectedOrdersGroups {
 };
 
 /// <summary>
-///  Struct for Business Reject 521
+///  Struct for Business Reject
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct BusinessReject521 {
+public unsafe struct BusinessReject {
     public uint SeqNum;
     public ulong Uuid;
     public fixed sbyte Text[256];
@@ -651,10 +651,10 @@ public unsafe struct Credentials {
 };
 
 /// <summary>
-///  Struct for Establish 503
+///  Struct for Establish
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct Establish503 {
+public unsafe struct Establish {
     public fixed byte HmacSignature[32];
     public fixed sbyte AccessKeyId[20];
     public fixed sbyte TradingSystemName[30];
@@ -669,10 +669,10 @@ public unsafe struct Establish503 {
 };
 
 /// <summary>
-///  Struct for Establishment Ack 504
+///  Struct for Establishment Ack
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct EstablishmentAck504 {
+public unsafe struct EstablishmentAck {
     public ulong Uuid;
     public ulong RequestTimestamp;
     public uint NextSeqNo;
@@ -685,10 +685,10 @@ public unsafe struct EstablishmentAck504 {
 };
 
 /// <summary>
-///  Struct for Establishment Reject 505
+///  Struct for Establishment Reject
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct EstablishmentReject505 {
+public unsafe struct EstablishmentReject {
     public fixed sbyte Reason[48];
     public ulong Uuid;
     public ulong RequestTimestamp;
@@ -714,10 +714,10 @@ public unsafe struct ExecInst {
 };
 
 /// <summary>
-///  Struct for Execution Ack 539
+///  Struct for Execution Ack
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct ExecutionAck539 {
+public unsafe struct ExecutionAck {
     public ulong PartyDetailsListReqId;
     public ulong OrderId;
     public ExecAckStatus ExecAckStatus;
@@ -733,10 +733,10 @@ public unsafe struct ExecutionAck539 {
 };
 
 /// <summary>
-///  Struct for Execution Report Cancel 534
+///  Struct for Execution Report Cancel
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct ExecutionReportCancel534 {
+public unsafe struct ExecutionReportCancel {
     public uint SeqNum;
     public ulong Uuid;
     public fixed sbyte ExecId[40];
@@ -776,10 +776,10 @@ public unsafe struct ExecutionReportCancel534 {
 };
 
 /// <summary>
-///  Struct for Execution Report Elimination 524
+///  Struct for Execution Report Elimination
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct ExecutionReportElimination524 {
+public unsafe struct ExecutionReportElimination {
     public uint SeqNum;
     public ulong Uuid;
     public fixed sbyte ExecId[40];
@@ -815,10 +815,10 @@ public unsafe struct ExecutionReportElimination524 {
 };
 
 /// <summary>
-///  Struct for Execution Report Modify 531
+///  Struct for Execution Report Modify
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct ExecutionReportModify531 {
+public unsafe struct ExecutionReportModify {
     public uint SeqNum;
     public ulong Uuid;
     public fixed sbyte ExecId[40];
@@ -858,10 +858,10 @@ public unsafe struct ExecutionReportModify531 {
 };
 
 /// <summary>
-///  Struct for Execution Report New 522
+///  Struct for Execution Report New
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct ExecutionReportNew522 {
+public unsafe struct ExecutionReportNew {
     public uint SeqNum;
     public ulong Uuid;
     public fixed sbyte ExecId[40];
@@ -899,10 +899,10 @@ public unsafe struct ExecutionReportNew522 {
 };
 
 /// <summary>
-///  Struct for Execution Report Reject 523
+///  Struct for Execution Report Reject
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct ExecutionReportReject523 {
+public unsafe struct ExecutionReportReject {
     public uint SeqNum;
     public ulong Uuid;
     public fixed sbyte Text[256];
@@ -942,10 +942,10 @@ public unsafe struct ExecutionReportReject523 {
 };
 
 /// <summary>
-///  Struct for Execution Report Status 532
+///  Struct for Execution Report Status
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct ExecutionReportStatus532 {
+public unsafe struct ExecutionReportStatus {
     public uint SeqNum;
     public ulong Uuid;
     public fixed sbyte Text[256];
@@ -1197,10 +1197,10 @@ public unsafe struct LegOptionDelta {
 };
 
 /// <summary>
-///  Struct for Mass Quote 517
+///  Struct for Mass Quote
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MassQuote517 {
+public unsafe struct MassQuote {
     public ulong PartyDetailsListReqId;
     public ulong SendingTimeEpoch;
     public ManualOrderIndicator ManualOrderIndicator;
@@ -1216,10 +1216,10 @@ public unsafe struct MassQuote517 {
 };
 
 /// <summary>
-///  Struct for Mass Quote Ack 545
+///  Struct for Mass Quote Ack
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MassQuoteAck545 {
+public unsafe struct MassQuoteAck {
     public uint SeqNum;
     public ulong Uuid;
     public fixed sbyte Text[256];
@@ -1309,10 +1309,10 @@ public unsafe struct MessageHeader {
 };
 
 /// <summary>
-///  Struct for Negotiate 500
+///  Struct for Negotiate
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct Negotiate500 {
+public unsafe struct Negotiate {
     public fixed byte HmacSignature[32];
     public fixed sbyte AccessKeyId[20];
     public ulong Uuid;
@@ -1322,10 +1322,10 @@ public unsafe struct Negotiate500 {
 };
 
 /// <summary>
-///  Struct for Negotiation Reject 502
+///  Struct for Negotiation Reject
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct NegotiationReject502 {
+public unsafe struct NegotiationReject {
     public fixed sbyte Reason[48];
     public ulong Uuid;
     public ulong RequestTimestamp;
@@ -1335,10 +1335,10 @@ public unsafe struct NegotiationReject502 {
 };
 
 /// <summary>
-///  Struct for Negotiation Response 501
+///  Struct for Negotiation Response
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct NegotiationResponse501 {
+public unsafe struct NegotiationResponse {
     public ulong Uuid;
     public ulong RequestTimestamp;
     public ushort SecretKeySecureIdExpiration;
@@ -1349,10 +1349,10 @@ public unsafe struct NegotiationResponse501 {
 };
 
 /// <summary>
-///  Struct for New Order Cross 544
+///  Struct for New Order Cross
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct NewOrderCross544 {
+public unsafe struct NewOrderCross {
     public ulong CrossId;
     public ulong OrderRequestId;
     public ManualOrderIndicator ManualOrderIndicator;
@@ -1366,10 +1366,10 @@ public unsafe struct NewOrderCross544 {
 };
 
 /// <summary>
-///  Struct for New Order Single 514
+///  Struct for New Order Single
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct NewOrderSingle514 {
+public unsafe struct NewOrderSingle {
     public long PriceOptional;
     public uint OrderQty;
     public int SecurityId;
@@ -1396,10 +1396,10 @@ public unsafe struct NewOrderSingle514 {
 };
 
 /// <summary>
-///  Struct for Not Applied 513
+///  Struct for Not Applied
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct NotApplied513 {
+public unsafe struct NotApplied {
     public ulong Uuid;
     public uint FromSeqNo;
     public uint MsgCount;
@@ -1416,10 +1416,10 @@ public unsafe struct OptionDelta {
 };
 
 /// <summary>
-///  Struct for Order Cancel Reject 535
+///  Struct for Order Cancel Reject
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct OrderCancelReject535 {
+public unsafe struct OrderCancelReject {
     public uint SeqNum;
     public ulong Uuid;
     public fixed sbyte Text[256];
@@ -1442,10 +1442,10 @@ public unsafe struct OrderCancelReject535 {
 };
 
 /// <summary>
-///  Struct for Order Cancel Replace Reject 536
+///  Struct for Order Cancel Replace Reject
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct OrderCancelReplaceReject536 {
+public unsafe struct OrderCancelReplaceReject {
     public uint SeqNum;
     public ulong Uuid;
     public fixed sbyte Text[256];
@@ -1468,10 +1468,10 @@ public unsafe struct OrderCancelReplaceReject536 {
 };
 
 /// <summary>
-///  Struct for Order Cancel Replace Request 515
+///  Struct for Order Cancel Replace Request
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct OrderCancelReplaceRequest515 {
+public unsafe struct OrderCancelReplaceRequest {
     public long PriceOptional;
     public uint OrderQty;
     public int SecurityId;
@@ -1500,10 +1500,10 @@ public unsafe struct OrderCancelReplaceRequest515 {
 };
 
 /// <summary>
-///  Struct for Order Cancel Request 516
+///  Struct for Order Cancel Request
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct OrderCancelRequest516 {
+public unsafe struct OrderCancelRequest {
     public ulong OrderId;
     public ulong PartyDetailsListReqId;
     public ManualOrderIndicator ManualOrderIndicator;
@@ -1519,10 +1519,10 @@ public unsafe struct OrderCancelRequest516 {
 };
 
 /// <summary>
-///  Struct for Order Mass Action Report 558
+///  Struct for Order Mass Action Report
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct OrderMassActionReport558 {
+public unsafe struct OrderMassActionReport {
     public uint SeqNum;
     public ulong Uuid;
     public fixed sbyte SenderId[20];
@@ -1553,10 +1553,10 @@ public unsafe struct OrderMassActionReport558 {
 };
 
 /// <summary>
-///  Struct for Order Mass Action Request 529
+///  Struct for Order Mass Action Request
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct OrderMassActionRequest529 {
+public unsafe struct OrderMassActionRequest {
     public ulong PartyDetailsListReqId;
     public ulong OrderRequestId;
     public ManualOrderIndicator ManualOrderIndicator;
@@ -1576,10 +1576,10 @@ public unsafe struct OrderMassActionRequest529 {
 };
 
 /// <summary>
-///  Struct for Order Mass Status Request 530
+///  Struct for Order Mass Status Request
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct OrderMassStatusRequest530 {
+public unsafe struct OrderMassStatusRequest {
     public ulong PartyDetailsListReqId;
     public ulong MassStatusReqId;
     public ManualOrderIndicator ManualOrderIndicator;
@@ -1596,10 +1596,10 @@ public unsafe struct OrderMassStatusRequest530 {
 };
 
 /// <summary>
-///  Struct for Order Status Request 533
+///  Struct for Order Status Request
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct OrderStatusRequest533 {
+public unsafe struct OrderStatusRequest {
     public ulong PartyDetailsListReqId;
     public ulong OrdStatusReqId;
     public ManualOrderIndicator ManualOrderIndicator;
@@ -1741,10 +1741,10 @@ public unsafe struct RelatedSymGroups {
 };
 
 /// <summary>
-///  Struct for Request For Quote 543
+///  Struct for Request For Quote
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct RequestForQuote543 {
+public unsafe struct RequestForQuote {
     public ulong PartyDetailsListReqId;
     public ulong QuoteReqId;
     public ManualOrderIndicator ManualOrderIndicator;
@@ -1756,10 +1756,10 @@ public unsafe struct RequestForQuote543 {
 };
 
 /// <summary>
-///  Struct for Request For Quote Ack 546
+///  Struct for Request For Quote Ack
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct RequestForQuoteAck546 {
+public unsafe struct RequestForQuoteAck {
     public uint SeqNum;
     public ulong Uuid;
     public fixed sbyte Text[256];
@@ -1798,10 +1798,10 @@ public unsafe struct RequestingPartyIDsGroups {
 };
 
 /// <summary>
-///  Struct for Retransmission 509
+///  Struct for Retransmission
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct Retransmission509 {
+public unsafe struct Retransmission {
     public ulong Uuid;
     public ulong LastUuid;
     public ulong RequestTimestamp;
@@ -1811,10 +1811,10 @@ public unsafe struct Retransmission509 {
 };
 
 /// <summary>
-///  Struct for Retransmit Reject 510
+///  Struct for Retransmit Reject
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct RetransmitReject510 {
+public unsafe struct RetransmitReject {
     public fixed sbyte Reason[48];
     public ulong Uuid;
     public ulong LastUuid;
@@ -1824,10 +1824,10 @@ public unsafe struct RetransmitReject510 {
 };
 
 /// <summary>
-///  Struct for Retransmit Request 508
+///  Struct for Retransmit Request
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct RetransmitRequest508 {
+public unsafe struct RetransmitRequest {
     public ulong Uuid;
     public ulong LastUuid;
     public ulong RequestTimestamp;
@@ -1845,10 +1845,10 @@ public unsafe struct RiskFreeRate {
 };
 
 /// <summary>
-///  Struct for Security Definition Request 560
+///  Struct for Security Definition Request
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct SecurityDefinitionRequest560 {
+public unsafe struct SecurityDefinitionRequest {
     public ulong PartyDetailsListReqId;
     public ulong SecurityReqId;
     public ManualOrderIndicator ManualOrderIndicator;
@@ -1884,10 +1884,10 @@ public unsafe struct SecurityDefinitionRequestLegGroups {
 };
 
 /// <summary>
-///  Struct for Security Definition Response 561
+///  Struct for Security Definition Response
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct SecurityDefinitionResponse561 {
+public unsafe struct SecurityDefinitionResponse {
     public uint SeqNum;
     public ulong Uuid;
     public fixed sbyte Text[256];
@@ -1939,10 +1939,10 @@ public unsafe struct SecurityDefinitionResponseLegGroups {
 };
 
 /// <summary>
-///  Struct for Sequence 506
+///  Struct for Sequence
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct Sequence506 {
+public unsafe struct Sequence {
     public ulong Uuid;
     public uint NextSeqNo;
     public FaultToleranceIndicator FaultToleranceIndicator;
@@ -1988,10 +1988,10 @@ public unsafe struct SimpleOpenFramingHeader {
 };
 
 /// <summary>
-///  Struct for Terminate 507
+///  Struct for Terminate
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct Terminate507 {
+public unsafe struct Terminate {
     public fixed sbyte Reason[48];
     public ulong Uuid;
     public ulong RequestTimestamp;

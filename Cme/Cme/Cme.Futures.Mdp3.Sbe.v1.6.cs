@@ -212,18 +212,18 @@ public enum TemplateId : ushort {
 ///////////////////////////////////////////////////////////////////////
 
 /// <summary>
-///  Struct for Admin Login 15
+///  Struct for Admin Login
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct AdminLogin15 {
+public unsafe struct AdminLogin {
     public sbyte HeartBtInt;
 };
 
 /// <summary>
-///  Struct for Admin Logout 16
+///  Struct for Admin Logout
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct AdminLogout16 {
+public unsafe struct AdminLogout {
     public fixed sbyte Text[180];
 };
 
@@ -237,10 +237,10 @@ public unsafe struct BinaryPacketHeader {
 };
 
 /// <summary>
-///  Struct for Channel Reset 4
+///  Struct for Channel Reset
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct ChannelReset4 {
+public unsafe struct ChannelReset {
     public ulong TransactTime;
     public fixed byte MatchEventIndicator[0];
 };
@@ -597,60 +597,60 @@ public unsafe struct MaturityMonthYear {
 };
 
 /// <summary>
-///  Struct for Md Incremental Refresh Book 32
+///  Struct for Md Incremental Refresh Book
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshBook32 {
+public unsafe struct MdIncrementalRefreshBook {
     public ulong TransactTime;
     public fixed byte MatchEventIndicator[0];
     public fixed byte Padding2[2];
 };
 
 /// <summary>
-///  Struct for Md Incremental Refresh Daily Statistics 33
+///  Struct for Md Incremental Refresh Daily Statistics
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshDailyStatistics33 {
+public unsafe struct MdIncrementalRefreshDailyStatistics {
     public ulong TransactTime;
     public fixed byte MatchEventIndicator[0];
     public fixed byte Padding2[2];
 };
 
 /// <summary>
-///  Struct for Md Incremental Refresh Limits Banding 34
+///  Struct for Md Incremental Refresh Limits Banding
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshLimitsBanding34 {
+public unsafe struct MdIncrementalRefreshLimitsBanding {
     public ulong TransactTime;
     public fixed byte MatchEventIndicator[0];
     public fixed byte Padding2[2];
 };
 
 /// <summary>
-///  Struct for Md Incremental Refresh Session Statistics 35
+///  Struct for Md Incremental Refresh Session Statistics
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshSessionStatistics35 {
+public unsafe struct MdIncrementalRefreshSessionStatistics {
     public ulong TransactTime;
     public fixed byte MatchEventIndicator[0];
     public fixed byte Padding2[2];
 };
 
 /// <summary>
-///  Struct for Md Incremental Refresh Trade 36
+///  Struct for Md Incremental Refresh Trade
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshTrade36 {
+public unsafe struct MdIncrementalRefreshTrade {
     public ulong TransactTime;
     public fixed byte MatchEventIndicator[0];
     public fixed byte Padding2[2];
 };
 
 /// <summary>
-///  Struct for Md Incremental Refresh Volume 37
+///  Struct for Md Incremental Refresh Volume
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshVolume37 {
+public unsafe struct MdIncrementalRefreshVolume {
     public ulong TransactTime;
     public fixed byte MatchEventIndicator[0];
     public fixed byte Padding2[2];
@@ -685,10 +685,10 @@ public unsafe struct Packet {
 };
 
 /// <summary>
-///  Struct for Quote Request 39
+///  Struct for Quote Request
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct QuoteRequest39 {
+public unsafe struct QuoteRequest {
     public ulong TransactTime;
     public fixed sbyte QuoteReqId[23];
     public fixed byte MatchEventIndicator[0];
@@ -717,10 +717,10 @@ public unsafe struct RelatedSymGroups {
 };
 
 /// <summary>
-///  Struct for Security Status 30
+///  Struct for Security Status
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct SecurityStatus30 {
+public unsafe struct SecurityStatus {
     public ulong TransactTime;
     public fixed sbyte SecurityGroup[6];
     public fixed sbyte Asset[6];
@@ -746,10 +746,10 @@ public unsafe struct SettlPriceType {
 };
 
 /// <summary>
-///  Struct for Snapshot Full Refresh 38
+///  Struct for Snapshot Full Refresh
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct SnapshotFullRefresh38 {
+public unsafe struct SnapshotFullRefresh {
     public uint LastMsgSeqNumProcessed;
     public uint TotNumReports;
     public int SecurityId;

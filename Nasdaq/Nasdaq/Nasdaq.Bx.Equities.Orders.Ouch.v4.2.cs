@@ -407,7 +407,6 @@ public unsafe struct OrderPriorityUpdateMessage {
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct Packet {
-    public fixed byte PacketHeader[0];
 };
 
 /// <summary>
@@ -473,6 +472,14 @@ public unsafe struct ReplacedMessage {
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct SequencedDataPacket {
+};
+
+/// <summary>
+///  Struct for Soup Bin Tcp Packet
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct SoupBinTcpPacket {
+    public fixed byte PacketHeader[0];
 };
 
 /// <summary>

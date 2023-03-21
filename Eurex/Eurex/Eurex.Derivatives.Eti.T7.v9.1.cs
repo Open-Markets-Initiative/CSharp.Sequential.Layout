@@ -99,8 +99,7 @@ public enum CompressionAction : byte {
     StartCompression = 1,
     CommitCompression = 2,
     CancelCompression = 3,
-    InquireCompression = 4,
-    CompressionActionMinimumValue = 4,
+    CompressionActionMinimumValue = 3,
     CompressionActionMinimumValue = 1,
 };
 
@@ -602,16 +601,6 @@ public enum MultilegPriceModel : byte {
 };
 
 /// <summary>
-///  Negotiate Underlying Values
-/// </summary>
-public enum NegotiateUnderlying : byte {
-    No = 0,
-    Yes = 1,
-    NegotiateUnderlyingMinimumValue = 1,
-    NegotiateUnderlyingMinimumValue = 0,
-};
-
-/// <summary>
 ///  Number Of Resp Disclosure Instruction Values
 /// </summary>
 public enum NumberOfRespDisclosureInstruction : byte {
@@ -996,17 +985,6 @@ public enum QuoteInstruction : byte {
 };
 
 /// <summary>
-///  Quote Ref Price Source Values
-/// </summary>
-public enum QuoteRefPriceSource : byte {
-    Underlying = 1,
-    CustomUnderlyingPrice = 2,
-    RefPrice = 3,
-    QuoteRefPriceSourceMinimumValue = 3,
-    QuoteRefPriceSourceMinimumValue = 1,
-};
-
-/// <summary>
 ///  Quote Size Type Values
 /// </summary>
 public enum QuoteSizeType : byte {
@@ -1033,7 +1011,11 @@ public enum QuoteStatus : byte {
 public enum QuoteSubType : byte {
     WorkingDelta = 1,
     BasisTrade = 2,
-    QuoteSubTypeMinimumValue = 2,
+    Regular = 3,
+    NegotiateUnderlyingOutsideExchange = 4,
+    VolaStrategyFix = 5,
+    VolaStrategyNegotiateUnderlying = 6,
+    QuoteSubTypeMinimumValue = 6,
     QuoteSubTypeMinimumValue = 1,
 };
 
@@ -1044,7 +1026,7 @@ public enum QuoteType : byte {
     Indicative = 0,
     Tradeable = 1,
     TradeableBoc = 100,
-    QuoteTypeMinimumValue = 103,
+    QuoteTypeMinimumValue = 104,
     QuoteTypeMinimumValue = 0,
 };
 
@@ -1381,6 +1363,16 @@ public enum SkipValidations : byte {
 };
 
 /// <summary>
+///  Swap Clearer Values
+/// </summary>
+public enum SwapClearer : byte {
+    Ecag = 0,
+    Nonecag = 1,
+    SwapClearerMinimumValue = 1,
+    SwapClearerMinimumValue = 0,
+};
+
+/// <summary>
 ///  T 7 Entry Service Rtm Status Values
 /// </summary>
 public enum T7EntryServiceRtmStatus : byte {
@@ -1528,16 +1520,6 @@ public enum TradeToQuoteRatioRanking : byte {
 };
 
 /// <summary>
-///  Trade Underlying Values
-/// </summary>
-public enum TradeUnderlying : byte {
-    No = 1,
-    Yes = 2,
-    TradeUnderlyingMinimumValue = 2,
-    TradeUnderlyingMinimumValue = 1,
-};
-
-/// <summary>
 ///  Trading Capacity Values
 /// </summary>
 public enum TradingCapacity : byte {
@@ -1585,6 +1567,7 @@ public enum TrdRptStatus : byte {
     Rejected = 1,
     Cancelled = 2,
     PendingNew = 4,
+    PendingCancel = 5,
     Terminated = 7,
     DeemedVerified = 9,
     TrdRptStatusMinimumValue = 9,
@@ -1750,13 +1733,13 @@ public unsafe struct ApproveBasketTradeRequest {
     public uint BasketExecId;
     public int MarketSegmentId;
     public RootPartySubIdType RootPartySubIdType;
+    public ushort NoBasketSideAlloc;
     public TrdType TrdType;
     public TradeReportType TradeReportType;
-    public byte NoBasketSideAlloc;
     public fixed sbyte BasketTradeReportText[20];
     public fixed sbyte TradeReportId[20];
     public fixed sbyte BasketSideTradeReportId[20];
-    public fixed byte Pad6[6];
+    public fixed byte Pad5[5];
 };
 
 /// <summary>
@@ -1906,8 +1889,6 @@ public unsafe struct BasketSideAllocExtBcGrpComp {
     public uint PackageId;
     public int SideMarketSegmentId;
     public uint AllocId;
-    public uint NegotiationId;
-    public uint SrqsRelatedTradeId;
     public SideTrdSubTyp SideTrdSubTyp;
     public PartySubIdType PartySubIdType;
     public Side Side;
@@ -2572,8 +2553,6 @@ public unsafe struct InstrmtMatchSideGrpComp {
     public ulong RelatedClosePrice;
     public uint PackageId;
     public int SideMarketSegmentId;
-    public uint NegotiationId;
-    public uint SrqsRelatedTradeId;
     public SideTrdSubTyp SideTrdSubTyp;
     public ProductComplex ProductComplex;
     public TradePublishIndicator TradePublishIndicator;
@@ -3327,6 +3306,27 @@ public unsafe struct PartyEntitlementsUpdateReport {
 };
 
 /// <summary>
+///  Struct for Ping Request
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct PingRequest {
+    public fixed byte MessageHeaderInComp[0];
+    public fixed byte RequestHeaderComp[0];
+    public ushort PartitionId;
+    public fixed byte Pad6[6];
+};
+
+/// <summary>
+///  Struct for Ping Response
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct PingResponse {
+    public fixed byte MessageHeaderOutComp[0];
+    public fixed byte NrResponseHeaderMeComp[0];
+    public ulong TransactTime;
+};
+
+/// <summary>
 ///  Struct for Pre Trade Risk Limit Response
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -4072,15 +4072,15 @@ public unsafe struct SrqsNegotiationNotification {
     public ulong LastQty;
     public ulong EffectiveTime;
     public ulong LastUpdateTime;
+    public ulong TradeToQuoteRatio;
     public uint NegotiationId;
     public uint NumberOfRespondents;
+    public ushort TradeToQuoteRatioPosition;
     public QuoteType QuoteType;
     public QuoteSubType QuoteSubType;
     public QuoteStatus QuoteStatus;
     public QuoteInstruction QuoteInstruction;
     public Side Side;
-    public QuoteRefPriceSource QuoteRefPriceSource;
-    public ShowLastDealOnClosure ShowLastDealOnClosure;
     public fixed sbyte PartyExecutingFirm[5];
     public fixed sbyte PartyExecutingTrader[6];
     public fixed sbyte PartyEnteringTrader[6];
@@ -4119,7 +4119,6 @@ public unsafe struct SrqsNegotiationRequesterNotification {
     public byte NoTargetPartyIDs;
     public NumberOfRespDisclosureInstruction NumberOfRespDisclosureInstruction;
     public Side Side;
-    public QuoteRefPriceSource QuoteRefPriceSource;
     public ShowLastDealOnClosure ShowLastDealOnClosure;
     public fixed sbyte PartyExecutingFirm[5];
     public fixed sbyte PartyExecutingTrader[6];
@@ -4127,7 +4126,7 @@ public unsafe struct SrqsNegotiationRequesterNotification {
     public fixed sbyte FirmNegotiationId[20];
     public fixed sbyte FreeText5[132];
     public fixed sbyte PartyOrderOriginationTrader[132];
-    public fixed byte Pad3[3];
+    public fixed byte Pad4[4];
 };
 
 /// <summary>
@@ -4164,19 +4163,18 @@ public unsafe struct SrqsOpenNegotiationNotification {
     public ulong UnderlyingDeltaPercentage;
     public ulong ExpireTime;
     public ulong TradeToRequestRatio;
+    public ulong TradeToQuoteRatio;
     public uint NegotiationId;
     public int MarketSegmentId;
     public int SecuritySubType;
     public uint NumberOfRespondents;
+    public ushort TradeToQuoteRatioPosition;
     public QuoteType QuoteType;
     public QuoteSubType QuoteSubType;
     public QuoteStatus QuoteStatus;
     public byte NoLegs;
     public Side Side;
-    public QuoteRefPriceSource QuoteRefPriceSource;
-    public TradeUnderlying TradeUnderlying;
     public ProductComplex ProductComplex;
-    public NegotiateUnderlying NegotiateUnderlying;
     public RespondentType RespondentType;
     public fixed sbyte PartyExecutingFirm[5];
     public fixed sbyte PartyExecutingTrader[6];
@@ -4186,7 +4184,7 @@ public unsafe struct SrqsOpenNegotiationNotification {
     public fixed sbyte FirmNegotiationId[20];
     public fixed sbyte FreeText5[132];
     public fixed sbyte PartyOrderOriginationTrader[132];
-    public fixed byte Pad6[6];
+    public fixed byte Pad7[7];
 };
 
 /// <summary>
@@ -4316,13 +4314,11 @@ public unsafe struct SrqsUpdateNegotiationRequest {
     public NumberOfRespDisclosureInstruction NumberOfRespDisclosureInstruction;
     public Side Side;
     public QuoteCancelType QuoteCancelType;
-    public QuoteRefPriceSource QuoteRefPriceSource;
     public ShowLastDealOnClosure ShowLastDealOnClosure;
     public fixed sbyte PartyExecutingFirm[5];
     public fixed sbyte PartyExecutingTrader[6];
     public fixed sbyte FreeText5[132];
     public fixed sbyte PartyOrderOriginationTrader[132];
-    public fixed byte Pad7[7];
 };
 
 /// <summary>
@@ -4428,9 +4424,10 @@ public unsafe struct TesDeleteBroadcast {
     public TrdType TrdType;
     public DeleteReason DeleteReason;
     public TradeReportType TradeReportType;
+    public TrdRptStatus TrdRptStatus;
     public MessageEventSource MessageEventSource;
     public fixed sbyte TradeReportId[20];
-    public fixed byte Pad3[3];
+    public fixed byte Pad2[2];
 };
 
 /// <summary>
@@ -4449,8 +4446,9 @@ public unsafe struct TesExecutionBroadcast {
     public TrdType TrdType;
     public TradeReportType TradeReportType;
     public Side Side;
+    public TrdRptStatus TrdRptStatus;
     public MessageEventSource MessageEventSource;
-    public fixed byte Pad3[3];
+    public fixed byte Pad2[2];
 };
 
 /// <summary>
@@ -4475,11 +4473,14 @@ public unsafe struct TesReversalBroadcast {
     public int MarketSegmentId;
     public uint PackageId;
     public uint TesExecId;
+    public int RelatedMarketSegmentId;
     public TrdType TrdType;
+    public TrdRptStatus TrdRptStatus;
     public ReversalCancellationReason ReversalCancellationReason;
     public byte NoSideAllocs;
     public fixed sbyte TradeReportId[20];
     public fixed sbyte ReversalReasonText[132];
+    public fixed byte Pad3[3];
 };
 
 /// <summary>

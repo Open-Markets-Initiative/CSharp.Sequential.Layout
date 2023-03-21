@@ -5,12 +5,146 @@
 ///////////////////////////////////////////////////////////////////////
 
 /// <summary>
+///  Corrected Sale Condition 1 Values
+/// </summary>
+public enum CorrectedSaleCondition1 : byte {
+    Regular = (byte)'@',
+};
+
+/// <summary>
+///  Corrected Sale Condition 2 Values
+/// </summary>
+public enum CorrectedSaleCondition2 : byte {
+    IntermarketSweep = (byte)'F',
+    NotApplicable = (byte)' ',
+};
+
+/// <summary>
+///  Corrected Sale Condition 3 Values
+/// </summary>
+public enum CorrectedSaleCondition3 : byte {
+    FormT = (byte)'T',
+    NotApplicable = (byte)' ',
+};
+
+/// <summary>
+///  Corrected Sale Condition 4 Values
+/// </summary>
+public enum CorrectedSaleCondition4 : byte {
+    PriceVariation = (byte)'H',
+    OddLot = (byte)'I',
+    Cross = (byte)'X',
+    NotApplicable = (byte)' ',
+};
+
+/// <summary>
+///  Is Test Symbol Values
+/// </summary>
+public enum IsTestSymbol : byte {
+    False = 0,
+    True = 1,
+};
+
+/// <summary>
 ///  Message Type Values
 /// </summary>
 public enum MessageType : byte {
     HeartbeatMessage = 0,
     SessionShutdownMessage = 1,
     SequencedMessage = 2,
+};
+
+/// <summary>
+///  Original Sale Condition 1 Values
+/// </summary>
+public enum OriginalSaleCondition1 : byte {
+    Regular = (byte)'@',
+};
+
+/// <summary>
+///  Original Sale Condition 2 Values
+/// </summary>
+public enum OriginalSaleCondition2 : byte {
+    IntermarketSweep = (byte)'F',
+    NotApplicable = (byte)' ',
+};
+
+/// <summary>
+///  Original Sale Condition 3 Values
+/// </summary>
+public enum OriginalSaleCondition3 : byte {
+    FormT = (byte)'T',
+    NotApplicable = (byte)' ',
+};
+
+/// <summary>
+///  Original Sale Condition 4 Values
+/// </summary>
+public enum OriginalSaleCondition4 : byte {
+    PriceVariation = (byte)'H',
+    OddLot = (byte)'I',
+    Cross = (byte)'X',
+    NotApplicable = (byte)' ',
+};
+
+/// <summary>
+///  Sale Condition 1 Values
+/// </summary>
+public enum SaleCondition1 : byte {
+    Regular = (byte)'@',
+};
+
+/// <summary>
+///  Sale Condition 2 Values
+/// </summary>
+public enum SaleCondition2 : byte {
+    IntermarketSweep = (byte)'F',
+    NotApplicable = (byte)' ',
+};
+
+/// <summary>
+///  Sale Condition 3 Values
+/// </summary>
+public enum SaleCondition3 : byte {
+    FormT = (byte)'T',
+    NotApplicable = (byte)' ',
+};
+
+/// <summary>
+///  Sale Condition 4 Values
+/// </summary>
+public enum SaleCondition4 : byte {
+    PriceVariation = (byte)'H',
+    OddLot = (byte)'I',
+    Cross = (byte)'X',
+    NotApplicable = (byte)' ',
+};
+
+/// <summary>
+///  Security Trading Status Values
+/// </summary>
+public enum SecurityTradingStatus : byte {
+    Halted = (byte)'H',
+    Paused = (byte)'P',
+    Quoting = (byte)'Q',
+    Trading = (byte)'T',
+};
+
+/// <summary>
+///  Security Trading Status Reason Values
+/// </summary>
+public enum SecurityTradingStatusReason : byte {
+    None = (byte)'X',
+    Regulatory = (byte)'R',
+    Administrative = (byte)'A',
+};
+
+/// <summary>
+///  Short Sale Restriction Values
+/// </summary>
+public enum ShortSaleRestriction : byte {
+    False = 0,
+    True = 1,
 };
 
 /// <summary>
@@ -24,6 +158,16 @@ public enum TemplateId : byte {
     TradeReportMessage = 10,
     TradeCancelMessage = 11,
     TradeCorrectMessage = 12,
+};
+
+/// <summary>
+///  Trading Session Values
+/// </summary>
+public enum TradingSession : byte {
+    Opening = (byte)'1',
+    Trading = (byte)'2',
+    PostTrading = (byte)'3',
+    Closed = (byte)'4',
 };
 
 
@@ -52,7 +196,7 @@ public unsafe struct InstrumentDirectoryMessage {
     public fixed sbyte Symbol[6];
     public fixed sbyte SymbolSfx[6];
     public uint RoundLot;
-    public byte IsTestSymbol;
+    public IsTestSymbol IsTestSymbol;
     public long Mpv;
 };
 
@@ -79,7 +223,7 @@ public unsafe struct Packet {
 public unsafe struct RegShoRestrictionMessage {
     public ulong Timestamp;
     public ushort SecurityId;
-    public byte ShortSaleRestriction;
+    public ShortSaleRestriction ShortSaleRestriction;
 };
 
 /// <summary>
@@ -108,8 +252,8 @@ public unsafe struct SbeMessage {
 public unsafe struct SecurityTradingStatusMessage {
     public ulong Timestamp;
     public ushort SecurityId;
-    public fixed sbyte SecurityTradingStatus[1];
-    public fixed sbyte SecurityTradingStatusReason[1];
+    public SecurityTradingStatus SecurityTradingStatus;
+    public SecurityTradingStatusReason SecurityTradingStatusReason;
 };
 
 /// <summary>
@@ -130,10 +274,10 @@ public unsafe struct TradeCancelMessage {
     public ulong TradeId;
     public uint TradeQty;
     public long LastPrice;
-    public fixed sbyte SaleCondition1[1];
-    public fixed sbyte SaleCondition2[1];
-    public fixed sbyte SaleCondition3[1];
-    public fixed sbyte SaleCondition4[1];
+    public SaleCondition1 SaleCondition1;
+    public SaleCondition2 SaleCondition2;
+    public SaleCondition3 SaleCondition3;
+    public SaleCondition4 SaleCondition4;
 };
 
 /// <summary>
@@ -146,16 +290,16 @@ public unsafe struct TradeCorrectMessage {
     public ulong TradeId;
     public uint OriginalTradeQty;
     public long OriginalTradePrice;
-    public fixed sbyte OriginalSaleCondition1[1];
-    public fixed sbyte OriginalSaleCondition2[1];
-    public fixed sbyte OriginalSaleCondition3[1];
-    public fixed sbyte OriginalSaleCondition4[1];
+    public OriginalSaleCondition1 OriginalSaleCondition1;
+    public OriginalSaleCondition2 OriginalSaleCondition2;
+    public OriginalSaleCondition3 OriginalSaleCondition3;
+    public OriginalSaleCondition4 OriginalSaleCondition4;
     public uint CorrectedTradeQty;
     public long CorrectedTradePrice;
-    public fixed sbyte CorrectedSaleCondition1[1];
-    public fixed sbyte CorrectedSaleCondition2[1];
-    public fixed sbyte CorrectedSaleCondition3[1];
-    public fixed sbyte CorrectedSaleCondition4[1];
+    public CorrectedSaleCondition1 CorrectedSaleCondition1;
+    public CorrectedSaleCondition2 CorrectedSaleCondition2;
+    public CorrectedSaleCondition3 CorrectedSaleCondition3;
+    public CorrectedSaleCondition4 CorrectedSaleCondition4;
 };
 
 /// <summary>
@@ -168,10 +312,10 @@ public unsafe struct TradeReportMessage {
     public ulong TradeId;
     public uint TradeQty;
     public long TradePrice;
-    public fixed sbyte SaleCondition1[1];
-    public fixed sbyte SaleCondition2[1];
-    public fixed sbyte SaleCondition3[1];
-    public fixed sbyte SaleCondition4[1];
+    public SaleCondition1 SaleCondition1;
+    public SaleCondition2 SaleCondition2;
+    public SaleCondition3 SaleCondition3;
+    public SaleCondition4 SaleCondition4;
 };
 
 /// <summary>
@@ -180,6 +324,6 @@ public unsafe struct TradeReportMessage {
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct TradingSessionStatusMessage {
     public ulong Timestamp;
-    public fixed sbyte TradingSession[1];
+    public TradingSession TradingSession;
 };
 

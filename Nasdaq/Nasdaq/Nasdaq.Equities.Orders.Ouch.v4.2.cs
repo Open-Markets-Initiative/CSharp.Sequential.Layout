@@ -27,6 +27,26 @@ public enum BuySellIndicator : byte {
 };
 
 /// <summary>
+///  Cancel Order Reason Values
+/// </summary>
+public enum CancelOrderReason : byte {
+    UserRequestedCancel = (byte)'U',
+    ImmediateOrCancelOrder = (byte)'I',
+    Timeout = (byte)'T',
+    Supervisory = (byte)'S',
+    ThisOrderCannotBeExecutedBecauseOfARegulatoryRestriction = (byte)'D',
+    SelfMatchPrevention = (byte)'Q',
+    SystemCancel = (byte)'Z',
+    CrossCanceled = (byte)'C',
+    ThisOrderCannotBeExecuted = (byte)'K',
+    Halted = (byte)'H',
+    OpenProtection = (byte)'X',
+    Closed = (byte)'E',
+    PostOnlyCancel = (byte)'F',
+    PostOnlyCancel = (byte)'G',
+};
+
+/// <summary>
 ///  Capacity Values
 /// </summary>
 public enum Capacity : byte {
@@ -55,6 +75,7 @@ public enum CrossType : byte {
 public enum CustomerType : byte {
     RetailDesignated = (byte)'R',
     NotARetailDesignated = (byte)'N',
+    Default = (byte)' ',
 };
 
 /// <summary>
@@ -91,6 +112,38 @@ public enum IntermarketSweepEligibility : byte {
     Eligible = (byte)'Y',
     NotEligible = (byte)'N',
     Tradeat = (byte)'y',
+};
+
+/// <summary>
+///  Liquidity Flag Values
+/// </summary>
+public enum LiquidityFlag : byte {
+    Added = (byte)'A',
+    Removed = (byte)'R',
+    Opening = (byte)'O',
+    OpeningCross = (byte)'M',
+    Closing = (byte)'C',
+    ClosingCross = (byte)'L',
+    HaltIpo = (byte)'H',
+    Halt = (byte)'K',
+    Nondisplayed = (byte)'J',
+    Added = (byte)'W',
+    Removed = (byte)'m',
+    Added = (byte)'k',
+    Supplemental = (byte)'0',
+    Displayed = (byte)'7',
+    Displayed = (byte)'8',
+    RetailDesignated = (byte)'d',
+    RetailDesignated = (byte)'e',
+    RetailDesignated = (byte)'f',
+    RpiRetailPriceImproving = (byte)'j',
+    RetailOrder = (byte)'r',
+    RetailOrder = (byte)'t',
+    Added = (byte)'4',
+    Added = (byte)'5',
+    Removed = (byte)'6',
+    Added = (byte)'g',
+    Midpoint = (byte)'n',
 };
 
 /// <summary>
@@ -178,10 +231,10 @@ public unsafe struct AiqCancelledMessage {
     public ulong Timestamp;
     public fixed sbyte OrderToken[14];
     public uint DecrementShares;
-    public fixed sbyte Reason[1];
+    public CancelOrderReason CancelOrderReason;
     public uint QuantityPreventedFromTrading;
     public uint ExecutionPrice;
-    public fixed sbyte LiquidityFlag[1];
+    public LiquidityFlag LiquidityFlag;
 };
 
 /// <summary>
@@ -192,7 +245,7 @@ public unsafe struct BrokenTradeMessage {
     public ulong Timestamp;
     public fixed sbyte OrderToken[14];
     public ulong MatchNumber;
-    public fixed sbyte Reason[1];
+    public fixed sbyte BrokenTradeReason[1];
 };
 
 /// <summary>
@@ -230,7 +283,7 @@ public unsafe struct CanceledMessage {
     public ulong Timestamp;
     public fixed sbyte OrderToken[14];
     public uint DecrementShares;
-    public fixed sbyte Reason[1];
+    public CancelOrderReason CancelOrderReason;
 };
 
 /// <summary>
@@ -270,7 +323,7 @@ public unsafe struct ExecutedMessage {
     public fixed sbyte OrderToken[14];
     public uint ExecutedShares;
     public uint ExecutionPrice;
-    public fixed sbyte LiquidityFlag[1];
+    public LiquidityFlag LiquidityFlag;
     public ulong MatchNumber;
 };
 
@@ -283,7 +336,7 @@ public unsafe struct ExecutedWithReferencePriceMessage {
     public fixed sbyte OrderToken[14];
     public uint ExecutedShares;
     public uint ExecutionPrice;
-    public fixed sbyte LiquidityFlag[1];
+    public LiquidityFlag LiquidityFlag;
     public ulong MatchNumber;
     public uint ReferencePrice;
     public fixed sbyte ReferencePriceType[1];
@@ -363,7 +416,6 @@ public unsafe struct OrderPriorityUpdateMessage {
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct Packet {
-    public fixed byte PacketHeader[0];
 };
 
 /// <summary>
@@ -382,7 +434,7 @@ public unsafe struct PacketHeader {
 public unsafe struct RejectedOrderMessage {
     public ulong Timestamp;
     public fixed sbyte OrderToken[14];
-    public fixed sbyte Reason[1];
+    public fixed sbyte RejectedOrderReason[1];
 };
 
 /// <summary>
@@ -432,6 +484,14 @@ public unsafe struct SequencedDataPacket {
 };
 
 /// <summary>
+///  Struct for Soup Bin Tcp Packet
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct SoupBinTcpPacket {
+    public fixed byte PacketHeader[0];
+};
+
+/// <summary>
 ///  Struct for System Event Message
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -449,7 +509,7 @@ public unsafe struct TradeCorrectionMessage {
     public fixed sbyte OrderToken[14];
     public uint ExecutedShares;
     public uint ExecutionPrice;
-    public fixed sbyte LiquidityFlag[1];
+    public LiquidityFlag LiquidityFlag;
     public ulong MatchNumber;
     public fixed sbyte Reason[1];
 };

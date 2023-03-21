@@ -226,26 +226,26 @@ public unsafe struct MaturityMonthYear {
 };
 
 /// <summary>
-///  Struct for Md Incremental Refresh High Low 403
+///  Struct for Md Incremental Refresh High Low
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshHighLow403 {
+public unsafe struct MdIncrementalRefreshHighLow {
     public ulong TransactTime;
 };
 
 /// <summary>
-///  Struct for Md Incremental Refresh Settle 401
+///  Struct for Md Incremental Refresh Settle
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshSettle401 {
+public unsafe struct MdIncrementalRefreshSettle {
     public ulong TransactTime;
 };
 
 /// <summary>
-///  Struct for Md Incremental Refresh Vo I 402
+///  Struct for Md Incremental Refresh Voi
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshVoI402 {
+public unsafe struct MdIncrementalRefreshVoi {
     public ulong TransactTime;
 };
 

@@ -176,8 +176,8 @@ public unsafe struct AddOrderMessageLongForm {
     public uint OrderReferenceNumberDelta;
     public MarketSide MarketSide;
     public uint OptionId;
-    public ushort Price;
-    public ushort Volume;
+    public uint PriceLong;
+    public uint VolumeLong;
 };
 
 /// <summary>
@@ -203,9 +203,9 @@ public unsafe struct AddQuoteMessageLongForm {
     public uint AskReferenceNumberDelta;
     public uint OptionId;
     public uint Bid;
-    public ushort BidSize;
+    public uint BidSizeLong;
     public uint Ask;
-    public ushort AskSize;
+    public uint AskSizeLong;
 };
 
 /// <summary>
@@ -296,8 +296,8 @@ public unsafe struct NonAuctionOptionsTradeMessage {
     public uint OptionId;
     public uint CrossNumber;
     public uint MatchNumber;
-    public ushort Price;
-    public ushort Volume;
+    public uint PriceLong;
+    public uint VolumeLong;
 };
 
 /// <summary>
@@ -340,8 +340,8 @@ public unsafe struct OptionsCrossTradeMessage {
     public uint CrossNumber;
     public uint MatchNumber;
     public CrossType CrossType;
-    public ushort Price;
-    public ushort Volume;
+    public uint PriceLong;
+    public uint VolumeLong;
 };
 
 /// <summary>
@@ -392,10 +392,10 @@ public unsafe struct QuoteReplaceMessageLongForm {
     public uint BidReferenceNumberDelta;
     public uint OriginalAskReferenceNumberDelta;
     public uint AskReferenceDeltaNumber;
-    public ushort BidPrice;
-    public ushort BidSize;
-    public ushort AskPrice;
-    public ushort AskSize;
+    public uint BidPriceLong;
+    public uint BidSizeLong;
+    public uint AskPriceLong;
+    public uint AskSizeLong;
 };
 
 /// <summary>
@@ -453,8 +453,8 @@ public unsafe struct SingleSideOrderExecutedWithPriceMessage {
     public uint CrossNumber;
     public uint MatchNumber;
     public Printable Printable;
-    public ushort Price;
-    public ushort Volume;
+    public uint PriceLong;
+    public uint VolumeLong;
 };
 
 /// <summary>
@@ -465,8 +465,8 @@ public unsafe struct SingleSideReplaceMessageLongForm {
     public uint Timestamp;
     public uint OriginalReferenceNumberDelta;
     public uint NewReferenceNumberDelta;
-    public ushort Price;
-    public ushort Volume;
+    public uint PriceLong;
+    public uint VolumeLong;
 };
 
 /// <summary>
@@ -489,8 +489,8 @@ public unsafe struct SingleSideUpdateMessage {
     public uint Timestamp;
     public uint ReferenceNumberDelta;
     public ChangeReason ChangeReason;
-    public ushort Price;
-    public ushort Volume;
+    public uint PriceLong;
+    public uint VolumeLong;
 };
 
 /// <summary>

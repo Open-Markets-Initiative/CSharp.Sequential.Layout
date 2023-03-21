@@ -476,7 +476,7 @@ public enum SecuritySubType : short {
     Hedged1X2CallSpreadToThe2 = 42,
     Hedged1X2PutSpreadToThe2 = 43,
     CallSpreadVersusSellPutHedge = 44,
-    PutSpreadVersusSellCall+Hedge = 45,
+    PutSpreadVersusSellCallHedge = 45,
     HedgedCallCalendar = 46,
     HedgedPutCalendar = 47,
     HedgedCallLadderTree = 48,

@@ -1,4 +1,4 @@
-// C# Structs For Cme Futures Sbe Streamline 5.8 protocol
+// C# Structs For Cme Futures Sbe Streamlined 5.8 protocol
 
 ///////////////////////////////////////////////////////////////////////
 // Enum Values
@@ -107,18 +107,18 @@ public unsafe struct AccruedCoupons {
 };
 
 /// <summary>
-///  Struct for Admin Login 315
+///  Struct for Admin Login
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct AdminLogin315 {
+public unsafe struct AdminLogin {
     public sbyte HeartBtInt;
 };
 
 /// <summary>
-///  Struct for Admin Logout 316
+///  Struct for Admin Logout
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct AdminLogout316 {
+public unsafe struct AdminLogout {
     public fixed sbyte Text[180];
 };
 
@@ -361,10 +361,10 @@ public unsafe struct MDFeedTypesGroups {
 };
 
 /// <summary>
-///  Struct for M D Incremental Refresh Eris Group
+///  Struct for M D Incremental Refresh Eris 351 Group
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MDIncrementalRefreshErisGroup {
+public unsafe struct MDIncrementalRefreshEris351Group {
     public fixed sbyte MdUpdateActionChar[1];
     public fixed sbyte MdEntryType[1];
     public uint RptSeq;
@@ -385,10 +385,43 @@ public unsafe struct MDIncrementalRefreshErisGroup {
 };
 
 /// <summary>
-///  Struct for M D Incremental Refresh Eris Groups
+///  Struct for M D Incremental Refresh Eris 351 Groups
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MDIncrementalRefreshErisGroups {
+public unsafe struct MDIncrementalRefreshEris351Groups {
+    public fixed byte GroupSize[0];
+};
+
+/// <summary>
+///  Struct for M D Incremental Refresh Eris 353 Group
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct MDIncrementalRefreshEris353Group {
+    public fixed sbyte MdUpdateActionChar[1];
+    public fixed sbyte MdEntryType[1];
+    public uint RptSeq;
+    public fixed byte MdEntryPxDecimal[0];
+    public ulong MdEntrySizeOptional;
+    public fixed byte CalFutPx[0];
+    public int MdEntryPositionNo;
+    public int NumberOfOrders;
+    public int TradeId;
+    public AggressorSide AggressorSide;
+    public fixed sbyte Symbol[50];
+    public fixed sbyte SecurityGroup26[26];
+    public fixed sbyte SecurityType[9];
+    public fixed sbyte SecurityExchange[4];
+    public byte ProductOptional;
+    public ushort MaturityDate;
+    public fixed sbyte ReferenceId50[50];
+    public byte MdQuoteType;
+};
+
+/// <summary>
+///  Struct for M D Incremental Refresh Eris 353 Groups
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct MDIncrementalRefreshEris353Groups {
     public fixed byte GroupSize[0];
 };
 
@@ -530,10 +563,10 @@ public unsafe struct MDIncrementalRefreshOtcGroups {
 };
 
 /// <summary>
-///  Struct for M D Incremental Refresh Trade Blocks Group
+///  Struct for M D Incremental Refresh Trade Blocks 340 Group
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MDIncrementalRefreshTradeBlocksGroup {
+public unsafe struct MDIncrementalRefreshTradeBlocks340Group {
     public MdUpdateAction MdUpdateAction;
     public ulong SecurityId;
     public uint RptSeq;
@@ -566,10 +599,54 @@ public unsafe struct MDIncrementalRefreshTradeBlocksGroup {
 };
 
 /// <summary>
-///  Struct for M D Incremental Refresh Trade Blocks Groups
+///  Struct for M D Incremental Refresh Trade Blocks 340 Groups
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MDIncrementalRefreshTradeBlocksGroups {
+public unsafe struct MDIncrementalRefreshTradeBlocks340Groups {
+    public fixed byte GroupSize[0];
+};
+
+/// <summary>
+///  Struct for M D Incremental Refresh Trade Blocks 349 Group
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct MDIncrementalRefreshTradeBlocks349Group {
+    public MdUpdateAction MdUpdateAction;
+    public ulong SecurityId;
+    public uint RptSeq;
+    public long MdEntryPxOptional;
+    public fixed byte MdEntrySize[0];
+    public int NumberOfOrders;
+    public int TradeId;
+    public AggressorSide AggressorSide;
+    public fixed sbyte Symbol[50];
+    public fixed sbyte SecurityGroup12[12];
+    public fixed sbyte SecurityType[9];
+    public fixed sbyte SecuritySubType[2];
+    public fixed byte MaturityMonthYear[0];
+    public fixed sbyte SecurityExchange4[4];
+    public ushort MaturityDate;
+    public fixed sbyte UnitOfMeasure[5];
+    public fixed sbyte UnitOfMeasureCurrency3[3];
+    public long UnitOfMeasureQtyOptional;
+    public int CouponRate;
+    public ushort PriceType;
+    public byte TrdType;
+    public fixed sbyte MdEntryId[26];
+    public byte PutOrCall;
+    public long StrikePrice;
+    public fixed sbyte RestructuringType[2];
+    public fixed sbyte Seniority[2];
+    public fixed sbyte ReferenceId100[100];
+    public fixed sbyte StrategyLinkId[26];
+    public fixed sbyte LegRefId[17];
+};
+
+/// <summary>
+///  Struct for M D Incremental Refresh Trade Blocks 349 Groups
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct MDIncrementalRefreshTradeBlocks349Groups {
     public fixed byte GroupSize[0];
 };
 
@@ -675,20 +752,20 @@ public unsafe struct MdIncrementalRefreshEris353 {
 };
 
 /// <summary>
-///  Struct for Md Incremental Refresh Eris Reference Data And Daily Statistics 333
+///  Struct for Md Incremental Refresh Eris Reference Data And Daily Statistics
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshErisReferenceDataAndDailyStatistics333 {
+public unsafe struct MdIncrementalRefreshErisReferenceDataAndDailyStatistics {
     public ulong TransactTime;
     public fixed byte MatchEventIndicator[0];
     public ushort BatchTotalMessagesOptional;
 };
 
 /// <summary>
-///  Struct for Md Incremental Refresh Indices 348
+///  Struct for Md Incremental Refresh Indices
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshIndices348 {
+public unsafe struct MdIncrementalRefreshIndices {
     public ulong TransactTime;
     public fixed sbyte MdFeedType[2];
     public fixed byte MatchEventIndicator[0];
@@ -696,10 +773,10 @@ public unsafe struct MdIncrementalRefreshIndices348 {
 };
 
 /// <summary>
-///  Struct for Md Incremental Refresh Ot C 356
+///  Struct for Md Incremental Refresh Otc
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct MdIncrementalRefreshOtC356 {
+public unsafe struct MdIncrementalRefreshOtc {
     public ulong TransactTime;
     public ushort TradeDate;
     public fixed byte MatchEventIndicator[0];
@@ -855,10 +932,10 @@ public unsafe struct PreviousFixingRate {
 };
 
 /// <summary>
-///  Struct for Quote Request 345
+///  Struct for Quote Request
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public unsafe struct QuoteRequest345 {
+public unsafe struct QuoteRequest {
     public ulong TransactTime;
     public fixed byte MatchEventIndicator[0];
     public fixed sbyte QuoteReqId[26];

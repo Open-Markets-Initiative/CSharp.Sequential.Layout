@@ -485,7 +485,7 @@ public enum SecuritySubType : short {
     Hedged1X2CallSpreadToThe2 = 42,
     Hedged1X2PutSpreadToThe2 = 43,
     CallSpreadVersusSellPutHedge = 44,
-    PutSpreadVersusSellCall+Hedge = 45,
+    PutSpreadVersusSellCallHedge = 45,
     HedgedCallCalendar = 46,
     HedgedPutCalendar = 47,
     HedgedCallLadderTree = 48,
@@ -860,15 +860,15 @@ public unsafe struct InvestigatedTradeMessage {
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct LegDefinition {
-    public byte LegBodyLength;
-    public uint LegMarketId;
-    public ushort LegRatio;
+    public sbyte LegBodyLength;
+    public int LegMarketId;
+    public short LegRatio;
     public LegSide LegSide;
-    public ushort LegStrategyCode;
-    public uint LegRatioQtyNumerator;
-    public uint LegRatioQtyDenominator;
-    public uint LegRatioPriceNumerator;
-    public uint LegRatioPriceDenominator;
+    public short LegStrategyCode;
+    public int LegRatioQtyNumerator;
+    public int LegRatioQtyDenominator;
+    public int LegRatioPriceNumerator;
+    public int LegRatioPriceDenominator;
 };
 
 /// <summary>
@@ -1259,16 +1259,16 @@ public unsafe struct SpotMarketTradeMessage {
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct StrategyLegDefinition {
-    public byte LegBodyLength;
-    public uint LegMarketId;
+    public sbyte LegBodyLength;
+    public int LegMarketId;
     public uint LegUnderlyingMarketId;
-    public ushort LegRatio;
+    public short LegRatio;
     public LegSide LegSide;
-    public ushort LegStrategyCode;
-    public uint LegRatioQtyNumerator;
-    public uint LegRatioQtyDenominator;
-    public uint LegRatioPriceNumerator;
-    public uint LegRatioPriceDenominator;
+    public short LegStrategyCode;
+    public int LegRatioQtyNumerator;
+    public int LegRatioQtyDenominator;
+    public int LegRatioPriceNumerator;
+    public int LegRatioPriceDenominator;
 };
 
 /// <summary>

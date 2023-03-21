@@ -5,12 +5,55 @@
 ///////////////////////////////////////////////////////////////////////
 
 /// <summary>
+///  Is Test Symbol Values
+/// </summary>
+public enum IsTestSymbol : byte {
+    False = 0,
+    True = 1,
+};
+
+/// <summary>
 ///  Message Type Values
 /// </summary>
 public enum MessageType : byte {
     HeartbeatMessage = 0,
     SessionShutdownMessage = 1,
     SequencedMessage = 2,
+};
+
+/// <summary>
+///  Security Trading Status Values
+/// </summary>
+public enum SecurityTradingStatus : byte {
+    Halted = (byte)'H',
+    Paused = (byte)'P',
+    Quoting = (byte)'Q',
+    Trading = (byte)'T',
+};
+
+/// <summary>
+///  Security Trading Status Reason Values
+/// </summary>
+public enum SecurityTradingStatusReason : byte {
+    None = (byte)'X',
+    Regulatory = (byte)'R',
+    Administrative = (byte)'A',
+};
+
+/// <summary>
+///  Short Sale Restriction Values
+/// </summary>
+public enum ShortSaleRestriction : byte {
+    False = 0,
+    True = 1,
+};
+
+/// <summary>
+///  Side Values
+/// </summary>
+public enum Side : byte {
+    Buy = (byte)'B',
+    Sell = (byte)'S',
 };
 
 /// <summary>
@@ -30,6 +73,16 @@ public enum TemplateId : byte {
     CorrectedTradeMessage = 16,
     ClearBookMessage = 18,
     SnapshotCompleteMessage = 100,
+};
+
+/// <summary>
+///  Trading Session Values
+/// </summary>
+public enum TradingSession : byte {
+    Opening = (byte)'1',
+    Trading = (byte)'2',
+    PostTrading = (byte)'3',
+    Closed = (byte)'4',
 };
 
 
@@ -94,7 +147,7 @@ public unsafe struct InstrumentDirectoryMessage {
     public fixed sbyte SymbolSfx[6];
     public uint RoundLot;
     public byte Reserved;
-    public byte IsTestSymbol;
+    public IsTestSymbol IsTestSymbol;
     public long Mpv;
 };
 
@@ -114,7 +167,7 @@ public unsafe struct OrderAddedMessage {
     public ulong Timestamp;
     public ushort SecurityId;
     public ulong OrderId;
-    public fixed sbyte Side[1];
+    public Side Side;
     public uint Quantity;
     public long Price;
 };
@@ -168,7 +221,7 @@ public unsafe struct Packet {
 public unsafe struct RegShoRestrictionMessage {
     public ulong Timestamp;
     public ushort SecurityId;
-    public byte ShortSaleRestriction;
+    public ShortSaleRestriction ShortSaleRestriction;
 };
 
 /// <summary>
@@ -197,8 +250,8 @@ public unsafe struct SbeMessage {
 public unsafe struct SecurityTradingStatusMessage {
     public ulong Timestamp;
     public ushort SecurityId;
-    public fixed sbyte SecurityTradingStatus[1];
-    public fixed sbyte SecurityTradingStatusReason[1];
+    public SecurityTradingStatus SecurityTradingStatus;
+    public SecurityTradingStatusReason SecurityTradingStatusReason;
 };
 
 /// <summary>
@@ -236,6 +289,6 @@ public unsafe struct TradeMessage {
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct TradingSessionStatusMessage {
     public ulong Timestamp;
-    public fixed sbyte TradingSession[1];
+    public TradingSession TradingSession;
 };
 

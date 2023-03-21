@@ -28,6 +28,57 @@ public enum BboIndicator : byte {
 };
 
 /// <summary>
+///  Control Message Type Values
+/// </summary>
+public enum ControlMessageType : byte {
+    StartOfTestCycle = (byte)'A',
+    EndOfTestCycle = (byte)'B',
+    StartOfDay = (byte)'C',
+    GoodMorning = (byte)'D',
+    StartOfSummary = (byte)'E',
+    EndOfSummary = (byte)'F',
+    EarlyMarketClose = (byte)'G',
+    EndOfTransactionReporting = (byte)'H',
+    GoodNight = (byte)'I',
+    EndOfDay = (byte)'J',
+    ResetBlockSequenceNumber = (byte)'K',
+    StartOfOpenInterest = (byte)'L',
+    EndOfOpenInterest = (byte)'M',
+    LineIntegrity = (byte)'N',
+    DisasterRecoveryDataCenterActivation = (byte)'P',
+};
+
+/// <summary>
+///  Expiration Month Values
+/// </summary>
+public enum ExpirationMonth : byte {
+    January = (byte)'A',
+    January = (byte)'M',
+    February = (byte)'B',
+    February = (byte)'N',
+    March = (byte)'C',
+    March = (byte)'O',
+    April = (byte)'D',
+    April = (byte)'P',
+    May = (byte)'E',
+    May = (byte)'Q',
+    June = (byte)'F',
+    June = (byte)'R',
+    July = (byte)'G',
+    July = (byte)'S',
+    August = (byte)'H',
+    August = (byte)'T',
+    September = (byte)'I',
+    September = (byte)'U',
+    October = (byte)'J',
+    October = (byte)'V',
+    November = (byte)'K',
+    November = (byte)'W',
+    December = (byte)'L',
+    December = (byte)'X',
+};
+
+/// <summary>
 ///  Index Value Denominator Code Values
 /// </summary>
 public enum IndexValueDenominatorCode : byte {
@@ -93,6 +144,23 @@ public enum PremiumPriceDenominatorCode : byte {
 };
 
 /// <summary>
+///  Quote Message Type Values
+/// </summary>
+public enum QuoteMessageType : byte {
+    RegularTrading = (byte)' ',
+    NonFirmQuote = (byte)'F',
+    IndicativeValue = (byte)'I',
+    Rotation = (byte)'R',
+    TradingHalted = (byte)'T',
+    EligibleForAutomaticExecution = (byte)'A',
+    BidContainsCustomerTradingInterest = (byte)'B',
+    OfferContainsCustomerTradingInterest = (byte)'O',
+    BothBidAndOfferContainCustomerTradingInterest = (byte)'C',
+    OfferSideOfQuoteNotFirmBidSideFirm = (byte)'X',
+    BidSideOfQuoteNotFirmOfferSideFirm = (byte)'Y',
+};
+
+/// <summary>
 ///  Session Indicator Values
 /// </summary>
 public enum SessionIndicator : byte {
@@ -110,6 +178,34 @@ public enum StrikePriceDenominatorCode : byte {
     TenThousand = (byte)'D',
     HundredThousand = (byte)'E',
     NoFraction = (byte)'I',
+};
+
+/// <summary>
+///  Trade Message Type Values
+/// </summary>
+public enum TradeMessageType : byte {
+    Regular = (byte)' ',
+    Canc = (byte)'A',
+    Oseq = (byte)'B',
+    Cncl = (byte)'C',
+    Late = (byte)'D',
+    Cnco = (byte)'E',
+    Open = (byte)'F',
+    Cnol = (byte)'G',
+    Opnl = (byte)'H',
+    Auto = (byte)'I',
+    Reop = (byte)'J',
+    Ajst = (byte)'K',
+    Sprd = (byte)'L',
+    Stdl = (byte)'M',
+    Stpd = (byte)'N',
+    Cstp = (byte)'O',
+    Bwrt = (byte)'P',
+    Cmbo = (byte)'Q',
+    Spim = (byte)'R',
+    Isoi = (byte)'S',
+    Bnmt = (byte)'T',
+    Xmpt = (byte)'X',
 };
 
 /// <summary>
@@ -203,7 +299,7 @@ public unsafe struct BlockTimestamp {
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct ControlMessage {
-    public fixed byte ControlMessageType[0];
+    public ControlMessageType ControlMessageType;
     public fixed sbyte MessageIndicator[1];
     public ulong TransactionId;
     public ushort MessageDataLength;
@@ -241,7 +337,7 @@ public unsafe struct EquityAndIndexEndOfDaySummaryMessage {
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct EquityAndIndexLastSaleMessage {
-    public fixed byte TradeMessageType[0];
+    public TradeMessageType TradeMessageType;
     public fixed sbyte MessageIndicator[1];
     public ulong TransactionId;
     public fixed sbyte SecuritySymbol[5];
@@ -254,6 +350,16 @@ public unsafe struct EquityAndIndexLastSaleMessage {
     public int PremiumPrice;
     public uint TradeIdentifier;
     public fixed byte Reserved4[4];
+};
+
+/// <summary>
+///  Struct for Expiration Block
+/// </summary>
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct ExpirationBlock {
+    public ExpirationMonth ExpirationMonth;
+    public byte ExpirationDay;
+    public byte ExpirationYear;
 };
 
 /// <summary>

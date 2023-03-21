@@ -329,7 +329,7 @@ public unsafe struct CrossTradeMessage {
     public ushort StockLocate;
     public ushort TrackingNumber;
     public fixed byte Timestamp;
-    public uint Shares;
+    public ulong SharesLong;
     public fixed sbyte Stock[8];
     public int CrossPrice;
     public ulong MatchNumber;
